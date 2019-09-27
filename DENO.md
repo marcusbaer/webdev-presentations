@@ -1,3 +1,7 @@
+# DENO
+
+![deno](https://denolib.github.io/animated-deno-logo/deno-circle-thunder.gif)
+
 # Kritik an NodeJS
 
 * Design Mistakes in Node, Ryan Dahl @ JS Conf Berlin 2018
@@ -120,7 +124,7 @@ import { serve } from "http/server.ts";
 ### Referenzieren durch eigenes Modul
 
 ```
-# utils.ts
+# deps.ts
 
 export { test } from "https://deno.land/std/testing/mod.ts";
 
@@ -144,6 +148,72 @@ export default 42;
 * test runner (deno test) not yet
 * command-line debugger (--debug) not yet
 * linter (deno lint) not yet
+
+# Deno Manual
+
+> https://deno.land/manual.html
+
+Mit API Referenz, Beispielen und vielem mehr...
+
+z.B. https://deno.land/manual.html#fileserver
+
+### Dateiserver für lokales Verzeichnis
+
+```
+# Installieren
+deno install file_server https://deno.land/std/http/file_server.ts --allow-net --allow-read
+
+# Ausführen
+file_server .
+
+# Updaten
+file_server --reload
+```
+
+### Testing
+
+```
+import { test, runIfMain } from "https://deno.land/std/testing/mod.ts";
+import { assertEquals } from "https://deno.land/std/testing/asserts.ts";
+
+test(function t1() {
+  assertEquals("hello", "hello");
+});
+
+test(function t2() {
+  assertEquals("world", "world");
+});
+
+runIfMain(import.meta);
+```
+
+### Bundling
+
+```
+# Bundle
+deno bundle https://deno.land/std/examples/colors.ts
+
+# Bundle ausführen
+deno https://deno.land/std/bundle/run.ts colors.bundle.js
+
+# eigenes Bundle - website.ts
+
+export const main = () => {
+  console.log("hello from the web browser");
+}
+
+deno bundle website.ts
+
+# Im Browser mit RequireJS
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>
+<script src="website.bundle.js"></script>
+<script>
+  requirejs(["website"], website => website.main());
+</script>
+
+static -p 8000 -a 0.0.0.0 .
+```
+
 
 <!--
 
