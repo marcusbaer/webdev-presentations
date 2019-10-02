@@ -33,6 +33,19 @@
 * Fehlererkennung [Test](https://testen.bitv-test.de/index.php?a=di&iid=103&s=n)
 * Korrekte Syntax [Test](https://testen.bitv-test.de/index.php?a=di&iid=99&s=n)
 
+## Ein erster Eindruck mit Easy Checks
+
+Mit diesen einfachen Barrierefreiheits-Tests bekommen Sie eine erste Idee, wie es um die Barrierefreiheit bei Ihrem Webangebot bestellt ist. Die Easy Checks wurden von der Web Accessibility Initiative (W3C) entwickelt und sind bewusst reduziert gehalten. Aufgenommen sind Prüfpunkte, die einfach zu testen sind. Auch wenn diese ersten Tests erfolgreich sind, können Barrieren bestehen, die Menschen mit Behinderung den Zugang verwehren.
+
+* https://bik-fuer-alle.de/easy-checks.html
+
+## BITV / WCAG Selbstbewertung
+
+Für alle, die barrierefreie Webangebote entwickeln, bietet BIK ein kostenloses webbasiertes Werkzeug an: [Die BITV / WCAG Selbstbewertung](http://testen.bitv-test.de/selbstbewertung/index.php). Auf Basis eines Online-Fragebogens mit 60 Prüfschritten kann der Stand der Barrierefreiheit eines Webangebots eingeschätzt werden. Sämtliche Prüfschritte sind mit ausführlichen Verfahrensbeschreibungen versehen. Auch eine [Demoversion der Selbstbewertung](http://testen.bitv-test.de/selbstbewertung/test.php) steht zur Verfügung.
+
+Die Selbstbewertung baut auf dem [BITV- und WCAG-Test](http://www.bitvtest.de/bitvtest.html) auf. Die Prüfschritte sind identisch mit den [Prüfschritten der Expertentests](http://www.bitvtest.de/bitvtest/das_testverfahren_im_detail/pruefschritte.html) und auch eine Gesamtbewertung in Punkten ist möglich.
+
+
 ## Werkzeugliste
 
 Im BITV-Test werden Webseiten unter unterschiedlichen Bedingungen betrachtet: in verschiedenen Browsern, mit bestimmten Einstellungen und mit bestimmten Tools, die besondere Merkmale hervorheben. In der Regel sind alle Werkzeuge im Web frei verfügbar. Dieser Text beschreibt die vorgesehene Prüfumgebung und die einzusetzenden Prüfwerkzeuge.
@@ -54,3 +67,5 @@ Im BITV-Test werden Webseiten unter unterschiedlichen Bedingungen betrachtet: in
 * https://developer.mozilla.org/de/docs/Tools/Barrierefreiheits_inspektor
 * https://support.mozilla.org/de/kb/Eingabehilfen 
 * https://www.bitvtest.de/bitv_test/das_testverfahren_im_detail/werkzeugliste.html
+* https://bik-fuer-alle.de/selbstbewertung.html
+* https://bik-fuer-alle.de/easy-checks.html
