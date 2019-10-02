@@ -67,5 +67,6 @@ Im BITV-Test werden Webseiten unter unterschiedlichen Bedingungen betrachtet: in
 * https://developer.mozilla.org/de/docs/Tools/Barrierefreiheits_inspektor
 * https://support.mozilla.org/de/kb/Eingabehilfen 
 * https://www.bitvtest.de/bitv_test/das_testverfahren_im_detail/werkzeugliste.html
+* https://testen.bitv-test.de/bookmarklets.html
 * https://bik-fuer-alle.de/selbstbewertung.html
 * https://bik-fuer-alle.de/easy-checks.html
