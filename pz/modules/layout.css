@@ -1,0 +1,92 @@
+html {
+  font-size: var(--font-size-720);
+
+  @media (--viewport-1080) {
+    font-size: var(--font-size-1080);
+  }
+}
+
+@media (min-width: 1800px) {
+  html {
+    font-size: var(--font-size-1080);
+  }
+}
+
+body {
+  background-color: rgb(20,20,20);
+  color: rgb(200,200,200);
+  font-family: 'PT Sans', sans-serif;
+  overflow: hidden;
+}
+
+a {
+  color: rgb(200,200,200);
+  padding: 1vh;
+  text-decoration: none;
+}
+
+a:focus,
+a:hover {
+  background-color: var(--color-highlight);
+  color: var(--gray-primary);
+}
+
+.frame {
+  display: flex;
+}
+
+.frame #menu {
+  flex: 1;
+  width: 20%;
+}
+
+#bee {
+  margin: 5vh;
+  width: 6vw;
+}
+
+#bee > img {
+  border-radius: 10px;
+}
+
+#menu ul {
+  list-style-type: none;
+}
+
+#menu ul > li {
+  margin-bottom: 1rem;
+}
+
+#menu ul > li > a {
+  font-size: 90%;
+  padding: 1vh;
+}
+
+#menu ul > li > a.active {
+  color: var(--color-highlight);
+  font-size: 110%;
+}
+
+#menu ul > li > a:focus,
+#menu ul > li > a:hover {
+  background-color: var(--color-highlight);
+  color: var(--gray-primary);
+}
+
+.content {
+  flex: 3;
+  overflow: scroll;
+  padding-top: 1rem;
+}
+
+.visibility {
+  display: none;
+}
+
+.visibility.active {
+  display: grid;
+}
+
+#video {
+  padding-top: 1rem;
+}

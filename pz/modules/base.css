@@ -1,0 +1,65 @@
+html {
+  @apply --font-normal;
+  /* font: 100%/1.5em 'PT Sans', sans-serif; */
+  font-size: responsive 14px 21px; /* min-size, max-size */
+  font-range: 360px 1280px; /* viewport widths between which font-size is fluid */
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+*:focus {
+  outline: none;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  overflow-wrap: break-word;
+  // padding: 0;
+  width: 100%;
+}
+
+h1 {
+    color: var(--color-highlight);
+    font-size: 100%;
+}
+
+.centered {
+  @apply --centered;
+}
+
+@custom-media --viewport-medium (width >= 50rem);
+@custom-media --viewport-1080 (width >= 1800);
+
+@custom-selector :--heading h1, h2, h3, h4, h5, h6;
+
+:--heading {
+  @apply --font-bold;
+  line-height: 1em;
+  text-align: center;
+  margin: 1em 0;
+  /*text-decoration: underline;*/
+}
+
+h1 {
+  @apply --font-bold;
+}
+
+img {
+  width: 100%;
+
+  /*
+  @media (--viewport-medium) {
+    margin: 0 3rem;
+  }
+  */
+}
+
+.container {
+  margin: 3rem auto;
+  max-width: var(--app-max-width);
+  position: absolute;
+  width: 100%;
+}
