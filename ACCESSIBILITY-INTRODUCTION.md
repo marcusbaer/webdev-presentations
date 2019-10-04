@@ -79,3 +79,4 @@ Im BITV-Test werden Webseiten unter unterschiedlichen Bedingungen betrachtet: in
 * https://support.mozilla.org/de/kb/Eingabehilfen
 * https://developers.google.com/web/fundamentals/accessibility/accessible-styles
 * https://ttt.studio/blog/making-accessibility-design-accessible/
+* https://www.w3.org/TR/WCAG21/#keyboard-accessible
