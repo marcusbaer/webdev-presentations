@@ -70,3 +70,12 @@ Im BITV-Test werden Webseiten unter unterschiedlichen Bedingungen betrachtet: in
 * https://testen.bitv-test.de/bookmarklets.html
 * https://bik-fuer-alle.de/selbstbewertung.html
 * https://bik-fuer-alle.de/easy-checks.html
+* https://www.smashingmagazine.com/2015/03/web-accessibility-with-accessibility-api/
+* https://developer.mozilla.org/en-US/docs/Learn/Accessibility/WAI-ARIA_basics
+* https://www.w3.org/TR/using-aria/
+* https://webaim.org/techniques/keyboard/
+* https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Cross_browser_testing/Accessibility
+* https://developer.mozilla.org/de/docs/Tools/Barrierefreiheits_inspektor
+* https://support.mozilla.org/de/kb/Eingabehilfen
+* https://developers.google.com/web/fundamentals/accessibility/accessible-styles
+* https://ttt.studio/blog/making-accessibility-design-accessible/
