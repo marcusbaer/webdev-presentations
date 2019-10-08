@@ -146,6 +146,8 @@ Die wechselnden Zustände der Bedienelemente werden nicht nur visuell über CSS 
 
 https://testen.bitv-test.de/index.php?a=di&iid=100&s=n
 
+https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles
+
 ### Prüfschritte mit mittlerem Gewicht
 
 #### Prüfschritt 1.1.1b - Alternativtexte für Grafiken und Objekte
