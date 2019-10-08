@@ -148,6 +148,8 @@ https://testen.bitv-test.de/index.php?a=di&iid=100&s=n
 
 https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles
 
+https://www.w3.org/TR/wai-aria-practices-1.1/
+
 ### Prüfschritte mit mittlerem Gewicht
 
 #### Prüfschritt 1.1.1b - Alternativtexte für Grafiken und Objekte
@@ -247,12 +249,20 @@ Die verwendete Markup-Sprache HTML muss korrekt eingesetzt werden. Dabei muss f�
 https://testen.bitv-test.de/index.php?a=di&iid=99&s=n
 
 
+## Barrierefreiheit im e-Commerce
 
+* Wahrnehmung für Sehende priorisiert Content, Screenreader liest von links nach rechts und oben nach unten
+* Formulare häufig ohne Labels, Fehlermeldungen werden nicht vorgelesen
+* keine Tastaturbedienung möglich
+* doppelt vorgelesene Links (Produkt-Bild und -Titel)
+* "durchschnittliche Bewertung 4,5 Sterne, 22 Bewertungen"
+* Preise und andere Inhalte werden häufig nicht mit Tabstop vorgelesen
+* falsch vorgelesene Preise "<del><sup>\$</sup>160<sup>00</sup></del> <sup>\$</sup>99<sup>98</sup>" => "16000 Dollars"
+* Streichpreise erfordern versteckte Texte: "war £160.00, ist £99.98"
+* fehlende Dezimalstellen bedeuten eine völlig andere Zahl
+* Preis-Markup erfordert Punkt als Dezimaltrenner
 
-
-
-
-
+https://medium.com/@lsnrae/the-state-of-accessibility-in-e-commerce-fc97b9bad3a2
 
 
 ## Links
