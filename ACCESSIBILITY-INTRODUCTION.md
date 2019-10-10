@@ -1,6 +1,12 @@
 # Barrierefreiheit - eine Einführung
 
-> Barrierefreiheit ist die Praxis, Ihre Websites für möglichst viele Menschen nutzbar zu machen. Dies bedeutet, dass Sie alles versuchen sollten, um Personen nicht daran zu hindern, auf Informationen zuzugreifen, weil sie eine Behinderung haben oder andere persönliche Umstände sie einschränken wie das von ihnen verwendete Gerät, die Geschwindigkeit ihrer Netzwerkverbindung oder ihre geografische Position oder ihr Gebietsschema.
+> Barrierefreiheit ist die Praxis, Websites für möglichst viele Menschen nutzbar zu machen. Dies bedeutet, dass Sie alles versuchen sollten, um Personen nicht daran zu hindern, auf Informationen zuzugreifen, weil sie eine Behinderung haben oder andere persönliche Umstände sie einschränken wie das von ihnen verwendete Gerät, die Geschwindigkeit ihrer Netzwerkverbindung oder ihre geografische Position oder ihr Gebietsschema.
+
+↪ Anbieten mehrerer alternativer Zugangsmöglichkeiten:
+
+* Bedienung mit der Maus
+* Tastatureingabe
+* Screenreader
 
 ## Wie funktioniert der Zugriff?
 
@@ -31,7 +37,7 @@
 
 ## Ein erster Eindruck mit Easy Checks
 
-Mit diesen einfachen Barrierefreiheits-Tests bekommen Sie eine erste Idee, wie es um die Barrierefreiheit bei Ihrem Webangebot bestellt ist. Die Easy Checks wurden von der Web Accessibility Initiative (W3C) entwickelt und sind bewusst reduziert gehalten. Aufgenommen sind Prüfpunkte, die einfach zu testen sind. Auch wenn diese ersten Tests erfolgreich sind, können Barrieren bestehen, die Menschen mit Behinderung den Zugang verwehren.
+Die Easy Checks wurden von der Web Accessibility Initiative (W3C) entwickelt und sind bewusst reduziert gehalten. Aufgenommen sind Prüfpunkte, die einfach zu testen sind. Auch wenn diese ersten Tests erfolgreich sind, können Barrieren bestehen, die Menschen mit Behinderung den Zugang verwehren.
 
 * https://bik-fuer-alle.de/easy-checks.html
 
@@ -41,6 +47,9 @@ Für alle, die barrierefreie Webangebote entwickeln, bietet BIK ein kostenloses 
 
 Die Selbstbewertung baut auf dem [BITV- und WCAG-Test](http://www.bitvtest.de/bitvtest.html) auf. Die Prüfschritte sind identisch mit den [Prüfschritten der Expertentests](http://www.bitvtest.de/bitvtest/das_testverfahren_im_detail/pruefschritte.html) und auch eine Gesamtbewertung in Punkten ist möglich.
 
+Das eigentliche [Prüfverfahren](https://www.bitvtest.de/bitv_test/das_testverfahren_im_detail/verfahren.html) ist aufwendig.
+
+↪ __Prüfen mit dem WCAG-Kurztest__
 
 ## Werkzeugliste
 
@@ -273,6 +282,8 @@ https://medium.com/@lsnrae/the-state-of-accessibility-in-e-commerce-fc97b9bad3a2
 * https://support.mozilla.org/de/kb/Eingabehilfen 
 * https://www.bitvtest.de/bitv_test/das_testverfahren_im_detail/werkzeugliste.html
 * https://testen.bitv-test.de/bookmarklets.html
+* http://www.bitvtest.de/bitvtest/das_testverfahren_im_detail/pruefschritte.html
+* https://www.bitvtest.de/bitv_test/einfuehrung/3_varianten/abschliessend.html
 * https://bik-fuer-alle.de/selbstbewertung.html
 * https://bik-fuer-alle.de/easy-checks.html
 * https://www.smashingmagazine.com/2015/03/web-accessibility-with-accessibility-api/
