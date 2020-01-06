@@ -1,0 +1,85 @@
+<html lang="de">
+    <head>
+        <meta charset="utf8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noindex, nofollow">
+        <title>Ein HTML-Dokument</title>
+        <!-- <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap@4.3.1/dist/css/bootstrap.min.css" /> -->
+        <style>
+        h1 {
+            cursor: pointer;
+            padding: 5px;
+        }
+        h1:hover {
+            background-color: yellow;
+            color: blue;
+            margin-left: 0;
+            transition: margin-left ease-in 500ms;
+        }
+        h1.picked {
+            margin-left: 10%;
+        }
+        img {
+            width: 100%;
+        }
+        </style>
+        <script>
+            function render () {
+                const headline = document.getElementsByTagName('h1')[0]
+
+                headline.innerHTML += ' (klick mich)'
+
+                headline.addEventListener('click', (event) => {
+                    // console.log(event.target.classList, event.target.classList.contains('picked'));
+                    event.target.classList.toggle('picked');
+                    // if (event.target.classList.contains('picked')) {
+                    //     event.target.classList.remove('picked');
+                    // } else {
+                    //     event.target.classList.add('picked');
+                    // }
+                })
+            }
+
+            // window.onload = render
+        </script>
+    </head>
+    <body>
+        <h1>Überschrift</h1>
+        <h2>Untertitel</h2>
+        <p>Text in einem schöneren Format.</p>
+        <p>Text in einem <a href="datei.html">schöneren</a> Format.</p>
+        <ul>
+            <li>Anstrich 1</li>
+            <li>weiterer Anstrich</li>
+        </ul>
+        <form method="GET">
+            <label for="feld1">Feld 1</label>
+            <input name="feld1" id="feld1">
+            <br>
+            <lable for="feld2">Feld 2</lable>
+            <select name="feld2" id="feld2">
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+            </select>
+            <button>Absenden</button>
+        </form>
+        <img src="https://www.fau.de/files/2016/02/Sonnenuntergang_COLOURBOX.jpg" alt="Sonnenuntergang">
+        <table>
+            <thead>
+                <tr>
+                    <td>Spalte 1</td>
+                    <td>Spalte 2</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>cnoscds</td>
+                    <td>cdscs</td>
+                </tr>
+            </tbody>
+        </table>
+        <script>
+            render();
+        </script>
+    </body>
+</html>
