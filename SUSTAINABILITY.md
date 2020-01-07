@@ -1,25 +1,6 @@
-<!DOCTYPE html>
-<html lang="de">
-    <head>
-        <meta charset="utf8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="robots" content="noindex, nofollow">
-        <title>Praizee</title>
+# Nachhaltiges Internet
 
-        <link rel='icon' type='image/png' href='/favicon.png'>
-        <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap@4.3.1/dist/css/bootstrap.min.css" />
-
-        <style>
-        </style>
-        <!-- <script type="module" src="./components/demo.js"></script> -->
-        <script type="module" src="./components/praizee.js"></script>
-
-    </head>
-    <body>
-        <div class="container bg-dark text-white p-3">
-            <div class="row">
-                <div class="col">
-                  <praizee-demo start="0" title="Nachhaltiges Internet">## "Hungriges Web"
+## "Hungriges Web"
 
 > PAGE 12.19
 
@@ -66,7 +47,7 @@ _WebsiteCarbon_ berechnet, wieviel CO₂ eine Website pro Aufruf und geschätzt 
 
 ### _WebsiteCarbon_ für roller.de
 
-![Ergebnis für roller.de](../sustainability.png)
+![Ergebnis für roller.de](./sustainability.png)
 
 ### Performance kalkulieren, tracken und optimieren
 
@@ -162,18 +143,3 @@ Website wird mit Solarstrom betrieben. Scheint längere Zeit keine Sonne, ist di
 > www.websitecarbon.com
 
 ## 
-                  </praizee-demo>
-                    <!-- <roller-demo
-                        button="OK"
-                        confirmation=" ausgewählt. Diesen Eintrag löschen?"
-                        title="Einkäufe"
-                        favorites='["Milch","Zucker", "Quark"]'
-                        image="https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-1252/angebotskueche-1279000302-teaser.jpg"
-                        >
-                        <small>Einkaufsliste im eigenen Browser verwalten.</small>
-                    </roller-demo> -->
-                </div>
-            </div>
-        </div>
-    </body>
-</html>
