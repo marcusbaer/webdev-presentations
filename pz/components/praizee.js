@@ -1,0 +1,157 @@
+import praizeeView from './praizee.view.js';
+import { MarkdownIt } from "//cdn.jsdelivr.net/gh/JCloudYu/esm.markdown-it@8/esm.markdown-it.esm.js";
+
+class Praizee extends HTMLElement {
+
+    constructor() {
+        const template = document.createElement("template");
+        template.innerHTML = praizeeView();
+
+        super();
+        if (!this.shadowRoot) {
+            this.attachShadow({ mode: "open" });
+            this.shadowRoot.appendChild(template.content.cloneNode(true));
+        }
+
+        this.wrapper = this.$(".demo");
+        this.presentation = this.$(".presentation");
+        this.buttonNext = this.$(".next");
+        this.buttonPrev = this.$(".prev");
+    }
+
+    $(selector) {
+        return this.shadowRoot && this.shadowRoot.querySelector(selector);
+    }
+
+    attributeChangedCallback(name, oldVal, newVal) {
+        console.log(
+            `%cPraizee component - attribute changed: ${name} ${newVal}`,
+            "color: lightgray;"
+        );
+        const changeableAttributes = ["start", "title"];
+        if (changeableAttributes.includes(name) && oldVal && oldVal !== newVal) {
+            this.render();
+        }
+    }
+
+    connectedCallback() {
+
+        this.buttonNext.addEventListener('click', (event) => {
+            const numberOfSlides = this.slides.length - 1;
+            if (Number(this.getAttribute("start")) < numberOfSlides) {
+                this.setAttribute("start", Number(this.getAttribute("start")) + 1);
+            }
+        });
+
+        this.buttonPrev.addEventListener('click', (event) => {
+            if (Number(this.getAttribute("start")) > 0) {
+                this.setAttribute("start", Number(this.getAttribute("start")) - 1);
+            }
+        });
+
+        // this.image.addEventListener('error', (event) => {
+        //     this.imageWrapper.style.display = "none";
+        // })
+
+        this.render();
+
+        // const deleteFavoriteHandler = (event) => {
+        //     if (event.target.nodeName == 'LI') {
+        //         const deleteItem = event.target.textContent;
+        //         const confirmationQuestion = this.getAttribute("confirmation") || ": soll der Eintrag gelöscht werden?";
+        //         const userConfirmedFeedback = window.confirm(deleteItem + confirmationQuestion);
+        //         if (userConfirmedFeedback) {
+        //             let favoriteItems = this.favoriteItems;
+        //             favoriteItems = favoriteItems.filter(item => item != deleteItem)
+        //             this.favoriteItems = favoriteItems;
+
+        //             this.renderFavorites();
+        //         }
+        //     }
+        // }
+
+    }
+
+    // get favoriteItems () {
+    //     const initialFavoriteItems = this.getAttribute('favorites')? JSON.parse(this.getAttribute('favorites')): [];
+    //     const favoriteItems = localStorage.getItem("favoriteItems")? localStorage.getItem("favoriteItems").split("$--$"): initialFavoriteItems;
+
+    //     return favoriteItems;
+    // }
+
+    // set favoriteItems (items = []) {
+    //     localStorage.setItem("favoriteItems", items.join("$--$"));
+    // }
+
+    // get isFlagged () {
+    //     return this.hasAttribute('flagged')
+    // }
+
+    get renderedSlide () {
+        const slot = this.$("slot");
+        const index = this.getAttribute("start");
+
+        this.originalContent = slot.assignedNodes()[0].nodeValue;
+        this.slides = this.getSlides(this.originalContent, this.getAttribute("title"));
+
+        return this.slides[index];
+    }
+    
+    // set isFlagged (isFlagged) {
+    //     if (isFlagged) {
+    //       this.setAttribute('flagged', 'flagged')
+    //     } else {
+    //       this.removeAttribute('flagged')
+    //     }
+    // }
+
+    static get observedAttributes() {
+        return ["start", "title"];
+    }
+
+    render() {
+        this.presentation.innerHTML = this.renderedSlide;
+
+        // const [div] = slot.assignedNodes().filter(node => {
+        //     return node.nodeName == "DIV";
+        // });
+
+
+        // this.headline.textContent = this.getAttribute('title') || 'title';
+        // this.button.textContent = this.getAttribute('button') || 'button';
+        // this.image.setAttribute("src", this.getAttribute('image') || '');
+        // if (this.getAttribute('image')) {
+        //     this.imageWrapper.classList.remove('disabled');
+        // }
+        
+        // this.renderFavorites();
+        // this.renderFlagging();
+    }
+
+    getSlides(content, title = '') { 
+        // https://www.npmjs.com/package/esm.markdown-it
+        const markdown = new MarkdownIt();
+        let slides = [];
+
+        content = "\n" + content;
+        title = title ? " "+title : title;
+        slides = content.split("\n#").map(c => markdown.render("#"+(c||title)));
+
+        return slides;
+    }
+
+    // renderFavorites() {
+    //     this.favorites.innerHTML = this.favoriteItems.map(item => `<li tabindex="0">${item}</li>`).join('');
+    // }
+
+    // renderFlagging() {
+    //     if (this.isFlagged) {
+    //         this.wrapper.style.borderColor = '#e2001a';
+    //     } else {
+    //         this.wrapper.style = '';
+    //     }
+    // }
+}
+
+
+customElements.define("praizee-demo", Praizee);
