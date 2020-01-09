@@ -25,7 +25,7 @@ class Praizee extends HTMLElement {
 
     attributeChangedCallback(name, oldVal, newVal) {
         console.log(
-            `%cPraizee component - attribute changed: ${name} ${newVal}`,
+            `%cpz attribute changed: ${name} ${newVal}`,
             "color: lightgray;"
         );
         const changeableAttributes = ["start", "title"];
@@ -46,6 +46,17 @@ class Praizee extends HTMLElement {
         this.buttonPrev.addEventListener('click', (event) => {
             if (Number(this.getAttribute("start")) > 0) {
                 this.setAttribute("start", Number(this.getAttribute("start")) - 1);
+            }
+        });
+
+        window.addEventListener('keyup', (event) => {
+            const numberOfSlides = this.slides.length - 1;
+            const currentSlideIndex = Number(this.getAttribute("start"));
+            let slideDiff = (event.key === 'ArrowRight')? 1: (event.key === 'ArrowLeft'? -1: 0);
+            if (slideDiff && currentSlideIndex >= 0 && currentSlideIndex <= numberOfSlides) {
+                slideDiff = (slideDiff<0 && currentSlideIndex===0) ? 0: slideDiff;
+                slideDiff = (slideDiff>0 && currentSlideIndex===numberOfSlides) ? 0: slideDiff;
+                this.setAttribute("start", currentSlideIndex + slideDiff);
             }
         });
 

@@ -7,25 +7,37 @@ export const style = `<style>
         width: 100%;
         height: 100%;
         padding: 2rem;
-        background-color: var(--demo-background-color, #220);
+        background-color: var(--demo-background-color, #EEE);
+        font-size: 5vmin;
+        color: #222;
+        overflow-y: scroll;
     }
 
-    button { visibility: hidden; }
+    button { background: gray; color: white; padding: 1rem; }
     slot { display: none; }
+    .controls { background: yellow; position: absolute; top: 0; left: 0; padding: 1rem 2rem; display: none; }
     .demo { background-color: var(--demo-background-color, unset); }
 
-    .demo:hover button {
-        visibility: visible;
+    .demo:hover .controls {
+        display: block;
     }
 
-    h1 { display: block; text-align: center; }
-    img { max-height: 100%; max-width: 100%; }
+    h1 { display: block; text-align: center; padding-top: 6vmin; }
+    img { max-height: 90vmin; max-width: 90vmin; }
 </style>`
 
 export const html = `<div class="demo praizee">
-    <button class="prev">prev</button>
-    <button class="next">next</button>
-    <div class="presentation"></div>
+    <div class="controls">
+        <button class="prev">«</button>
+        <button class="next">»</button>
+    </div>
+    <div class="presentation">
+        <h2>Ein kurzer Titel</h2>
+        <p>Inhalt inhalt inhalt</p>
+        <ul>
+        <li>cdscds</li>
+        </ul>
+    </div>
     <slot></slot>
 </div>`
 
