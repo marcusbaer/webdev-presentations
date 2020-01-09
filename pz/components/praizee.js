@@ -17,6 +17,7 @@ class Praizee extends HTMLElement {
         this.presentation = this.$(".presentation");
         this.buttonNext = this.$(".next");
         this.buttonPrev = this.$(".prev");
+        this.logo = this.$(".logo");
     }
 
     $(selector) {
@@ -28,7 +29,7 @@ class Praizee extends HTMLElement {
             `%cpz attribute changed: ${name} ${newVal}`,
             "color: lightgray;"
         );
-        const changeableAttributes = ["start", "title"];
+        const changeableAttributes = ["logo", "start", "title"];
         if (changeableAttributes.includes(name) && oldVal && oldVal !== newVal) {
             this.render();
         }
@@ -52,11 +53,18 @@ class Praizee extends HTMLElement {
         window.addEventListener('keyup', (event) => {
             const numberOfSlides = this.slides.length - 1;
             const currentSlideIndex = Number(this.getAttribute("start"));
-            let slideDiff = (event.key === 'ArrowRight')? 1: (event.key === 'ArrowLeft'? -1: 0);
+            let slideDiff = (event.key === 'ArrowRight' || event.key === ' ')? 1: (event.key==='ArrowLeft'||event.key==='Backspace'? -1: 0);
+           
             if (slideDiff && currentSlideIndex >= 0 && currentSlideIndex <= numberOfSlides) {
                 slideDiff = (slideDiff<0 && currentSlideIndex===0) ? 0: slideDiff;
                 slideDiff = (slideDiff>0 && currentSlideIndex===numberOfSlides) ? 0: slideDiff;
                 this.setAttribute("start", currentSlideIndex + slideDiff);
+            } else if (event.key === "1") {
+                // go to first slide
+                this.setAttribute("start", 0);
+            } else if (event.key === "0") {
+                // go to last slide
+                this.setAttribute("start", numberOfSlides);
             }
         });
 
@@ -117,11 +125,15 @@ class Praizee extends HTMLElement {
     // }
 
     static get observedAttributes() {
-        return ["start", "title"];
+        return ["logo", "start", "title"];
     }
 
     render() {
         this.presentation.innerHTML = this.renderedSlide;
+
+        if (this.getAttribute("logo")) {
+            this.logo.setAttribute("src", this.getAttribute("logo"));
+        }
 
         // const [div] = slot.assignedNodes().filter(node => {
         //     return node.nodeName == "DIV";

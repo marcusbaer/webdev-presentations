@@ -16,8 +16,8 @@ export const style = `<style>
     button { background: gray; color: white; padding: 1rem; }
     slot { display: none; }
     .controls { background: yellow; position: absolute; top: 0; left: 0; padding: 1rem 2rem; display: none; }
+    .logo { height: 7vmin; position: fixed; right: 2rem; bottom: 2rem; }
     .demo { background-color: var(--demo-background-color, unset); }
-
     .demo:hover .controls {
         display: block;
     }
@@ -38,6 +38,7 @@ export const html = `<div class="demo praizee">
         <li>cdscds</li>
         </ul>
     </div>
+    <img class="logo" src="">
     <slot></slot>
 </div>`
 
