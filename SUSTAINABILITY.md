@@ -1,6 +1,6 @@
 # Nachhaltiges Internet
 
-## "Hungriges Web"
+## „Hungriges Web“
 
 > PAGE 12.19
 
@@ -47,7 +47,7 @@ _WebsiteCarbon_ berechnet, wieviel CO₂ eine Website pro Aufruf und geschätzt 
 
 ### _WebsiteCarbon_ für roller.de
 
-![Ergebnis für roller.de](./sustainability.png)
+![Ergebnis für roller.de](../sustainability.png)
 
 ### Performance kalkulieren, tracken und optimieren
 
@@ -78,9 +78,11 @@ Systemschriften liegen auf dem Rechner und verbrauchen am wenigsten Energie, sch
 
 Webfonts bieten mehr gestalterische Freiheit, werden aber extern gehostet, sodass die Zahl der Requests und mit ihnen Ladezeit und Energieverbrauch steigen.
 
-> Man kann sie aber "subsetten". Lade nur die Glyphen, die tatsächlich gebraucht werden.
+### Fonts und Typografie optimieren
 
-> Zwischen Systemschriften und Webfonts liegt in Sachen Dateigröße das Variable-Fonts-Format. Embedded Fonts mache die Seite "schwerer", reduzieren dafür aber die Requests.
+Man kann sie aber „subsetten“. Lade nur die Glyphen, die tatsächlich gebraucht werden.
+
+Zwischen Systemschriften und Webfonts liegt in Sachen Dateigröße das Variable-Fonts-Format. Embedded Fonts mache die Seite "schwerer", reduzieren dafür aber die Requests.
 
 ## Beispiel Low-Tech Magazine
 
@@ -93,11 +95,11 @@ Webfonts bieten mehr gestalterische Freiheit, werden aber extern gehostet, sodas
 
 Website wird mit Solarstrom betrieben. Scheint längere Zeit keine Sonne, ist die Seite offline.
 
-> solar.lowtechmagazine.com
+> [solar.lowtechmagazine.com](http://solar.lowtechmagazine.com)
 
 ## Tipps aus einem Blog
 
-17 ways to make your website more energy efficient
+„17 ways to make your website more energy efficient“
 
 > https://www.wholegraindigital.com/blog/website-energy-efficiency/
 
@@ -106,6 +108,9 @@ Website wird mit Solarstrom betrieben. Scheint längere Zeit keine Sonne, ist di
 - **SEO:** When optimising a website for search engine rankings, we are helping people find the information they want quickly and easily.
 - **Copy writing:** It has an impact on website efficiency because it affects the amount of time people spend browsing websites.
 - **User Experience (UX):** One of the core elements of good user experience is reducing friction in user journeys.
+
+### Design & Content
+
 - **Reduce images:** Regardless of any technical optimisations, designers and content creators should think carefully about their use of images.
 - **Reduce video:** If video is necessary, see if you can reduce the amount of video streamed by removing auto-play from videos and by keeping video content short.
 - **Choose fonts carefully:** Use system fonts where possible. Use less font variations.
@@ -113,15 +118,25 @@ Website wird mit Solarstrom betrieben. Scheint längere Zeit keine Sonne, ist di
 ### Development
 
 - **Write clean code:** Keep code clean and simple, avoid duplication and write efficient queries. Keep in mind existing frameworks and libraries, avoid unnecessary plugins.
-- **Use less JavaScript:** JS impacts website efficiency in two ways: by adding file weight to the web page and by increasing the amount of processing required by the users device. Look for ways to achieve front end interactions, functionality and animations using more efficient technologies like CSS, or at least use JS efficiently. A particular mention should be given here to tracking and advertising scripts that rarely offer any value to the user but can add significant file weight, cause significant CPU usage, slow websites down and invade their privacy.
 
-> https://webtest.app is a great tool for measuring the performance, data and  energy impact of ad scripts
+### Development
+
+- **Use less JavaScript:** impacts website efficiency in two ways:
+    1. adds file weight to the page
+    2. increases amount of processing required by the users device
+    
+> Use more efficient technologies like CSS, or at least use JS efficiently.
+
+> Tracking and advertising scripts (no user value but often large files) cause significant CPU usage, slow websites down and invade their privacy. Checkout https://webtest.app to measure impact.
 
 ### Development
 
 - **Optimise images:** Load images at the correct scale, compress image files without visible loss of quality. Use the most efficient file format for each image, such as WebP.
 - **Optimise fonts:** Stick to modern web font file formats like WOFF and WOFF2, which use higher compression. Subset fonts to only include the characters needed.
 - **Use Accelerated Mobile Pages (AMP):** AMP can be a useful tool to strip out the fast and deliver a more lightweight and energy efficient version to mobile users.
+
+### Development
+
 - **Build static web pages:** web server has to do work thinking about what information to send back to the user each time someone tries to load a page...
 - **Use Progressive Web App technology (PWA):** cache files on the users device
 
@@ -129,6 +144,9 @@ Website wird mit Solarstrom betrieben. Scheint längere Zeit keine Sonne, ist di
 
 - **Use server caching:** This significantly reduces server energy consumption.
 - **Choose hosts with a high PUE rating:** Data centres are generally rated for energy efficiency using a metric called Power Usage Efficiency, or PUE. The typical PUE for a data centre is around 1.67, meaning that for every 1.67 watts going into the data centre, only 1 watt is being used to power the computing systems. High efficency data centres have 1.11
+
+### Web Hosting
+
 - **Use a data centre close to your users:** A lot of the energy used by the internet is used to transmit data through the telecoms networks.
 - **Use a CDN:** Content delivery networks (CDN’s) provide a great solution to this, serving assets such as image files from a network of data centres around the world. This means that in most cases, the largest files will be loaded from the CDN location in the users own region, reducing the distance that data is moving each time a page is loaded.
 
@@ -137,9 +155,3 @@ Website wird mit Solarstrom betrieben. Scheint längere Zeit keine Sonne, ist di
 - **Block bots:** Bots often use up 50% of resources such as processing and bandwidth.
 - **Dark Mode:** Dark websites were one of the first techniques popularised for saving energy on websites many years ago...
 - **Use the latest PHP version:** Newer versions of PHP are not only faster but also use fewer server resources and therefore less energy.
-
-## Checkout your site
-
-> www.websitecarbon.com
-
-## 
