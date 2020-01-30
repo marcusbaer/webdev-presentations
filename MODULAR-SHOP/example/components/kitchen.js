@@ -10,7 +10,7 @@ class Kitchen extends HTMLElement {
         h1 { color: var(--primary-color, orange); font-size: 16px; margin: 0; padding: 4px; }
         a { display: block; margin: 4px; }
         img { display: block; width: calc(100%); }
-        .kitchen__price {font-size: 150%; background-color: var(--primary-color, orange); padding: 4px; text-align: center; }
+        .kitchen__price {font-size: 150%; background-color: var(--primary-color, orange); padding: 4px;text-align: center; }
         .kitchen__price:hover {transform:scale(1.3);}
         </style><div class="kitchen">
             <h1></h1>

@@ -107,6 +107,12 @@
                 padding: 1.2rem 1.5rem;
             }
         
+            .product-list {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+            }
+
             roller-demo {
                 background-color: orange;
                 visibility: hidden;
@@ -161,8 +167,8 @@
             </div>
             <div class="row" v-if="loaded">
                 <div class="col">
-                    <ul itemscope itemtype="http://schema.org/ItemList">
-                        <li itemprop="itemListElement" class="col-12 col-sm-6 col-md-4 col-lg-3 my-2 px-2" v-for="(kitchen, position) in teaserList" v-bind:key="kitchen.url">
+                    <ul itemscope itemtype="http://schema.org/ItemList" class="product-list">
+                        <li itemprop="itemListElement" class="col-12 col-sm-6 col-md-4 col-lg-3 my-4 px-2" v-for="(kitchen, position) in teaserList" v-bind:key="kitchen.url">
                             <!-- {{ kitchen.name }} -->
                             <meta itemprop="position" :content="position" />
                             <roller-kitchen itemscope itemtype="http://schema.org/Product">
