@@ -1,0 +1,35 @@
+roller-kitchen {
+    display: block;
+    font-size: 12px;
+    overflow: auto;
+
+    /* --primary-color: #006ab3; */
+}
+
+roller-kitchen h1 {
+    font-size: 14px;
+}
+
+roller-kitchen img {
+    width: 100%;
+}
+
+roller-kitchen a {
+    padding: 10px;
+    display: block;
+    float: right;
+    margin: 4px;
+}
+
+roller-kitchen div[itemprop="offers"] {
+    background-color: orange;
+    padding: 5px;
+    display: block;
+    float: left;
+    margin: 10px;
+    border-radius: 8px 0px 8px 0;
+}
+
+roller-kitchen div[itemprop="offers"] > span::after {
+    content: " €";
+}

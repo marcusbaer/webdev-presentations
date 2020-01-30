@@ -111,11 +111,17 @@
                 background-color: orange;
                 visibility: hidden;
             }
+
+            roller-kitchen {
+                display: none;
+            }
         </style>
 
         <script async type="module" src="./components/demo.view.js"></script>
         <script async type="module" src="./components/demo.js"></script>
+        <script async type="module" src="./components/kitchen.js"></script>
         <link rel="stylesheet" type="text/css" href="./components/demo.css" />
+        <link rel="stylesheet" type="text/css" href="./components/kitchen.css" />
 
         <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap@4.3.1/dist/css/bootstrap.min.css" />
         <script async type=module src=./modules/vue-renderer.js></script>
@@ -155,9 +161,18 @@
             </div>
             <div class="row" v-if="loaded">
                 <div class="col">
-                    <ul>
-                        <li class="col-12 col-sm-6 col-md-4 col-lg-3 my-2 px-2" v-for="kitchen in teaserList" v-bind:key="kitchen.url">
-                            {{ kitchen.name }}
+                    <ul itemscope itemtype="http://schema.org/ItemList">
+                        <li itemprop="itemListElement" class="col-12 col-sm-6 col-md-4 col-lg-3 my-2 px-2" v-for="(kitchen, position) in teaserList" v-bind:key="kitchen.url">
+                            <!-- {{ kitchen.name }} -->
+                            <meta itemprop="position" :content="position" />
+                            <roller-kitchen itemscope itemtype="http://schema.org/Product">
+                                <h1 itemprop="name">{{ kitchen.name }}</h1>
+                                <img itemprop="image" :src="kitchen.image" :alt="kitchen.name">
+                                <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                                    <span itemprop="price">{{ kitchen.currentPrice }}</span>
+                                </div>
+                                <a itemprop="url" :href="kitchen.url">Details</a>
+                            </roller-kitchen>
                         </li>
                     </ul>
                 </div>
