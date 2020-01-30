@@ -39,7 +39,7 @@ const KitchenService = {
     // return new Promise((resolve, reject) => {
     //     setTimeout(resolve, 1000)
     // })
-    return fetch(`/api/kitchens.json`).then(response => {
+    return fetch(`./api/kitchens.json`).then(response => {
       return response.json().then(json => {
         return json.teaserList.length > 0 ? json.teaserList : [];
       });
