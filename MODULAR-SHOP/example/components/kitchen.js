@@ -4,10 +4,11 @@ class Kitchen extends HTMLElement {
         const template = document.createElement("template");
         template.innerHTML = `<style>:host {
             display: block;
+            font-family: BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
         }
         slot { display: none; }
         .kitchen { border: 1px solid var(--primary-color, orange); }
-        h1 { color: var(--primary-color, orange); font-size: 16px; margin: 0; padding: 4px; }
+        h1 { color: var(--primary-color, orange); font-size: 16px; margin: 0; padding: 4px; font-family: dax_otcond_black, BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; }
         a { display: block; margin: 4px; }
         img { display: block; width: calc(100%); }
         .kitchen__price {font-size: 150%; background-color: var(--primary-color, orange); padding: 4px;text-align: center; }
