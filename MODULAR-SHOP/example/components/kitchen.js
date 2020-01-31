@@ -79,7 +79,7 @@ class Kitchen extends HTMLElement {
                         success: data.success
                     }
                 });
-                this.dispatchEvent(custom);
+                document.dispatchEvent(custom);
             })
             .catch(error => console.log(error));
         })
