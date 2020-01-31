@@ -79,6 +79,13 @@
                 margin-bottom: 1.6rem;
             }
         
+            button {
+                background-color: #006ab3;
+                border: 1px solid #666666;
+                color: white;
+                padding: 4px;
+            }
+
             .hero-banner {
                 background-color: #006ab3;
                 box-shadow: 0.2rem 0.2rem 0 rgba(0, 0, 0, .5);
@@ -123,9 +130,24 @@
             }
         </style>
 
+        <!-- <script src="https://unpkg.com/@webcomponents/webcomponentsjs/entrypoints/custom-elements-es5-adapter-index.js"></script> -->
+        <!-- <script src="https://unpkg.com/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script> -->
+
+        <!-- This loads the example as a module on Chrome, Edge, Firefox, and Safari -->
+        <!-- Modules are always nonblocking, and they load after regular scripts, so we can put them first -->
         <script async type="module" src="./components/demo.view.js"></script>
         <script async type="module" src="./components/demo.js"></script>
         <script async type="module" src="./components/kitchen.js"></script>
+
+<!-- TODO try to remove async above THEN ... -->
+
+        <!-- This loads the example on IE11 -->
+        <script
+        nomodule
+        src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.min.js"
+        ></script>
+        <script nomodule src="./js/nomodule.js"></script>
+
         <link rel="stylesheet" type="text/css" href="./components/demo.css" />
         <link rel="stylesheet" type="text/css" href="./components/kitchen.css" />
 
@@ -178,6 +200,11 @@
                                     <span itemprop="price">{{ kitchen.currentPrice }}</span>
                                 </div>
                                 <a itemprop="url" :href="kitchen.url">Details</a>
+                                <form action="/add-to-cart" method="POST">
+                                    <input type="hidden" name="materialNumber" value="12790003" />
+                                    <input type="hidden" name="quantity" value="1" />
+                                    <button>In den Warenkorb legen</button>
+                                </form>
                             </roller-kitchen>
                         </li>
                     </ul>
