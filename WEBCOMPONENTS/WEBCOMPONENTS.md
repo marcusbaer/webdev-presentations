@@ -2,8 +2,8 @@
 
 ## Geschichte
 
-- Ursprünge schon einige Jahre alt
-- in den letzten Jahren vor allem eng mit Polymer verknüpft
+- Ursprünglich eingeführt 2011
+- in letzten Jahren eng mit Polymer verknüpft
 - inzwischen aber in den meisten aktuellen Browsern angekommen
 - auch ES Module werden mittlerweile gut unterstützt
 - [ ] Polymer grundsätzlich nicht mehr notwendig: umbenannt zu TODO
@@ -16,8 +16,8 @@ Progressive Lösungsansätze als Alternative sind zu prüfen.
 
 ## Hilfsmittel
 
-- neben Polymer auch andere Hilfsmittel vorhanden
-- lit, ...
+- neben Polymer sind weitere Frameworks entstanden
+- LitElement, Slim.js, X-Tag
 - Angular, React, Svelte, Vue
 
 ## Hilfsmittel?
