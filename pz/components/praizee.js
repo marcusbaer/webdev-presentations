@@ -1,5 +1,7 @@
 import praizeeView from './praizee.view.js';
-import { MarkdownIt } from "//cdn.jsdelivr.net/gh/JCloudYu/esm.markdown-it@8/esm.markdown-it.esm.js";
+// import { MarkdownIt } from "//cdn.jsdelivr.net/gh/JCloudYu/esm.markdown-it@8/esm.markdown-it.esm.js";
+
+const MarkdownIt = window.markdownit;
 
 class Praizee extends HTMLElement {
 
