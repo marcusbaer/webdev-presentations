@@ -1,120 +1,27 @@
 <!DOCTYPE html>
 <html lang="de">
-<head>
-  <meta charset="utf-8">
-  <title>Presentations</title>
-  <link href="./pz/main.css" rel="stylesheet" />
-  <!-- <script src="./pz/axios.min.js"></script> -->
-  <script src="./pz/marked.min.js"></script>
-  <!-- <script src="./pz/matter.mjs"></script> -->
-  <!-- <script src="https://raw.githubusercontent.com/jonschlinkert/gray-matter/master/index.js"></script> -->
-</head>
-<body>
-    <div class="frame">
-      <div class="content pz-content">
-        <div id="screen" class="visibility active">
-          <!-- dynamically filled -->
+    <head>
+        <meta charset="utf8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noindex, nofollow">
+        <title>Präsentation</title>
+
+        <link rel='icon' type='image/png' href='/favicon.png'>
+        <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap@4.3.1/dist/css/bootstrap.min.css" />
+
+        <style>
+            /* praizee-demo { display: none; } */
+        </style>
+        <script type="module" src="./components/praizee.js"></script>
+
+    </head>
+    <body>
+        <div class="container p-3 text-white">
+            <div class="row">
+                <div class="col">
+                  <praizee-demo src="../WEBCOMPONENTS/WEBCOMPONENTS.md" start="0" title="Web Components" logo="./res/Logo_Digitas_Pixelpark_horizontal_4c_black.png"></praizee-demo>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <style id="style"></style>
-    <script id="offline-markup" type="application/text">
-      
-
----
-title: Präsentation laden
-date: 02.10.2019
-slug: example
-theme: alice
----
-# Präsentation laden
-
-Vorbereitung
-    </script>
-
-    <script type=module>
-
-      import matter from 'https://raw.githubusercontent.com/jonschlinkert/gray-matter/master/index.js';
-
-      let currentPresentation = localStorage.getItem('current-presentation') || null
-      currentPresentation = (currentPresentation) ? JSON.parse(currentPresentation) : null
-
-      let offlineMessage = ''
-      let markup = ''
-
-      // const createPresentation = (uri, data) => {
-      //   let presentationData = matter(data)
-      //   const presentation = {
-      //     type: 'Presentation',
-      //     id: uri,
-      //     uri: uri,
-      //     content: presentationData.content,
-      //     data: presentationData.data || {}
-      //   }
-      //   return presentation
-      // }
-
-      const createSlides = (markdown) => {
-        let splits = markdown.split("\n#")
-        let slides = []
-        splits.forEach(slide => {
-          if (slide) {
-            slides.push('<div class="slide" tabindex="0">'+marked('#'+slide)+'</div>')
-          }
-        })
-        return slides.join('')
-      }
-
-      const initializePresentation = (data) => {
-        let presentation = matter(data)
-        // let presentation = {
-        //   content: data
-        // }
-        return presentation
-      }
-
-      // const loadPresentationFromUri = (options = {}) => {
-      //   return axios.get(`${options.uri}`)
-      // }
-
-      const renderSlides = (slides) => {
-        let slideActiveIndex = 0
-        slides.forEach((slide, index) => {
-          slide.style.display = (index == slideActiveIndex) ? 'block' : 'none'
-          slide.addEventListener('keyup', (el) => {
-            let keyCode = el.keyCode || el.which
-            //console.log('slides', keyCode, slideActiveIndex)
-            if (keyCode == 38) {
-              slideActiveIndex = (slideActiveIndex > 0) ? slideActiveIndex-1 : slideActiveIndex
-            } else if (keyCode == 40) {
-              slideActiveIndex = (slideActiveIndex < slides.length-1) ? slideActiveIndex+1 : slideActiveIndex
-            }
-            slide.style.display = 'none'
-            slides[slideActiveIndex].style.display = 'block'
-            slides[slideActiveIndex].focus()
-          })
-        })
-      }
-
-      offlineMessage = createSlides(document.querySelector('#offline-markup').innerHTML)
-
-      const bingo = initializePresentation(document.querySelector('#offline-markup').innerHTML)
-      console.log(bingo)
-
-      if (offlineMessage) {
-        document.querySelector('#screen').innerHTML = offlineMessage
-        document.querySelector('#style').innerHTML = ''
-        document.querySelector('#screen').setAttribute('data-type', 'presentation')
-        renderSlides(document.querySelectorAll('#screen .slide'))
-      }
-
-      if (currentPresentation) {
-        console.log(currentPresentation)
-        document.querySelector('#screen').innerHTML = createSlides(currentPresentation.content)
-        document.querySelector('#style').innerHTML = ''
-        document.querySelector('#screen').setAttribute('data-type', 'presentation')
-        renderSlides(document.querySelectorAll('#screen .slide'))
-      }
-    </script>
-</body>
+    </body>
 </html>
