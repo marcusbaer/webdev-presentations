@@ -225,14 +225,6 @@ Einige Libraries wollen helfen, den Abstraktionslevel für custom elements zu er
 > **⟿ progressive Lösungsansätze als Alternative zu IE11-Polyfills prüfen**
 
 
-
-
-
-
-
-
-
-
 ## Design Systeme
 
 Web Components sind mit Design Systemen gut vereinbar.
