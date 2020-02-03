@@ -20,171 +20,245 @@
         <div class="container p-3 text-white">
             <div class="row">
                 <div class="col">
-                  <praizee-demo start="0" title="Nachhaltiges Internet" logo="./res/Logo_Digitas_Pixelpark_horizontal_4c_black.png">## „Hungriges Web“
+                  <praizee-demo start="0" title="Web Components" logo="./res/Logo_Digitas_Pixelpark_horizontal_4c_black.png">## Was ist das?
 
-> PAGE 12.19
+> Webkomponenten sind eine Gruppe von Funktionen, die ein Standardkomponentenmodell für das Web bereitstellen und die Kapselung und Interoperabilität einzelner HTML-Elemente ermöglichen.
 
-## 830 Millionen Tonnen CO₂
+## Was kann man damit machen?
 
-> versacht das Internet im Jahr - mehr als der gesamte globale Flugverkehr
+```
+<h1></h1>
+```
 
-## 300 Millionen Tonnen CO₂
+## Was kann man damit machen?
 
-> sind durch das Ansehen von Onlinevideos im Jahr 2018 entstanden
+```
+<img src="" />
+```
 
-Das ist 1 Prozent der gesamten globalen Treibhausgasemissionen - in etwa so viel, wie das gesamte Land Spanien produziert.
+## Was kann man damit machen?
 
-## 7 Prozent des globalen Energieverbrauchs gehen auf das Internet zurück
+```
+<cookie-banner confirm="/confirm/cookies">
+    <h1>Kekse essen wir</h1>
+    <p>Mampf, mampf. Hmmmh... lecker! <a href="/kekse">Mehr Infos</a></p>
+</cookie-banner>
+```
 
-Und der Strombedarf steigt jährlich um 8 Prozent.
+## Geschichte
 
-## Das Training einer auf Spracherkennung spezialisierten KI-Software
+- ursprünglich 2011 auf der [Fronteers Conference](https://fronteers.nl/congres/2011/sessions/web-components-and-model-driven-views-alex-russell) eingeführt
+- in letzten Jahren eng mit Polymer verknüpft
+- Vergleich mit Frameworks wird [diskutiert](https://dev.to/richharris/why-i-don-t-use-web-components-2cia)
+- inzwischen aber in den meisten aktuellen Browsern angekommen
+- veralteter Browser wird über JS-Polyfills unterstützt
 
-> verursacht 5 Mal so viel CO₂ wie ein Auto in seinem gesamten Lebenszyklus.
+## Vorteile von Web Components
 
-## Checkliste für ein grüneres Internet
+1. durch eigenen Scope unabhängiges und stabiles Layout
+2. universell einsetzbar (SSR, JS, Vue, GTM, A/B)
+3. lassen sich wie natürliche HTML-Elemente verwenden
 
-Diese Tipps und Tools sparen beim Webdesign Daten und Energie
+## Integration
 
-### Stromquellen und CO₂-Ausstoß messen
+```
+<cookie-banner confirm="/confirm/cookies" modification="darkmode" closeable fullscreen local-storage="cookie-confirmation">
+    <h1>Kekse essen wir</h1>
+    <p>Mampf, mampf. Hmmmh... lecker! <a href="/kekse">Mehr Infos</a></p>
+    <button>Okay</button>
+</cookie-banner>
+```
 
-Checke mit _The-Green-Web-Foundation-Site_, ob eine Website mit erneuerbaren Energien betrieben wird.
-Informiere dich dort über grüne Hoster.
+Daten an die Komponente übergeben:
 
-> www.thegreenwebfoundation.org
+- Attribute als String oder Boolean
+- inneres HTML zur Befüllung eines (oder mehrerer) Slots
 
-### Stromquellen und CO₂-Ausstoß messen
+## Integration
 
-_Ecograder_ macht Angaben über die Nachhaltigkeit einer Website und gibt Tipps, an welchen Schrauben man drehen kann.
+```
+<cookie-banner
+    some-more-data="`${JSON.stringify({button:"OK", closeable:true})}`"
+    >
+    <h1 slot="headline"></h1>
+    ...
+    <button slot="buttons"></button>
+</cookie-banner>
+```
 
-> ecograder.com
+Daten an die Komponente übergeben:
 
-### Stromquellen und CO₂-Ausstoß messen
+- Attribute als String oder Boolean
+- inneres HTML zur Befüllung eines (oder mehrerer) Slots
 
-_WebsiteCarbon_ berechnet, wieviel CO₂ eine Website pro Aufruf und geschätzt im Jahr verursacht.
+## Integration
 
-> www.websitecarbon.com
+Interaktion mit JavaScript...
 
-### _WebsiteCarbon_ für roller.de
+```
+document.querySelector('cookie-banner')
+    // Attribute setzen
+    setAttribute('modification', 'default')
+    // custom events
+    .addEventListener('confirmed', e => {
+        if (e.target.hasAttribute('fullscreen')) {
+            e.target.removeAttribute('fullscreen')
+        }
+    })
+```
 
-![Ergebnis für roller.de](../sustainability.png)
+## Technische Grundlagen
 
-### Performance kalkulieren, tracken und optimieren
+- ***Custom Elements:*** API um eigene HTML Elemente zu schreiben oder bestehende zu erweitern
+- ***Shadow DOM:*** gekapseltes unabhängiges DOM, scoped CSS ermöglicht risikofreies Styling
+- ***HTML Templates:*** mit `<template>` Element HTML Vorlagen erstellen und im DOM hinterlegen, mit JS manipulieren und nutzen
 
-Mit dem _Performance Budget Calculator_ kann man sich ein Ziel setzen - zum Beispiel eine Ladezeit von 3 Sekunden - und berechnen, wie groß eine Website dafür sein darf.
+## Native HTML Elemente erweitern
 
-> www.performancebudget.io
+```
+class OkButton extends HTMLButtonElement {
+    constructor() {
+        super()
+        this.addEventListener('click', e => this.clickHandler(e.offsetX, e.offsetY))
+    }
 
-Performance-Optimierung mit Tools, wie z.B. Google Page Speed
+    clickHandler(x, y) {
+        console.log('click handler:', x, y)
+    }
+}
 
-### Contentstrategie überdenken
+customElements.define('ok-button', OkButton, {extends: 'button'})
+```
 
-Es müssen nicht immer Hintergrundvideos oder großformatige Bilder sein.
+## Native HTML Elemente erweitern
 
-> Vektorgrafiken, Icons oder typografische Details sind visuell manchmal sogar spannender und setzen Akzente.
+```
+<button is="ok-button" class="p-4" onclick="console.log('button click');">OK</button>
+```
 
-### Contentstrategie überdenken
+<script>
+class OkButton extends HTMLButtonElement {
+    constructor() {
+        super()
+        this.addEventListener('click', e => this.clickHandler(e.offsetX, e.offsetY))
+    }
 
-Werbeanzeigen, Tracking von Drittanbietern oder Social-Media-Buttons verursachen viel Daten-Load und sind nicht immer sinnvoll oder notwendig.
-Gute SEO hilft zudem bei der Auffindbarkeit der Inhalte.
+    clickHandler(x, y) {
+        console.log('click handler:', x, y)
+    }
+}
 
-### Bilder komprimieren
+customElements.define('ok-button', OkButton, {extends: 'button'})
+</script>
 
-Bilder mit komprimieren (WebP) und lazy loaden...
+<button is="ok-button" class="p-4" onclick="console.log('button click');">OK</button>
 
-### Fonts und Typografie optimieren
+## Eigenständige Elemente erstellen
 
-Systemschriften liegen auf dem Rechner und verbrauchen am wenigsten Energie, schränken aber die Designoptionen stark ein.
+```
+CookieBanner extends HTMLElement {
+    constructor() {
+        super();
+    }
+}
 
-Webfonts bieten mehr gestalterische Freiheit, werden aber extern gehostet, sodass die Zahl der Requests und mit ihnen Ladezeit und Energieverbrauch steigen.
+window.customElements.define("cookie-banner", CookieBanner);
+```
 
-### Fonts und Typografie optimieren
+## Eigenständige Elemente erstellen
 
-Man kann sie aber „subsetten“. Lade nur die Glyphen, die tatsächlich gebraucht werden.
+```
+CookieBanner extends HTMLElement {
+    constructor() {
+        super();
+    }
 
-Zwischen Systemschriften und Webfonts liegt in Sachen Dateigröße das Variable-Fonts-Format. Embedded Fonts mache die Seite "schwerer", reduzieren dafür aber die Requests.
+    connectedCallback() {}      // element added to DOM
+    disconnectedCallback() {}   // element removed from DOM
+    adoptedCallback() {}        // element moved inside of DOM
 
-## Beispiel Low-Tech Magazine
+    static get observedAttributes() {
+        // list of attributes to be watched
+        return ["title"];
+    }
 
-1. **Statische Website:** es wird keine kontinuierliche Rechenleistung für das Rendering benötigt - also weniger Energie
-2. **Dithered Images:** mit dem alten Komprimierungsverfahren wird die Dateigröße enorm reduziert. Graustufenbilder werden nachcoloriert.
-3. **Default Typeface und kein Logo:** Requests und Energie für Datenspeicherung können eingespart werden
-4. **Kein Tracking von Drittanbietern, keine Werbung, keine Cookies:** Hosting auf eigenem Server ermöglicht Verzicht auf Analysesoftware, Nutzerverhalten aus Serverdaten ersichtlich
+    attributeChangedCallback(name, oldVal, newVal) {
+        // some attribute has changed
+    }
+}
 
-## Beispiel Low-Tech Magazine
+window.customElements.define("cookie-banner", CookieBanner);
+```
 
-Website wird mit Solarstrom betrieben. Scheint längere Zeit keine Sonne, ist die Seite offline.
 
-> [solar.lowtechmagazine.com](http://solar.lowtechmagazine.com)
+## Shadow DOM
 
-## Tipps aus einem Blog
+```
+CookieBanner extends HTMLElement {
+    constructor() {
+        super();
 
-„17 ways to make your website more energy efficient“
+        const template = document.createElement("template");
+        template.innerHTML = `<style>:host { position: fixed; }</style><div><h1>Cookies</h1><slot name="buttons"></slot></div>`;
 
-> https://www.wholegraindigital.com/blog/website-energy-efficiency/
+        this.attachShadow({ mode: "open" });
+        this.shadowRoot.appendChild(template.content.cloneNode(true));
+        this.headline = this.shadowRoot.querySelector('h1');
+    }
 
-### Design & Content
+    connectedCallback() {
+        this.headline.textContent = this.getAttribute("headline");
+    }
+}
+```
 
-- **SEO:** When optimising a website for search engine rankings, we are helping people find the information they want quickly and easily.
-- **Copy writing:** It has an impact on website efficiency because it affects the amount of time people spend browsing websites.
-- **User Experience (UX):** One of the core elements of good user experience is reducing friction in user journeys.
+## Implementierung
 
-### Design & Content
+... [ein Beispiel](./example/index.html) ...
 
-- **Reduce images:** Regardless of any technical optimisations, designers and content creators should think carefully about their use of images.
-- **Reduce video:** If video is necessary, see if you can reduce the amount of video streamed by removing auto-play from videos and by keeping video content short.
-- **Choose fonts carefully:** Use system fonts where possible. Use less font variations.
+## Custom Elements erweitern
 
-### Development
+```
+SuperCookieBanner extends CookieBanner {
+    constructor() {
+        super();
+    }
+}
 
-- **Write clean code:** Keep code clean and simple, avoid duplication and write efficient queries. Keep in mind existing frameworks and libraries, avoid unnecessary plugins.
+window.customElements.define("super-cookie-banner", SuperCookieBanner);
+```
 
-### Development
+z.B. für A/B-Tests etc.
 
-- **Use less JavaScript:** impacts website efficiency in two ways:
-    1. adds file weight to the page
-    2. increases amount of processing required by the users device
-    
-> Use more efficient technologies like CSS, or at least use JS efficiently.
+## Hilfsmittel
 
-> Tracking and advertising scripts (no user value but often large files) cause significant CPU usage, slow websites down and invade their privacy. Checkout https://webtest.app to measure impact.
+Einige Libraries wollen helfen, den Abstraktionslevel für custom elements zu erhöhen:
 
-### Development
+- Polymer, LitElement
+- Slim.js, X-Tag
+- Angular, React, Svelte, Vue
 
-- **Optimise images:** Load images at the correct scale, compress image files without visible loss of quality. Use the most efficient file format for each image, such as WebP.
-- **Optimise fonts:** Stick to modern web font file formats like WOFF and WOFF2, which use higher compression. Subset fonts to only include the characters needed.
-- **Use Accelerated Mobile Pages (AMP):** AMP can be a useful tool to strip out the fast and deliver a more lightweight and energy efficient version to mobile users.
+## Hilfsmittel?
 
-### Development
+- langfristiges Projekt?
+- keine Bindung an Frameworks oder Bibliotheken erwünscht?
 
-- **Build static web pages:** web server has to do work thinking about what information to send back to the user each time someone tries to load a page...
-- **Use Progressive Web App technology (PWA):** cache files on the users device
+> **⟿ nativ implementierte Web Components in Erwägung ziehen**
 
-### Web Hosting
+> **⟿ progressive Lösungsansätze als Alternative zu IE11-Polyfills prüfen**
 
-- **Use server caching:** This significantly reduces server energy consumption.
-- **Choose hosts with a high PUE rating:** Data centres are generally rated for energy efficiency using a metric called Power Usage Efficiency, or PUE. The typical PUE for a data centre is around 1.67, meaning that for every 1.67 watts going into the data centre, only 1 watt is being used to power the computing systems. High efficency data centres have 1.11
 
-### Web Hosting
+## Design Systeme
 
-- **Use a data centre close to your users:** A lot of the energy used by the internet is used to transmit data through the telecoms networks.
-- **Use a CDN:** Content delivery networks (CDN’s) provide a great solution to this, serving assets such as image files from a network of data centres around the world. This means that in most cases, the largest files will be loaded from the CDN location in the users own region, reducing the distance that data is moving each time a page is loaded.
+Web Components sind mit Design Systemen gut vereinbar.
+Können z.B. mit Storybook oder Fractal leicht entwickelt (Workbench) und dokumentiert (Shop) werden:
 
-### Bonus tips
+- Wie erfolgt Integration?
+- Welche Attribute vorhanden?
+- Welche Slots?
+- Welche Event-Listener zur Kommunikation nach außen?
 
-- **Block bots:** Bots often use up 50% of resources such as processing and bandwidth.
-- **Dark Mode:** Dark websites were one of the first techniques popularised for saving energy on websites many years ago...
-- **Use the latest PHP version:** Newer versions of PHP are not only faster but also use fewer server resources and therefore less energy.
-
-##
-
-# FE Developer Roadmap 2020
-
-[FE Developer Roadmap 2020](../frontend-developer-roadmap-2020.png)
-
-# State of JavaScript 2019
-
-[Official Site](https://2019.stateofjs.com/overview/)
+> Verwendung mit einem Design System daher ist empfehlenswert, insbesondere bei Projekten mit Microfrontend-Architektur.
 
 ##
 
