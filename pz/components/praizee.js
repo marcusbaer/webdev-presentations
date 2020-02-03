@@ -72,7 +72,16 @@ class Praizee extends HTMLElement {
         //     this.imageWrapper.style.display = "none";
         // })
 
-        this.render();
+        if (this.getAttribute("src")) {
+            this.loadFromUrl(this.getAttribute("src")).then(() => {
+                this.render();
+            });
+
+        } else {
+            this.loadFromSlot();
+            this.render();
+        }
+
 
         // const deleteFavoriteHandler = (event) => {
         //     if (event.target.nodeName == 'LI') {
@@ -107,11 +116,7 @@ class Praizee extends HTMLElement {
     // }
 
     get renderedSlide () {
-        const slot = this.$("slot");
         const index = this.getAttribute("start");
-
-        this.originalContent = slot.assignedNodes()[0].nodeValue;
-        this.slides = this.getSlides(this.originalContent, this.getAttribute("title"));
 
         return this.slides[index];
     }
@@ -126,6 +131,22 @@ class Praizee extends HTMLElement {
 
     static get observedAttributes() {
         return ["logo", "start", "title"];
+    }
+
+    loadFromUrl(src) {
+        return fetch(src)
+            .then(response => response.text())
+            .then(content => {
+                this.originalContent = content;
+                this.slides = this.getSlides(this.originalContent, this.getAttribute("title"));
+            })
+    }
+
+    loadFromSlot() {
+        const slot = this.$("slot");
+
+        this.originalContent = slot.assignedNodes()[0].nodeValue;
+        this.slides = this.getSlides(this.originalContent, this.getAttribute("title"));
     }
 
     render() {
@@ -157,8 +178,12 @@ class Praizee extends HTMLElement {
         let slides = [];
 
         content = "\n" + content;
+
+        console.log(content);
+
         title = title ? " "+title : title;
         slides = content.split("\n#").map(c => markdown.render("#"+(c||title)));
+
 
         return slides;
     }

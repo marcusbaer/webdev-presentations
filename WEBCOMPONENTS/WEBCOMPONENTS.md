@@ -21,7 +21,7 @@
 ```
 <cookie-banner confirm="/confirm/cookies">
     <h1>Kekse essen wir</h1>
-    <p>Mampf, mampf. Hmmmh... lecker! <a href="/kekse">Mehr Infos</a></p>
+    <p>Mampf... <a href="/kekse">Infos</a></p>
 </cookie-banner>
 ```
 
@@ -39,46 +39,41 @@
 2. universell einsetzbar (SSR, JS, Vue, GTM, A/B)
 3. lassen sich wie natürliche HTML-Elemente verwenden
 
-## Integration
+## Daten übergeben
 
 ```
-<cookie-banner confirm="/confirm/cookies" modification="darkmode" closeable fullscreen local-storage="cookie-confirmation">
-    <h1>Kekse essen wir</h1>
-    <p>Mampf, mampf. Hmmmh... lecker! <a href="/kekse">Mehr Infos</a></p>
+<cookie-banner
+    confirm="/confirm/cookies"
+    local-storage="cookie-confirmation"
+    closeable fullscreen>
     <button>Okay</button>
 </cookie-banner>
 ```
 
-Daten an die Komponente übergeben:
-
 - Attribute als String oder Boolean
 - inneres HTML zur Befüllung eines (oder mehrerer) Slots
 
-## Integration
+## Daten übergeben
 
 ```
 <cookie-banner
-    some-more-data="`${JSON.stringify({button:"OK", closeable:true})}`"
+    data="`${JSON.stringify({button:"OK", closeable:true})}`"
     >
     <h1 slot="headline"></h1>
-    ...
     <button slot="buttons"></button>
 </cookie-banner>
 ```
 
-Daten an die Komponente übergeben:
-
 - Attribute als String oder Boolean
 - inneres HTML zur Befüllung eines (oder mehrerer) Slots
 
-## Integration
-
-Interaktion mit JavaScript...
+## Interaktion mit JavaScript
 
 ```
 document.querySelector('cookie-banner')
     // Attribute setzen
-    setAttribute('modification', 'default')
+    setAttribute('local-storage', 'other-storage-name')
+
     // custom events
     .addEventListener('confirmed', e => {
         if (e.target.hasAttribute('fullscreen')) {
@@ -99,39 +94,38 @@ document.querySelector('cookie-banner')
 class OkButton extends HTMLButtonElement {
     constructor() {
         super()
-        this.addEventListener('click', e => this.clickHandler(e.offsetX, e.offsetY))
+        this.addEventListener('click',
+            e => this.clickHandler(e.offsetX, e.offsetY)
+        )
     }
-
     clickHandler(x, y) {
         console.log('click handler:', x, y)
     }
 }
-
-customElements.define('ok-button', OkButton, {extends: 'button'})
 ```
 
 ## Native HTML Elemente erweitern
 
 ```
-<button is="ok-button" class="p-4" onclick="console.log('button click');">OK</button>
+customElements.define(
+    'ok-button',
+    OkButton,
+    { extends: 'button' }
+)
 ```
 
-<script>
-class OkButton extends HTMLButtonElement {
-    constructor() {
-        super()
-        this.addEventListener('click', e => this.clickHandler(e.offsetX, e.offsetY))
-    }
 
-    clickHandler(x, y) {
-        console.log('click handler:', x, y)
-    }
-}
+## Native HTML Elemente erweitern
 
-customElements.define('ok-button', OkButton, {extends: 'button'})
-</script>
+```
+<button
+    is="ok-button"
+    class="p-4"
+    onclick="console.log('button click');"
+    >OK</button>
+```
 
-<button is="ok-button" class="p-4" onclick="console.log('button click');">OK</button>
+[Beispiel mit nativem HTML Element](../WEBCOMPONENTS/example/button.html)
 
 ## Eigenständige Elemente erstellen
 
@@ -159,7 +153,7 @@ CookieBanner extends HTMLElement {
 
     static get observedAttributes() {
         // list of attributes to be watched
-        return ["title"];
+        return ["confirm"];
     }
 
     attributeChangedCallback(name, oldVal, newVal) {
@@ -179,7 +173,13 @@ CookieBanner extends HTMLElement {
         super();
 
         const template = document.createElement("template");
-        template.innerHTML = `<style>:host { position: fixed; }</style><div><h1>Cookies</h1><slot name="buttons"></slot></div>`;
+        template.innerHTML = `
+    <style>:host { position: fixed; }</style>
+    <div>
+        <h1>Cookies</h1>
+        <slot name="buttons"></slot>
+    </div>
+`;
 
         this.attachShadow({ mode: "open" });
         this.shadowRoot.appendChild(template.content.cloneNode(true));
@@ -194,7 +194,7 @@ CookieBanner extends HTMLElement {
 
 ## Implementierung
 
-... [ein Beispiel](./example/index.html) ...
+[Beispiel mit eigenem HTML Element](../WEBCOMPONENTS/example/index.html)
 
 ## Custom Elements erweitern
 
@@ -205,7 +205,8 @@ SuperCookieBanner extends CookieBanner {
     }
 }
 
-window.customElements.define("super-cookie-banner", SuperCookieBanner);
+window.customElements.define("super-cookie-banner",
+    SuperCookieBanner);
 ```
 
 z.B. für A/B-Tests etc.
@@ -231,21 +232,25 @@ Einige Libraries wollen helfen, den Abstraktionslevel für custom elements zu er
 ## Design Systeme
 
 Web Components sind mit Design Systemen gut vereinbar.
-Können z.B. mit Storybook oder Fractal leicht entwickelt (Workbench) und dokumentiert (Shop) werden:
+Können z.B. mit Storybook oder Fractal leicht entwickelt und dokumentiert werden:
 
 - Wie erfolgt Integration?
 - Welche Attribute vorhanden?
 - Welche Slots?
 - Welche Event-Listener zur Kommunikation nach außen?
 
-> Verwendung mit einem Design System daher ist empfehlenswert, insbesondere bei Projekten mit Microfrontend-Architektur.
+## Design Systeme
+
+> Verwendung von Web Components mit einem Design System ist empfehlenswert, insbesondere bei Projekten mit Microfrontend-Architektur.
+
+##
 
 
 ## Links
 
-- https://en.wikipedia.org/wiki/Web_Components
-- https://blog.codecentric.de/2018/10/ein-blick-auf-web-components/
-- https://developers.google.com/web/fundamentals/web-components/customelements
-- https://html.spec.whatwg.org/multipage/indices.html#element-interfaces
-- https://developer.mozilla.org/en-US/docs/Web/API/HTMLButtonElement
-- https://itnext.io/handling-data-with-web-components-9e7e4a452e6e
+- [Wikipedia](https://en.wikipedia.org/wiki/Web_Components)
+- [Ein Blick auf Web Components](https://blog.codecentric.de/2018/10/ein-blick-auf-web-components/)
+- [Custom Elements](https://developers.google.com/web/fundamentals/web-components/customelements)
+- [Element Interfaces](https://html.spec.whatwg.org/multipage/indices.html#element-interfaces)
+- [HTMLButtonElement Web API](https://developer.mozilla.org/en-US/docs/Web/API/HTMLButtonElement)
+- [Handling data with web components](https://itnext.io/handling-data-with-web-components-9e7e4a452e6e)

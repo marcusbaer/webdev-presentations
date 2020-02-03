@@ -24,6 +24,8 @@ export const style = `<style>
 
     h1 { display: block; text-align: center; padding-top: 6vmin; }
     img { max-height: 90vmin; max-width: 90vmin; }
+    code {font-size: 4vmin; }
+    pre {line-height: 1.2; }
 </style>`
 
 export const html = `<div class="demo praizee">
@@ -31,13 +33,7 @@ export const html = `<div class="demo praizee">
         <button class="prev">«</button>
         <button class="next">»</button>
     </div>
-    <div class="presentation">
-        <h2>Ein kurzer Titel</h2>
-        <p>Inhalt inhalt inhalt</p>
-        <ul>
-        <li>cdscds</li>
-        </ul>
-    </div>
+    <div class="presentation"></div>
     <img class="logo" src="">
     <slot></slot>
 </div>`
