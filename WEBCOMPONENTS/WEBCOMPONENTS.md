@@ -192,6 +192,9 @@ CookieBanner extends HTMLElement {
 }
 ```
 
+## Implementierung
+
+... [ein Beispiel](./example/index.html) ...
 
 ## Custom Elements erweitern
 
@@ -241,6 +244,7 @@ Können z.B. mit Storybook oder Fractal leicht entwickelt (Workbench) und dokume
 ## Links
 
 - https://en.wikipedia.org/wiki/Web_Components
+- https://blog.codecentric.de/2018/10/ein-blick-auf-web-components/
 - https://developers.google.com/web/fundamentals/web-components/customelements
 - https://html.spec.whatwg.org/multipage/indices.html#element-interfaces
 - https://developer.mozilla.org/en-US/docs/Web/API/HTMLButtonElement
