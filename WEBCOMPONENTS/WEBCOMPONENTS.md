@@ -1,105 +1,161 @@
 # Web Components
 
+## Was ist das?
+
+> Webkomponenten sind eine Gruppe von Funktionen, die ein Standardkomponentenmodell für das Web bereitstellen und die Kapselung und Interoperabilität einzelner HTML-Elemente ermöglichen.
+
+## Was kann man damit machen?
+
+```
+<h1></h1>
+```
+
+## Was kann man damit machen?
+
+```
+<img src="" />
+```
+
+## Was kann man damit machen?
+
+```
+<cookie-banner confirm="/confirm/cookies">
+    <h1>Kekse essen wir</h1>
+    <p>Mampf, mampf. Hmmmh... lecker! <a href="/kekse">Mehr Infos</a></p>
+</cookie-banner>
+```
+
 ## Geschichte
 
-- Ursprünglich eingeführt 2011
+- ursprünglich 2011 auf der [Fronteers Conference](https://fronteers.nl/congres/2011/sessions/web-components-and-model-driven-views-alex-russell) eingeführt
 - in letzten Jahren eng mit Polymer verknüpft
+- Vergleich mit Frameworks wird [diskutiert](https://dev.to/richharris/why-i-don-t-use-web-components-2cia)
 - inzwischen aber in den meisten aktuellen Browsern angekommen
-- auch ES Module werden mittlerweile gut unterstützt
-- [ ] Polymer grundsätzlich nicht mehr notwendig: umbenannt zu TODO
-
-## IE 11
-
-Dieser veraltete Browser wird Dank Polyfills ebenfalls unterstützt.
-
-Progressive Lösungsansätze als Alternative sind zu prüfen.
-
-## Hilfsmittel
-
-- neben Polymer sind weitere Frameworks entstanden
-- LitElement, Slim.js, X-Tag
-- Angular, React, Svelte, Vue
-
-## Hilfsmittel?
-
-- langfristiges Projekt?
-- keine Bindung an Frameworks oder Bibliotheken erwünscht?
-
-> **ggf. nativ implementierte Web Components in Erwägung ziehen**
-
+- veralteter Browser wird über JS-Polyfills unterstützt
 
 ## Vorteile von Web Components
 
-- durch eigenen Scope unabhängiges und stabiles Layout
-- definierte Komponenten können von allen beteiligten Systemen verwendet werden: 
-  - server-seitiges Rendern,
-  - Rendering im Frontend (JS, Vue, ...),
-  - Google Tag Manager,
-  - A/B-Testing-Frameworks
-  - etc. 
-- [ ] ...
-
-## Technische Grundlagen
-
-- Shadow DOM: innerhalb von HTML-Elementen ein eigenes, unabhängiges, DOM erzeugen und innerhalb von diesem neue Komponenten hinzufügen und stylen
-- HTML Templates: Eine Möglichkeit mit Hilfe des <template> Elements HTML Vorlagen im Dokument zu hinterlegen. Diese können dann mit Hilfe von JavaScript manipuliert werden
-- Custom Elements: API um eigene HTML Elemente zu schreiben
+1. durch eigenen Scope unabhängiges und stabiles Layout
+2. universell einsetzbar (SSR, JS, Vue, GTM, A/B)
+3. lassen sich wie natürliche HTML-Elemente verwenden
 
 ## Integration
 
 ```
-<foo-component title="bar">
-    <button>Click me</button>
-</foo-component>
+<cookie-banner confirm="/confirm/cookies" modification="darkmode" closeable fullscreen local-storage="cookie-confirmation">
+    <h1>Kekse essen wir</h1>
+    <p>Mampf, mampf. Hmmmh... lecker! <a href="/kekse">Mehr Infos</a></p>
+    <button>Okay</button>
+</cookie-banner>
 ```
 
-## Entwicklung
+Daten an die Komponente übergeben:
+
+- Attribute als String oder Boolean
+- inneres HTML zur Befüllung eines (oder mehrerer) Slots
+
+## Integration
 
 ```
-const fooTemplate = `
-    <style>
-        :host { }
-        slot { }
-        .foo { }
-    </style>
-    <div class="foo">
-        Foo
-    </div>
-    <slot></slot>
-`;
+<cookie-banner
+    some-more-data="`${JSON.stringify({button:"OK", closeable:true})}`"
+    >
+    <h1 slot="headline"></h1>
+    ...
+    <button slot="buttons"></button>
+</cookie-banner>
+```
 
-FooComponent extends HTMLElement {
+Daten an die Komponente übergeben:
 
+- Attribute als String oder Boolean
+- inneres HTML zur Befüllung eines (oder mehrerer) Slots
+
+## Integration
+
+Interaktion mit JavaScript...
+
+```
+document.querySelector('cookie-banner')
+    // Attribute setzen
+    setAttribute('modification', 'default')
+    // custom events
+    .addEventListener('confirmed', e => {
+        if (e.target.hasAttribute('fullscreen')) {
+            e.target.removeAttribute('fullscreen')
+        }
+    })
+```
+
+## Technische Grundlagen
+
+- ***Custom Elements:*** API um eigene HTML Elemente zu schreiben oder bestehende zu erweitern
+- ***Shadow DOM:*** gekapseltes unabhängiges DOM, scoped CSS ermöglicht risikofreies Styling
+- ***HTML Templates:*** mit `<template>` Element HTML Vorlagen erstellen und im DOM hinterlegen, mit JS manipulieren und nutzen
+
+## Native HTML Elemente erweitern
+
+```
+class OkButton extends HTMLButtonElement {
+    constructor() {
+        super()
+        this.addEventListener('click', e => this.clickHandler(e.offsetX, e.offsetY))
+    }
+
+    clickHandler(x, y) {
+        console.log('click handler:', x, y)
+    }
+}
+
+customElements.define('ok-button', OkButton, {extends: 'button'})
+```
+
+## Native HTML Elemente erweitern
+
+```
+<button is="ok-button" class="p-4" onclick="console.log('button click');">OK</button>
+```
+
+<script>
+class OkButton extends HTMLButtonElement {
+    constructor() {
+        super()
+        this.addEventListener('click', e => this.clickHandler(e.offsetX, e.offsetY))
+    }
+
+    clickHandler(x, y) {
+        console.log('click handler:', x, y)
+    }
+}
+
+customElements.define('ok-button', OkButton, {extends: 'button'})
+</script>
+
+<button is="ok-button" class="p-4" onclick="console.log('button click');">OK</button>
+
+## Eigenständige Elemente erstellen
+
+```
+CookieBanner extends HTMLElement {
     constructor() {
         super();
+    }
+}
 
-        const template = document.createElement("template");
-        template.innerHTML = fooTemplate;
+window.customElements.define("cookie-banner", CookieBanner);
+```
 
-        if (!this.shadowRoot) {
-            this.attachShadow({ mode: "open" });
-            this.shadowRoot.appendChild(template.content.cloneNode(true));
-        }
+## Eigenständige Elemente erstellen
 
-        this.wrapper = this.$(".foo");
+```
+CookieBanner extends HTMLElement {
+    constructor() {
+        super();
     }
 
-    $(selector) {
-        return this.shadowRoot && this.shadowRoot.querySelector(selector);
-    }
-
-    connectedCallback() {
-        // if element added to DOM
-        this.render();
-    }
-
-    disconnectedCallback() {
-        // if element removed from DOM
-    }
-
-    adoptedCallback() {
-        // if element moved inside of DOM
-    }
+    connectedCallback() {}      // element added to DOM
+    disconnectedCallback() {}   // element removed from DOM
+    adoptedCallback() {}        // element moved inside of DOM
 
     static get observedAttributes() {
         // list of attributes to be watched
@@ -107,16 +163,73 @@ FooComponent extends HTMLElement {
     }
 
     attributeChangedCallback(name, oldVal, newVal) {
-        // if some attribute has changed
-    }
-
-    render() {
-        this.wrapper.textContent = this.getAttribute("title");
+        // some attribute has changed
     }
 }
 
-window.customElements.define("foo-component", FooComponent);
+window.customElements.define("cookie-banner", CookieBanner);
 ```
+
+
+## Shadow DOM
+
+```
+CookieBanner extends HTMLElement {
+    constructor() {
+        super();
+
+        const template = document.createElement("template");
+        template.innerHTML = `<style>:host { position: fixed; }</style><div><h1>Cookies</h1><slot name="buttons"></slot></div>`;
+
+        this.attachShadow({ mode: "open" });
+        this.shadowRoot.appendChild(template.content.cloneNode(true));
+        this.headline = this.shadowRoot.querySelector('h1');
+    }
+
+    connectedCallback() {
+        this.headline.textContent = this.getAttribute("headline");
+    }
+}
+```
+
+
+## Custom Elements erweitern
+
+```
+SuperCookieBanner extends CookieBanner {
+    constructor() {
+        super();
+    }
+}
+
+window.customElements.define("super-cookie-banner", SuperCookieBanner);
+```
+
+z.B. für A/B-Tests etc.
+
+## Hilfsmittel
+
+Einige Libraries wollen helfen, den Abstraktionslevel für custom elements zu erhöhen:
+
+- Polymer, LitElement
+- Slim.js, X-Tag
+- Angular, React, Svelte, Vue
+
+## Hilfsmittel?
+
+- langfristiges Projekt?
+- keine Bindung an Frameworks oder Bibliotheken erwünscht?
+
+> **⟿ nativ implementierte Web Components in Erwägung ziehen**
+
+> **⟿ progressive Lösungsansätze als Alternative zu IE11-Polyfills prüfen**
+
+
+
+
+
+
+
 
 
 
@@ -133,3 +246,10 @@ Können z.B. mit Storybook oder Fractal leicht entwickelt (Workbench) und dokume
 > Verwendung mit einem Design System daher ist empfehlenswert, insbesondere bei Projekten mit Microfrontend-Architektur.
 
 
+## Links
+
+- https://en.wikipedia.org/wiki/Web_Components
+- https://developers.google.com/web/fundamentals/web-components/customelements
+- https://html.spec.whatwg.org/multipage/indices.html#element-interfaces
+- https://developer.mozilla.org/en-US/docs/Web/API/HTMLButtonElement
+- https://itnext.io/handling-data-with-web-components-9e7e4a452e6e
