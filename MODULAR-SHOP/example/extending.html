@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <title>Beispiel</title>
+        <meta charset="utf-8" />
+        <meta name="robots" content="noindex, nofollow" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        
+        <style>
+            /* Critical CSS */
+            @font-face {
+                font-family: dax_otcond_black;
+                src: url(https://www.roller.de/_ui/roller/theme-roller/js/be1887cdb6d1888ecb17f1a36bff781b.woff) format("woff"), url(https://www.roller.de/_ui/roller/theme-roller/js/1d35c614b5bfdc460c038a762a935fea.ttf) format("truetype");
+                font-weight: 400;
+                font-style: normal;
+                font-display: swap;
+                unicode-range: U+21, U+23, U+25, U+2b-39, U+3f, U+41-5a, U+61-7a, U+b2, U+c4, U+d6, U+dc, U+df, U+e4, U+f6, U+fc, U+20ac
+            }
+        
+            @font-face {
+                font-family: dax_otcond_bold;
+                src: url(https://www.roller.de/_ui/roller/theme-roller/js/19c3c06830b3720701b025f9de190670.woff) format("woff"), url(https://www.roller.de/_ui/roller/theme-roller/js/51b9703cbbf90b6ca05a1b58e4e85051.ttf) format("truetype");
+                font-weight: 400;
+                font-style: normal;
+                font-display: swap
+            }
+        
+            @font-face {
+                font-family: dax_otcond_regular;
+                src: url(https://www.roller.de/_ui/roller/theme-roller/js/87929ec3f838571d2499ff33f6a7c62f.woff) format("woff"), url(https://www.roller.de/_ui/roller/theme-roller/js/b3e2d839ba691ec1046ba9e74946540b.ttf) format("truetype");
+                font-weight: 400;
+                font-style: normal;
+                font-display: swap
+            }
+        
+            html {
+                color: #22252a;
+                /* font-family: sans-serif; */
+                font-family: BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+                font-size: 10px;
+                line-height: 1.15;
+                text-rendering: optimizeLegibility;
+                -webkit-font-smoothing: antialiased;
+            }
+        
+            p {
+                font-size: 1.8rem;
+                line-height: 1.8;
+                margin: 0;
+                margin-bottom: 1.6rem;
+            }
+        
+            button {
+                background-color: #006ab3;
+                border: 1px solid #666666;
+                color: white;
+                padding: 4px;
+            }
+
+            .hero-banner {
+                background-color: #006ab3;
+                box-shadow: 0.2rem 0.2rem 0 rgba(0, 0, 0, .5);
+                width: fit-content;
+                max-width: 300px;
+                text-align: center;
+            }
+        
+            .hero-banner.--h1 {
+                background-color: #e2001a;
+                color: white;
+                /* font-family: sans-serif; */
+                font-family: dax_otcond_black, BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+                font-size: 4rem;
+                line-height: 2rem;
+                padding: 1.6rem 2rem;
+                transform: rotate(-2deg);
+            }
+        
+            .hero-banner.--h2 {
+                color: white;
+                /* font-family: sans-serif; */
+                font-family: dax_otcond_black, BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+                font-size: 2.4rem;
+                line-height: 1.6rem;
+                padding: 1.2rem 1.5rem;
+            }
+        
+            .product-list {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+            }
+           
+        </style>
+
+        <!-- This loads the example on IE11 -->
+        <script
+        nomodule
+        src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.min.js"
+        ></script>
+        <script nomodule src="./js/nomodule.js"></script>
+
+        <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap@4.3.1/dist/css/bootstrap.min.css" />
+    </head>
+
+    <body>
+        <div class="container-fluid bg-secondary">
+            <div class="row mb-5">
+              <div class="col p-5">
+                <h1 class="ui-headline hero-banner --h1 mx-auto">HTML ELemente</h1>
+                <h2 class="ui-headline hero-banner --h2 mx-auto mt-n2">native Elemente erweitern</h2>
+              </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col pb-4">
+                    <button is="confirmation-button" class="p-4" onclick="console.log('button click');">OK</button>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            // https://html.spec.whatwg.org/multipage/indices.html#element-interfaces
+            class ConfirmationButton extends HTMLButtonElement {
+                constructor() {
+                    super()
+                    this.addEventListener('click', e => this.clickHandler(e.offsetX, e.offsetY));
+                }
+
+                clickHandler(x, y) {
+                    console.log('click handler:', x, y)
+                }
+            }
+
+            customElements.define('confirmation-button', ConfirmationButton, {extends: 'button'});
+        </script>
+    </body>
+</html>
