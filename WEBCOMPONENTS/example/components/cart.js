@@ -49,7 +49,7 @@ class Cart extends HTMLElement {
 
     attributeChangedCallback(name, oldVal, newVal) {
         console.log(
-            `%Cart component - attribute changed: ${name} ${newVal}`,
+            `%cCart component - attribute changed: ${name} ${newVal}`,
             "color: lightgray;"
         );
         const changeableAttributes = ["total-number-of-items"];
