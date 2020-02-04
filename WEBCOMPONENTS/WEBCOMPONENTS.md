@@ -36,8 +36,9 @@
 ## Vorteile von Web Components
 
 1. durch eigenen Scope unabhängiges und stabiles Layout
-2. universell einsetzbar (SSR, JS, Vue, GTM, A/B)
-3. lassen sich wie natürliche HTML-Elemente verwenden
+2. einfache Integration in das HTML-Markup
+3. dadurch universell einsetzbar (SSR, JS, Vue, GTM, A/B)
+4. lassen sich wie natürliche HTML-Elemente verwenden
 
 ## Daten übergeben
 
