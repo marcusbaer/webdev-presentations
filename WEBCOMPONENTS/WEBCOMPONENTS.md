@@ -89,6 +89,23 @@ document.querySelector('cookie-banner')
 - ***Shadow DOM:*** gekapseltes unabhängiges DOM, scoped CSS ermöglicht risikofreies Styling
 - ***HTML Templates:*** mit `<template>` Element HTML Vorlagen erstellen und im DOM hinterlegen, mit JS manipulieren und nutzen
 
+
+## Styling
+
+- Elemente im Shadow DOM vor Zugriff von außen geschützt
+- Komponenten-Wurzel von außen stylebar
+- definierte Modifikationen über CSS-Variablen (Aktionswochen)
+
+```
+:host { /* in Komponente der Root */ }
+headline-component { /* stärker als Root */ }
+
+:root, headline-component { --border-color: red; }
+```
+
+[Styling einer Web Component](../WEBCOMPONENTS/example/styling.html)
+
+
 ## Native HTML Elemente erweitern
 
 ```

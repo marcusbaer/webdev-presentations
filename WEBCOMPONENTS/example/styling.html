@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="de">
     <head>
-        <title>HTMLButtonElement</title>
+        <title>Styling</title>
         <meta charset="utf-8" />
         <meta name="robots" content="noindex, nofollow" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -87,14 +87,33 @@
                 padding: 1.2rem 1.5rem;
             }
         
-            .product-list {
-                list-style-type: none;
-                margin: 0;
-                padding: 0;
+            :root {
+                /* --background-color: lightgreen; */
             }
-           
-        </style>
 
+            headline-component {
+                padding: 1rem;
+                /* border: 1px solid darkblue; */
+                /* --border-color: blue; */
+                /* background-color: lightblue; */
+            }
+
+            headline-component h1 {
+                /* color: green; */
+            }
+        
+            .bg-yellow {
+                background-color: lightyellow;
+            }
+
+            h1 {
+                color: blue;
+            }
+
+            .uppercase {
+                text-transform: uppercase;
+            }
+    </style>
         <!-- This loads the example on IE11 -->
         <script
         nomodule
@@ -109,33 +128,74 @@
         <div class="container-fluid bg-secondary">
             <div class="row mb-5">
               <div class="col p-5">
-                <h1 class="ui-headline hero-banner --h1 mx-auto">HTML ELemente</h1>
-                <h2 class="ui-headline hero-banner --h2 mx-auto mt-n2">native Elemente erweitern</h2>
+                <h1 class="ui-headline hero-banner --h1 mx-auto">Komponenten</h1>
+                <h2 class="ui-headline hero-banner --h2 mx-auto mt-n2">... stylen</h2>
               </div>
             </div>
         </div>
         <div class="container">
             <div class="row">
                 <div class="col pb-4">
-                    <button is="confirmation-button" class="p-4" onclick="console.log('button click');">OK</button>
+                    <h1 class="underline uppercase">Headline ohne Komponente</h1>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col pb-4">
+                    <headline-component class="xbg-yellow">
+                        <h1 class="underline uppercase">Headline von außen</h1>
+                    </headline-component>
                 </div>
             </div>
         </div>
 
         <script>
-            // https://html.spec.whatwg.org/multipage/indices.html#element-interfaces
-            class ConfirmationButton extends HTMLButtonElement {
+            class Headline extends HTMLElement {
                 constructor() {
-                    super()
-                    this.addEventListener('click', e => this.clickHandler(e.offsetX, e.offsetY));
+                    super();
+
+                    const template = document.createElement("template");
+        template.innerHTML = `<style>:host {
+            display: block;                
+            border: 2px solid var(--border-color, red);
+        }
+        xslot { display: none; }
+        h1 { color: red; background-color: var(--background-color, unset); }
+        
+        .underline { text-decoration: underline; }
+        </style><slot></slot><h1 class="underline uppercase">Headline im Schatten</h1><hr><div></div>`;
+
+                    if (!this.shadowRoot) {
+                        this.attachShadow({ mode: "open" });
+                        this.shadowRoot.appendChild(template.content.cloneNode(true));
+                    }
                 }
 
-                clickHandler(x, y) {
-                    console.log('click handler:', x, y)
+                connectedCallback() { // element added to DOM
+                    const H1 = this.$slot("H1");
+                    this.$("div").appendChild(H1.cloneNode(true));
+                }
+
+                disconnectedCallback() {}   // element removed from DOM
+                adoptedCallback() {}        // element moved inside of DOM
+
+                $(selector) {
+                    return this.shadowRoot && this.shadowRoot.querySelector(selector);
+                }
+
+                $slot(selector) {
+                    const slot = this.$("slot");
+                    selector = selector.toUpperCase();
+                    const [matchingNode] = slot.assignedNodes().filter(node => {
+                    return node.nodeName == selector;
+                    });
+
+                    return matchingNode || null;
                 }
             }
 
-            customElements.define('confirmation-button', ConfirmationButton, {extends: 'button'});
+            customElements.define('headline-component', Headline);
         </script>
     </body>
 </html>
