@@ -25,7 +25,7 @@
 </cookie-banner>
 ```
 
-## Geschichte
+## Anfänge
 
 - ursprünglich 2011 auf der [Fronteers Conference](https://fronteers.nl/congres/2011/sessions/web-components-and-model-driven-views-alex-russell) eingeführt
 - in letzten Jahren eng mit Polymer verknüpft
@@ -272,3 +272,6 @@ Können z.B. mit Storybook oder Fractal leicht entwickelt und dokumentiert werde
 - [Element Interfaces](https://html.spec.whatwg.org/multipage/indices.html#element-interfaces)
 - [HTMLButtonElement Web API](https://developer.mozilla.org/en-US/docs/Web/API/HTMLButtonElement)
 - [Handling data with web components](https://itnext.io/handling-data-with-web-components-9e7e4a452e6e)
+- [LitElement](https://lit-element.polymer-project.org/)
+- [Tagged Templates](https://developers.google.com/web/updates/2015/01/ES6-Template-Strings#tagged_templates)
+- [Event Handling in Web Components](https://lit-element.polymer-project.org/guide/events)
