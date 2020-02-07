@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <title>SEO</title>
+        <meta charset="utf-8" />
+        <meta name="robots" content="noindex, nofollow" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+
+        <style>
+            /* Critical CSS */
+            @font-face {
+                font-family: dax_otcond_black;
+                src: url(https://www.roller.de/_ui/roller/theme-roller/js/be1887cdb6d1888ecb17f1a36bff781b.woff) format("woff"), url(https://www.roller.de/_ui/roller/theme-roller/js/1d35c614b5bfdc460c038a762a935fea.ttf) format("truetype");
+                font-weight: 400;
+                font-style: normal;
+                font-display: swap;
+                unicode-range: U+21, U+23, U+25, U+2b-39, U+3f, U+41-5a, U+61-7a, U+b2, U+c4, U+d6, U+dc, U+df, U+e4, U+f6, U+fc, U+20ac
+            }
+        
+            @font-face {
+                font-family: dax_otcond_bold;
+                src: url(https://www.roller.de/_ui/roller/theme-roller/js/19c3c06830b3720701b025f9de190670.woff) format("woff"), url(https://www.roller.de/_ui/roller/theme-roller/js/51b9703cbbf90b6ca05a1b58e4e85051.ttf) format("truetype");
+                font-weight: 400;
+                font-style: normal;
+                font-display: swap
+            }
+        
+            @font-face {
+                font-family: dax_otcond_regular;
+                src: url(https://www.roller.de/_ui/roller/theme-roller/js/87929ec3f838571d2499ff33f6a7c62f.woff) format("woff"), url(https://www.roller.de/_ui/roller/theme-roller/js/b3e2d839ba691ec1046ba9e74946540b.ttf) format("truetype");
+                font-weight: 400;
+                font-style: normal;
+                font-display: swap
+            }
+        
+            html {
+                color: #22252a;
+                /* font-family: sans-serif; */
+                font-family: BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+                font-size: 10px;
+                line-height: 1.15;
+                text-rendering: optimizeLegibility;
+                -webkit-font-smoothing: antialiased;
+            }
+        
+            p {
+                font-size: 1.8rem;
+                line-height: 1.8;
+                margin: 0;
+                margin-bottom: 1.6rem;
+            }
+        
+            button {
+                background-color: #006ab3;
+                border: 1px solid #666666;
+                color: white;
+                padding: 4px;
+            }
+
+            .hero-banner {
+                background-color: #006ab3;
+                box-shadow: 0.2rem 0.2rem 0 rgba(0, 0, 0, .5);
+                width: fit-content;
+                max-width: 300px;
+                text-align: center;
+            }
+        
+            .hero-banner.--h1 {
+                background-color: #e2001a;
+                color: white;
+                /* font-family: sans-serif; */
+                font-family: dax_otcond_black, BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+                font-size: 4rem;
+                line-height: 2rem;
+                padding: 1.6rem 2rem;
+                transform: rotate(-2deg);
+            }
+        
+            .hero-banner.--h2 {
+                color: white;
+                /* font-family: sans-serif; */
+                font-family: dax_otcond_black, BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+                font-size: 2.4rem;
+                line-height: 1.6rem;
+                padding: 1.2rem 1.5rem;
+            }
+        
+            seo-product {
+                display: block;
+                padding: 10px;
+            }
+        </style>
+
+        <script type="module" src="./components/seo-product.js"></script>
+        <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap@4.3.1/dist/css/bootstrap.min.css" />
+    </head>
+
+    <body>
+        <div class="container-fluid bg-secondary">
+            <div class="row mb-5">
+              <div class="col p-5">
+                <h1 class="ui-headline hero-banner --h1 mx-auto">Komponenten</h1>
+                <h2 class="ui-headline hero-banner --h2 mx-auto mt-n2">... und SEO</h2>
+              </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col col-lg-6 px-2">
+                    <seo-product>
+                    </seo-product>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
