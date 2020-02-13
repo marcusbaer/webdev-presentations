@@ -4,6 +4,8 @@
 
 > Webkomponenten sind eine Gruppe von Funktionen, die ein Standardkomponentenmodell für das Web bereitstellen und die Kapselung und Interoperabilität einzelner HTML-Elemente ermöglichen.
 
+> Unterstützt von allen gängigen Browsern. Für IE11 werden Polyfills benötigt.
+
 ## Was kann man damit machen?
 
 ```
@@ -37,7 +39,7 @@
 
 1. durch eigenen Scope unabhängiges und stabiles Layout
 2. einfache Integration in das HTML-Markup
-3. dadurch universell einsetzbar (SSR, JS, Vue, GTM, A/B)
+3. dadurch universell einsetzbar (Templates, SSR, JS, Vue, GTM, A/B)
 4. lassen sich wie natürliche HTML-Elemente verwenden
 
 ## Daten übergeben
@@ -131,7 +133,6 @@ customElements.define(
     { extends: 'button' }
 )
 ```
-
 
 ## Native HTML Elemente erweitern
 
@@ -229,6 +230,109 @@ window.customElements.define("super-cookie-banner",
 
 z.B. für A/B-Tests etc.
 
+## Architektur-Ansätze
+
+https://medium.com/patternfly-elements/web-components-and-seo-58227413e072
+
+- Light DOM Approach
+- Shadow DOM with a Slot Approach
+- Attribute Approach
+
+### Light DOM Approach
+
+shadow root with a slot that will accept anything.
+
+```
+class WcHeaderLightDom extends HTMLElement {
+  constructor() {
+    super();
+
+    this.attachShadow({ mode: "open" });
+    this.shadowRoot.innerHTML = `
+      <style>
+        :host {
+          display: block;
+        }
+      </style>
+      <slot></slot>
+    `;
+  }
+}
+
+window.customElements.define("wc-header-light-dom", WcHeaderLightDom);
+
+<wc-header-light-dom>
+  <h2>Header in the Light DOM</h2>
+</wc-header-light-dom>
+```
+
+### Shadow DOM with a Slot Approach
+
+component has a shadow root with an H2 and a slot inside the H2 for the text.
+
+```
+class WcHeaderJustSlot extends HTMLElement {
+  constructor() {
+    super();
+
+    this.attachShadow({ mode: "open" });
+    this.shadowRoot.innerHTML = `
+      <style>
+        :host {
+          display: block;
+        }
+      </style>
+      <h2><slot></slot></h2>
+    `;
+  }
+}
+
+window.customElements.define("wc-header-just-slot", WcHeaderJustSlot);
+
+<wc-header-just-slot>
+  Header with Just a Slot
+</wc-header-just-slot>
+```
+
+### Attribute Approach
+
+component has a shadow root with an H2 and no slot. on attribute change, set textContent property of H2 in the shadow root.
+
+```
+class WcHeaderNoSlot extends HTMLElement {
+  static get observedAttributes() {
+    return ["text"];
+  }
+
+  constructor() {
+    super();
+
+    this.attachShadow({ mode: "open" });
+    this.shadowRoot.innerHTML = `
+      <style>
+        :host {
+          display: block;
+        }
+      </style>
+      <h2></h2>
+    `;
+  }
+
+  attributeChangedCallback(attr, oldValue, newValue) {
+    this.shadowRoot.querySelector("h2").textContent = newValue;
+  }
+}
+
+window.customElements.define("wc-header-no-slot", WcHeaderNoSlot);
+
+<wc-header-no-slot text="Header without a Slot"></wc-header-no-slot>
+```
+
+## SEO
+
+> Light DOM Approach is working best, https://medium.com/patternfly-elements/web-components-and-seo-58227413e072
+
+
 ## Hilfsmittel
 
 Einige Libraries wollen helfen, den Abstraktionslevel für custom elements zu erhöhen:
@@ -246,6 +350,7 @@ Einige Libraries wollen helfen, den Abstraktionslevel für custom elements zu er
 
 > **⟿ progressive Lösungsansätze als Alternative zu IE11-Polyfills prüfen**
 
+Native Web Components benötigen keinen Buildprozess und erlauben eine freie Auswahl des Implementierungsorts: statisches FE, GTM, A/B, ...
 
 ## Design Systeme
 
@@ -259,7 +364,13 @@ Können z.B. mit Storybook oder Fractal leicht entwickelt und dokumentiert werde
 
 ## Design Systeme
 
-> Verwendung von Web Components mit einem Design System ist empfehlenswert, insbesondere bei Projekten mit Microfrontend-Architektur.
+> Verwendung von Web Components mit einem Design System ist empfehlenswert, insbesondere bei Projekten mit Micro Frontend-Architektur.
+
+![3 Teams](./three-teams.png)
+
+![Verantwortungsbereiche](./3-Verantwortlichkeiten-c-michael-geers-Icons-by-Freepik-from-flaticon-com-620x305.png)
+
+> https://micro-frontends.org/
 
 ##
 
@@ -275,3 +386,10 @@ Können z.B. mit Storybook oder Fractal leicht entwickelt und dokumentiert werde
 - [LitElement](https://lit-element.polymer-project.org/)
 - [Tagged Templates](https://developers.google.com/web/updates/2015/01/ES6-Template-Strings#tagged_templates)
 - [Event Handling in Web Components](https://lit-element.polymer-project.org/guide/events)
+- [Are Web Components useable in IE11 and Edge](https://stackoverflow.com/questions/47902255/are-web-components-actually-useable-in-ie11-and-edge)
+- [Web Components and SEO](https://medium.com/patternfly-elements/web-components-and-seo-58227413e072)
+- [Micro Frontends](https://micro-frontends.org/)
+
+## Hinweise
+
+- Bundling: automatisches Babel-Polyfill für Transpiling Ding von Marvin oder @babel/polyfill für alle Polyfills
