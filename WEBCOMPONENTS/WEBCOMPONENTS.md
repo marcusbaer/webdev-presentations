@@ -389,6 +389,7 @@ Können z.B. mit Storybook oder Fractal leicht entwickelt und dokumentiert werde
 - [Are Web Components useable in IE11 and Edge](https://stackoverflow.com/questions/47902255/are-web-components-actually-useable-in-ie11-and-edge)
 - [Web Components and SEO](https://medium.com/patternfly-elements/web-components-and-seo-58227413e072)
 - [Micro Frontends](https://micro-frontends.org/)
+- [Lets Build ...](https://dev.to/bennypowers/lets-build-web-components-part-3-vanilla-components-4on3)
 
 ## Hinweise
 
