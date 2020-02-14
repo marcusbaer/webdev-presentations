@@ -17,8 +17,11 @@ template.innerHTML = `
     h1 {
         color: var(--shadow-tree, orange);
     }
-    ::slotted(p) {
-        color: var(--shadow-tree, green);
+    p {
+        font-style: italic;
+    }
+    ::slotted(h1), ::slotted(p) {
+        color: var(--shadow-tree-override, blue);
     }
   </style>
   <h1>[shadow tree h1]</h1>
