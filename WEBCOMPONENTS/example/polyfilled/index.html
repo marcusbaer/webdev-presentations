@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>polyfilled</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://unpkg.com/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+    <script src="https://unpkg.com/prismjs/prism.js"></script>
+    <script defer src="lorem-ipsum.js"></script>
+    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/prismjs/themes/prism.css">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    
+    <pre>
+        <h3>&lt;lorem-ipsum&gt; Shadow Contents:</h3>
+        <code id="output"></code>
+    </pre> 
+
+    <lorem-ipsum name="Kitty">
+        <h1>light tree h1</h1>
+        <!-- <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua</p> -->
+        <!-- <img src="https://placekitten.com/200/100"/> -->
+        <h1 slot="headline">headline slot h1</h1>
+    </lorem-ipsum>
+    
+  </body>
+</html>
