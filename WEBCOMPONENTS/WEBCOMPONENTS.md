@@ -146,6 +146,8 @@ customElements.define(
 
 [Beispiel mit nativem HTML Element](../WEBCOMPONENTS/example/button.html)
 
+Safari hat beschlossen, customized built-in elements nicht zu implementieren.
+
 ## Eigenständige Elemente erstellen
 
 ```
@@ -328,6 +330,12 @@ window.customElements.define("wc-header-no-slot", WcHeaderNoSlot);
 <wc-header-no-slot text="Header without a Slot"></wc-header-no-slot>
 ```
 
+## Lazy Image Example
+
+- https://dev.to/bennypowers/lets-build-web-components-part-3-vanilla-components-4on3
+- https://github.com/bennypowers/lazy-image
+
+
 ## SEO
 
 > Light DOM Approach is working best, https://medium.com/patternfly-elements/web-components-and-seo-58227413e072
@@ -388,6 +396,7 @@ Können z.B. mit Storybook oder Fractal leicht entwickelt und dokumentiert werde
 - [Event Handling in Web Components](https://lit-element.polymer-project.org/guide/events)
 - [Are Web Components useable in IE11 and Edge](https://stackoverflow.com/questions/47902255/are-web-components-actually-useable-in-ie11-and-edge)
 - [Web Components and SEO](https://medium.com/patternfly-elements/web-components-and-seo-58227413e072)
+- [customized built-in not in Safari](https://developers.google.com/web/fundamentals/web-components/customelements#extendhtml)
 - [Micro Frontends](https://micro-frontends.org/)
 - [Lets Build ...](https://dev.to/bennypowers/lets-build-web-components-part-3-vanilla-components-4on3)
 
