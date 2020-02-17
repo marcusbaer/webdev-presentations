@@ -357,11 +357,11 @@ Einige Libraries wollen helfen, den Abstraktionslevel für custom elements zu er
 - langfristiges Projekt?
 - keine Bindung an Frameworks oder Bibliotheken erwünscht?
 
-> **⟿ nativ implementierte Web Components in Erwägung ziehen**
+> **⟿ Vanilla Web Components in Erwägung ziehen**
 
 > **⟿ progressive Lösungsansätze als Alternative zu IE11-Polyfills prüfen**
 
-Native Web Components benötigen keinen Buildprozess und erlauben eine freie Auswahl des Implementierungsorts: statisches FE, GTM, A/B, ...
+Vanilla Web Components benötigen keinen Buildprozess und erlauben eine freie Auswahl des Implementierungsorts: statisches FE, GTM, A/B, ...
 
 ## Design Systeme
 
@@ -372,6 +372,7 @@ Können z.B. mit Storybook oder Fractal leicht entwickelt und dokumentiert werde
 - Welche Attribute vorhanden?
 - Welche Slots?
 - Welche Event-Listener zur Kommunikation nach außen?
+- [Web Component Analyzer](https://github.com/runem/web-component-analyzer) & Storybook ([Playground](https://runem.github.io/web-component-analyzer/))
 
 ## Design Systeme
 
@@ -391,6 +392,7 @@ Können z.B. mit Storybook oder Fractal leicht entwickelt und dokumentiert werde
 - [Wikipedia](https://en.wikipedia.org/wiki/Web_Components)
 - [Ein Blick auf Web Components](https://blog.codecentric.de/2018/10/ein-blick-auf-web-components/)
 - [Custom Elements](https://developers.google.com/web/fundamentals/web-components/customelements)
+- [Using Custom Elements](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements)
 - [Element Interfaces](https://html.spec.whatwg.org/multipage/indices.html#element-interfaces)
 - [HTMLButtonElement Web API](https://developer.mozilla.org/en-US/docs/Web/API/HTMLButtonElement)
 - [Handling data with web components](https://itnext.io/handling-data-with-web-components-9e7e4a452e6e)
