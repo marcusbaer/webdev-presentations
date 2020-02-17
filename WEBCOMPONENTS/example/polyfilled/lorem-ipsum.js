@@ -8,7 +8,7 @@ template.innerHTML = `
         padding: var(--padding, 1rem);
     }
     :host([name]) {
-
+        background-color: var(--bg-color, #dcc);
     }
     ::slotted(*) {
         border-left: 3px dashed var(--light-tree, red);
@@ -29,6 +29,7 @@ template.innerHTML = `
   <div>
     <slot>[unnamed slot]</slot>
   </div>
+  <button>OK</button>
   <p id="name">your name here</p>
 `;
 
@@ -38,7 +39,8 @@ class LoremIpsum extends HTMLElement {
 
     constructor() {
         super();
-        this.name = 'Default Name';
+        this.name = null;
+        this.confirmWithButton = this.confirmWithButton.bind(this);
     }
 
     $(selector) {
@@ -52,6 +54,10 @@ class LoremIpsum extends HTMLElement {
             this.attachShadow({mode: 'open'});
             this.shadowRoot.appendChild(template.content.cloneNode(true));
             this.nameNode = this.$("#name");
+            this.buttonNode = this.$("button");
+
+            this.buttonNode.addEventListener('click', this.confirmWithButton);
+
             this.name = this.getAttribute('name');
         }
 
@@ -75,7 +81,17 @@ class LoremIpsum extends HTMLElement {
     }
     
     get name() {
-        return this.getAttribute('name').toUpperCase();
+        const name = this.getAttribute('name') || '';
+        return name.toUpperCase();
+    }
+
+    confirmWithButton(event) {
+        let custom = new CustomEvent('button-confirmed', {
+            detail: {
+              event
+            }
+        });
+        this.dispatchEvent(custom);
     }
 
     render() {

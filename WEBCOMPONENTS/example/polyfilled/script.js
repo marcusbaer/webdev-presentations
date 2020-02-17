@@ -12,5 +12,9 @@ const updateMarkdown = (e) =>
 
 const observer = new MutationObserver(updateMarkdown);
 
+loremIpsum.addEventListener('button-confirmed', (event) => {
+    console.log(event);
+})
+
 observer.observe(loremIpsum, { attributes: true, childList: true, subtree: true });
 WebComponents.waitFor(() => setTimeout(updateMarkdown));

@@ -54,7 +54,7 @@
 ```
 
 - Attribute als String oder Boolean
-- inneres HTML zur Befüllung eines (oder mehrerer) Slots
+- inneres HTML zur Befüllung eines (oder mehrerer) (benamter) Slots
 
 ## Daten übergeben
 
@@ -100,7 +100,10 @@ document.querySelector('cookie-banner')
 
 ```
 :host { /* in Komponente der Root */ }
-headline-component { /* stärker als Root */ }
+:host([attribute]) { /* Komponente mit Attribut */ }
+::slotted(*) { /* alle Elemente des Slots */ }
+
+headline-component { /* stärker als Root und slotted */ }
 
 :root, headline-component { --border-color: red; }
 ```
