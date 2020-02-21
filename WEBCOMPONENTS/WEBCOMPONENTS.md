@@ -68,7 +68,7 @@
 ```
 
 - Attribute als String oder Boolean
-- inneres HTML zur Befüllung eines (oder mehrerer) Slots
+- inneres HTML zur Befüllung eines (oder mehrerer) (benamter) Slots
 
 ## Interaktion mit JavaScript
 
@@ -237,8 +237,6 @@ z.B. für A/B-Tests etc.
 
 ## Architektur-Ansätze
 
-https://medium.com/patternfly-elements/web-components-and-seo-58227413e072
-
 - Light DOM Approach
 - Shadow DOM with a Slot Approach
 - Attribute Approach
@@ -333,12 +331,6 @@ window.customElements.define("wc-header-no-slot", WcHeaderNoSlot);
 <wc-header-no-slot text="Header without a Slot"></wc-header-no-slot>
 ```
 
-## Lazy Image Example
-
-- https://dev.to/bennypowers/lets-build-web-components-part-3-vanilla-components-4on3
-- https://github.com/bennypowers/lazy-image
-
-
 ## SEO
 
 > Light DOM Approach is working best, https://medium.com/patternfly-elements/web-components-and-seo-58227413e072
@@ -349,7 +341,7 @@ window.customElements.define("wc-header-no-slot", WcHeaderNoSlot);
 Einige Libraries wollen helfen, den Abstraktionslevel für custom elements zu erhöhen:
 
 - Polymer, LitElement
-- Slim.js, X-Tag
+- Slim.js, X-Tag, Stencil
 - Angular, React, Svelte, Vue
 
 ## Hilfsmittel?
@@ -374,6 +366,9 @@ Können z.B. mit Storybook oder Fractal leicht entwickelt und dokumentiert werde
 - Welche Event-Listener zur Kommunikation nach außen?
 - [Web Component Analyzer](https://github.com/runem/web-component-analyzer) & Storybook ([Playground](https://runem.github.io/web-component-analyzer/))
 
+
+##
+
 ## Design Systeme
 
 > Verwendung von Web Components mit einem Design System ist empfehlenswert, insbesondere bei Projekten mit Micro Frontend-Architektur.
@@ -383,8 +378,6 @@ Können z.B. mit Storybook oder Fractal leicht entwickelt und dokumentiert werde
 ![Verantwortungsbereiche](./3-Verantwortlichkeiten-c-michael-geers-Icons-by-Freepik-from-flaticon-com-620x305.png)
 
 > https://micro-frontends.org/
-
-##
 
 
 ## Links
@@ -404,6 +397,7 @@ Können z.B. mit Storybook oder Fractal leicht entwickelt und dokumentiert werde
 - [customized built-in not in Safari](https://developers.google.com/web/fundamentals/web-components/customelements#extendhtml)
 - [Micro Frontends](https://micro-frontends.org/)
 - [Lets Build ...](https://dev.to/bennypowers/lets-build-web-components-part-3-vanilla-components-4on3)
+- [Lazy Image](https://github.com/bennypowers/lazy-image)
 
 ## Hinweise
 
