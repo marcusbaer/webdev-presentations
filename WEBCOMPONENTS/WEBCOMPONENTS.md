@@ -398,6 +398,8 @@ Können z.B. mit Storybook oder Fractal leicht entwickelt und dokumentiert werde
 - [Micro Frontends](https://micro-frontends.org/)
 - [Lets Build ...](https://dev.to/bennypowers/lets-build-web-components-part-3-vanilla-components-4on3)
 - [Lazy Image](https://github.com/bennypowers/lazy-image)
+- [Storybook HTML](http://derhess.de/2019/04/22/storybook-html-tutorial-part-3-handlebarjs-and-sass-integration/)
+- [Combine WC with Storybook](https://medium.com/storybookjs/how-to-combine-web-components-with-storybook-a-match-made-in-heaven-9d9939eedc76)
 
 ## Hinweise
 
