@@ -35,6 +35,12 @@
 - inzwischen aber in den meisten aktuellen Browsern angekommen
 - veralteter Browser wird über JS-Polyfills unterstützt
 
+## Status quo
+
+> Since web components are now widely supported — and considering the imminent switch that Edge will make to the chromium platform — people are now thinking about web components as "native" and a platform-compliant way to build reusable UI components to keep consistency across design systems and web projects, while using the power of the Shadow DOM to encapsulate style and logics inside the component itself.
+
+https://www.hackdoor.io/articles/5kQdnVND/making-web-components-for-different-contexts
+
 ## Vorteile von Web Components
 
 1. durch eigenen Scope unabhängiges und stabiles Layout
@@ -382,6 +388,10 @@ Können z.B. mit Storybook oder Fractal leicht entwickelt und dokumentiert werde
 
 ## Links
 
+- [Making Web Componentents for different contexts](https://www.hackdoor.io/articles/5kQdnVND/making-web-components-for-different-contexts)
+- [An Introduction to Web Components](https://css-tricks.com/an-introduction-to-web-components/)
+- [Self contained WC](https://developers.google.com/web/fundamentals/web-components/shadowdom)
+- [WC The right way](https://github.com/mateusortiz/webcomponents-the-right-way)
 - [Wikipedia](https://en.wikipedia.org/wiki/Web_Components)
 - [Ein Blick auf Web Components](https://blog.codecentric.de/2018/10/ein-blick-auf-web-components/)
 - [Custom Elements](https://developers.google.com/web/fundamentals/web-components/customelements)
