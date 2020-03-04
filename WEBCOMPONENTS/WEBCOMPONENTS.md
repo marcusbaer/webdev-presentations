@@ -35,11 +35,19 @@
 - inzwischen aber in den meisten aktuellen Browsern angekommen
 - veralteter Browser wird über JS-Polyfills unterstützt
 
-## Status quo
+## Status Quo
 
 > Since web components are now widely supported — and considering the imminent switch that Edge will make to the chromium platform — people are now thinking about web components as "native" and a platform-compliant way to build reusable UI components to keep consistency across design systems and web projects, while using the power of the Shadow DOM to encapsulate style and logics inside the component itself.
 
+> Well, this can be true and false at the same time.
+
 https://www.hackdoor.io/articles/5kQdnVND/making-web-components-for-different-contexts
+
+## Abstraction Layers Triangle
+
+![Abstraction Layer Triangle](./abstraction-layer-triangle.png)
+
+Technically, we should consider web components as an extension of our favorite markup language, HTML (yep!). The Web Components API allows us to create custom HTML elements (e.g. <foo-bar>) that don’t exist in HTML.
 
 ## Vorteile von Web Components
 
@@ -109,10 +117,18 @@ document.querySelector('cookie-banner')
 :host([attribute]) { /* Komponente mit Attribut */ }
 ::slotted(*) { /* alle Elemente des Slots */ }
 
+https://meowni.ca/posts/part-theme-explainer/
+::part
+::theme
+::explainer
+
 headline-component { /* stärker als Root und slotted */ }
 
 :root, headline-component { --border-color: red; }
 ```
+
+
+
 
 [Styling einer Web Component](../WEBCOMPONENTS/example/styling.html)
 
@@ -392,6 +408,8 @@ Können z.B. mit Storybook oder Fractal leicht entwickelt und dokumentiert werde
 - [An Introduction to Web Components](https://css-tricks.com/an-introduction-to-web-components/)
 - [Self contained WC](https://developers.google.com/web/fundamentals/web-components/shadowdom)
 - [WC The right way](https://github.com/mateusortiz/webcomponents-the-right-way)
+- [::part and ::theme, an ::explainer](https://meowni.ca/posts/part-theme-explainer/)
+
 - [Wikipedia](https://en.wikipedia.org/wiki/Web_Components)
 - [Ein Blick auf Web Components](https://blog.codecentric.de/2018/10/ein-blick-auf-web-components/)
 - [Custom Elements](https://developers.google.com/web/fundamentals/web-components/customelements)
@@ -414,3 +432,7 @@ Können z.B. mit Storybook oder Fractal leicht entwickelt und dokumentiert werde
 ## Hinweise
 
 - Bundling: automatisches Babel-Polyfill für Transpiling Ding von Marvin oder @babel/polyfill für alle Polyfills
+
+## NOTES
+
+- Contexte beachten: private (design system), standard (plain HTML, CSS without custom styles)
