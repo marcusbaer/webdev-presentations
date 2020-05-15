@@ -2,7 +2,7 @@
 
 ![deno](https://denolib.github.io/animated-deno-logo/deno-circle-thunder.gif)
 
-# Kritik an NodeJS
+## Kritik an NodeJS
 
 * Design Mistakes in Node, Ryan Dahl @ JS Conf Berlin 2018
 	* Promises
@@ -15,16 +15,16 @@
 		* zentrales Repository unter privater (kommerzieller) Kontrolle schränkt Freiheit der Entwickler ein
 	* extreme Komplexität der Modulauflösung
 
-# Was ist Deno?
+## Was ist Deno?
 
 * Projekt im Mai 2018 gestartet 
 * „A secure JavaScript/TypeScript runtime built with V8, Rust and Tokio“
 * basiert auf V8
 * in Rust geschrieben (NodeJS in C und C++), verspricht viel Leistung
 * Asynchronität mit Tokio, [Tokio - The asynchronous run-time for the Rust programming language.](https://tokio.rs/)
-* intensive Weiterentwicklung im letzten Jahr
+* intensive Weiterentwicklung im letzten Jahr, Deno 1.0 erscheint demnächst
 
-# Was ist anders?
+## Was ist anders?
 
 * keine package.json, kein node_modules
 * keine Abhängigkeiten und Auflösungen dieser
@@ -37,7 +37,7 @@
 * Deno ist eigenständiges ausführbares Programm ohne externe Abhängigkeiten
 * und weitere Unterschiede… [Deno Manual](https://deno.land/manual.html#goals)
 
-# Get started
+## Get started
 
 ```
 curl -fsSL https://deno.land/x/install/install.sh | sh
@@ -53,10 +53,10 @@ Dateien/Module werden heruntergeladen und lokal gecached. Aktualisieren mit:
 
 > deno myprogram.ts --reload
 
-# Server
+## Server
 
 ```
-# myserver.ts
+ # myserver.ts
 
 import { serve } from "https://deno.land/std@v0.12/http/server.ts";
 
@@ -76,7 +76,7 @@ Programm ausführen...
 
 > deno myserver.ts
 
-# Dateien
+## Dateien
 
 ```
 (async () => {
@@ -90,7 +90,7 @@ Programm ausführen...
 })();
 ```
 
-# Module verwenden
+## Module verwenden
 
 ### direkte Angabe einer URL im Import
 
@@ -103,7 +103,7 @@ import { serve } from "https://deno.land/std@v0.12/http/server.ts";
 > deno run --importmap=map.json myserver.ts
 
 ```
-# map.json
+ # map.json
 
 {
   "imports": {
@@ -114,7 +114,7 @@ import { serve } from "https://deno.land/std@v0.12/http/server.ts";
 ```
 
 ```
-# myserver.ts
+ # myserver.ts
 
 import { serve } from "http/server.ts";
 
@@ -124,7 +124,7 @@ import { serve } from "http/server.ts";
 ### Referenzieren durch eigenes Modul
 
 ```
-# deps.ts
+ # deps.ts
 
 export { test } from "https://deno.land/std/testing/mod.ts";
 
@@ -139,7 +139,7 @@ export const upperCase = str => str.toUpperCase();
 export default 42;
 ```
 
-# Werkzeuge - out of the box
+## Werkzeuge - out of the box
 
 * dependency inspector (deno info)
 * code formatter (deno fmt)
@@ -149,24 +149,24 @@ export default 42;
 * command-line debugger (--debug) not yet
 * linter (deno lint) not yet
 
-# Deno Manual
+## Deno Manual
 
-> https://deno.land/manual.html
+> [https://deno.land/manual.html](https://deno.land/manual.html) Mit API Referenz, Beispielen und vielem mehr... z.B. https://deno.land/manual.html#fileserver
 
-Mit API Referenz, Beispielen und vielem mehr...
+> [https://deno.land/x/](https://deno.land/x/) ist ein Rewriting-Service für Denos Third-Party-Module.
 
-z.B. https://deno.land/manual.html#fileserver
+> [https://deno.land/std/node/](https://deno.land/std/node/) Deno Node compatibility
 
 ### Dateiserver für lokales Verzeichnis
 
 ```
-# Installieren
+ # Installieren
 deno install file_server https://deno.land/std/http/file_server.ts --allow-net --allow-read
 
-# Ausführen
+ # Ausführen
 file_server .
 
-# Updaten
+ # Updaten
 file_server --reload
 ```
 
@@ -190,34 +190,36 @@ runIfMain(import.meta);
 ### Bundling
 
 ```
-# Bundle
-deno bundle https://deno.land/std/examples/colors.ts
+ # Bundle
+ deno bundle https://deno.land/std/examples/colors.ts
 
-# Bundle ausführen
-deno https://deno.land/std/bundle/run.ts colors.bundle.js
+ # Bundle ausführen
+ deno https://deno.land/std/bundle/run.ts colors.bundle.js
 
-# eigenes Bundle - website.ts
+  # eigenes Bundle - website.ts
 
-export const main = () => {
-  console.log("hello from the web browser");
-}
+ export const main = () => {
+   console.log("hello from the web browser");
+ }
 
-deno bundle website.ts
+ deno bundle website.ts
 
-# Im Browser mit RequireJS
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>
-<script src="website.bundle.js"></script>
-<script>
-  requirejs(["website"], website => website.main());
-</script>
+ # Im Browser mit RequireJS
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>
+ <script src="website.bundle.js"></script>
+ <script>
+   requirejs(["website"], website => website.main());
+ </script>
 
-static -p 8000 -a 0.0.0.0 .
+ static -p 8000 -a 0.0.0.0 .
 ```
 
+# Ende
 
-<!--
+#
 
-# Resources
+
+# Quellen
 
 * [C J Silverio: The economics of open source](https://2019.jsconf.eu/c-j-silverio/the-economics-of-open-source.html)
 * [Deno](https://deno.land/)
@@ -235,5 +237,3 @@ static -p 8000 -a 0.0.0.0 .
 * https://medium.com/lean-mind/deno-node-js-killer-718c8969770b
 * https://flaviocopes.com/es-modules/
 * https://blog.logrocket.com/what-is-deno/
-
--->
