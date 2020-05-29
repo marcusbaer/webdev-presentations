@@ -42,48 +42,49 @@
 ```
 curl -fsSL https://deno.land/x/install/install.sh | sh
 brew install deno
-
+deno -V
+deno --version
 ```
 
 Ein einfaches Programm direkt aus dem Internet:
 
-> deno https://deno.land/welcome.ts
+> ~~deno https://deno.land/welcome.ts~~
+>
+> deno run https://deno.land/std/examples/welcome.ts
 
 Dateien/Module werden heruntergeladen und lokal gecached. Aktualisieren mit:
 
-> deno myprogram.ts --reload
+> deno run myprogram.ts --reload
 
 ## Server
 
 ```
- # myserver.ts
+ // myserver.ts
 
-import { serve } from "https://deno.land/std@v0.12/http/server.ts";
+import { serve } from "https://deno.land/std@0.53.0/http/server.ts";
 
-const body = new TextEncoder().encode("Hello World\n");
-const s = serve(":8000");
+const s = serve({ port: 8000 });
+console.log("http://localhost:8000/");
 
-window.onload = async () => {
-  console.log("http://localhost:8000/");
-
-  for await (const req of s) {
-    req.respond({ body });
-  }
-};
+for await (const req of s) {
+  req.respond({ body: "Hello World\n" });
+}
 ```
 
 Programm ausführen...
 
-> deno myserver.ts
+> deno run myserver.ts
 
 ## Dateien
 
 ```
+ // mywrite.ts
+
 (async () => {
   const now = new Date();
 
   const encoder = new TextEncoder();
-  const data = encoder.encode('Hello world\n\nIt's ${now}');
+  const data = encoder.encode(`Hello world\n\nIt's ${now}`);
 
   await Deno.writeFile('hello.txt', data);
   await Deno.writeFile('hello2.txt', data);
@@ -95,7 +96,7 @@ Programm ausführen...
 ### direkte Angabe einer URL im Import
 
 ```
-import { serve } from "https://deno.land/std@v0.12/http/server.ts";
+import { serve } from "https://deno.land/std@0.53.0/http/server.ts";
 ```
 
 ### Module-Map
@@ -107,14 +108,14 @@ import { serve } from "https://deno.land/std@v0.12/http/server.ts";
 
 {
   "imports": {
-    "http/": "https://deno.land/std@v0.12/http/",
+    "http/": "https://deno.land/std@0.53.0/http/server.ts",
     "liltest": "https://unpkg.com/liltest@0.0.5/dist/liltest.js"
   }
 }
 ```
 
 ```
- # myserver.ts
+ // myserver.ts
 
 import { serve } from "http/server.ts";
 
@@ -141,78 +142,39 @@ export default 42;
 
 ## Werkzeuge - out of the box
 
-* dependency inspector (deno info)
-* code formatter (deno fmt)
 * bundling (deno bundle)
+* code formatter (deno fmt)
+* dependency inspector (deno info)
 * runtime type info (deno types)
-* test runner (deno test) not yet
-* command-line debugger (--debug) not yet
-* linter (deno lint) not yet
+* test runner (deno test)
+* installer (deno install)
 
-## Deno Manual
+### Als ausführbare Datei installieren
 
-> [https://deno.land/manual.html](https://deno.land/manual.html) Mit API Referenz, Beispielen und vielem mehr... z.B. https://deno.land/manual.html#fileserver
+- Anleitung [https://deno.land/manual/examples/file_server](https://deno.land/manual/examples/file_server)
+- Installieren `deno install --allow-net --allow-read https://deno.land/std/http/file_server.ts`
+- Ausführen `file_server .`
+- Upgrade `file_server --reload`
+- Hilfe `deno install --help`
+
+## Deno's Anleitungen
+
+> [https://doc.deno.land/](https://doc.deno.land/) Dokumentation
+
+> [https://deno.land/manual](https://deno.land/manual) Mit API Referenz, Beispielen und vielem mehr... z.B. https://deno.land/manual/examples/file_server
+
+> [https://deno.land/std/](https://deno.land/std/) Deno's Standard Module (noch nicht stabil)
+
+> [https://deno.land/std/node/](https://deno.land/std/node/) Deno Node compatibility layer
 
 > [https://deno.land/x/](https://deno.land/x/) ist ein Rewriting-Service für Denos Third-Party-Module.
 
-> [https://deno.land/std/node/](https://deno.land/std/node/) Deno Node compatibility
+### Manual
 
-### Dateiserver für lokales Verzeichnis
+[https://deno.land/manual](https://deno.land/manual)
 
-```
- # Installieren
-deno install file_server https://deno.land/std/http/file_server.ts --allow-net --allow-read
-
- # Ausführen
-file_server .
-
- # Updaten
-file_server --reload
-```
-
-### Testing
-
-```
-import { test, runIfMain } from "https://deno.land/std/testing/mod.ts";
-import { assertEquals } from "https://deno.land/std/testing/asserts.ts";
-
-test(function t1() {
-  assertEquals("hello", "hello");
-});
-
-test(function t2() {
-  assertEquals("world", "world");
-});
-
-runIfMain(import.meta);
-```
-
-### Bundling
-
-```
- # Bundle
- deno bundle https://deno.land/std/examples/colors.ts
-
- # Bundle ausführen
- deno https://deno.land/std/bundle/run.ts colors.bundle.js
-
-  # eigenes Bundle - website.ts
-
- export const main = () => {
-   console.log("hello from the web browser");
- }
-
- deno bundle website.ts
-
- # Im Browser mit RequireJS
- <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>
- <script src="website.bundle.js"></script>
- <script>
-   requirejs(["website"], website => website.main());
- </script>
-
- static -p 8000 -a 0.0.0.0 .
-```
+- Bundling
+- Testing
 
 # Ende
 
@@ -226,7 +188,7 @@ runIfMain(import.meta);
 * [Deno: Ryan Dahl präsentiert mögliche Alternative zu Node.js](https://entwickler.de/online/javascript/deno-ryan-dahl-node-579846561.html)
 * [Deno: Was hat sich bei der kommenden Alternative zu Node.js getan?](https://entwickler.de/online/javascript/deno-node-alternative-579867114.html)
 * https://tinyclouds.org/jsconf2018.pdf
-* https://www.youtube.com/watch?v=M3BM9TB-8yA
+* 10 Things I Regret About Node.js - Ryan Dahl, JSConf EU, https://www.youtube.com/watch?v=M3BM9TB-8yA
 * https://github.com/denoland/deno
 * https://github.com/denolib/awesome-deno
 * https://deno.land/manual.html
@@ -237,3 +199,5 @@ runIfMain(import.meta);
 * https://medium.com/lean-mind/deno-node-js-killer-718c8969770b
 * https://flaviocopes.com/es-modules/
 * https://blog.logrocket.com/what-is-deno/
+* https://www.codegram.com/blog/first-thoughts-about-deno/
+* VS Code Deno Extension, https://github.com/denoland/vscode_deno
