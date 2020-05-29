@@ -22,7 +22,7 @@
 * basiert auf V8
 * in Rust geschrieben (NodeJS in C und C++), verspricht viel Leistung
 * Asynchronität mit Tokio, [Tokio - The asynchronous run-time for the Rust programming language.](https://tokio.rs/)
-* intensive Weiterentwicklung im letzten Jahr, Deno 1.0 erscheint demnächst
+* intensive Weiterentwicklung im letzten Jahr, Deno 1.0 ist erschienen
 
 ## Was ist anders?
 
@@ -33,28 +33,29 @@
 * Kein Zugriff auf Festplatten-, Netzwerk- oder Systemvorgänge
 * native Unterstützung von TypeScript
 * Browser kompatibel
-* hilfreiche Tools out of the box (bundle, test, lint, ..)
+* hilfreiche Tools out of the box (bundle, test, …)
 * Deno ist eigenständiges ausführbares Programm ohne externe Abhängigkeiten
-* und weitere Unterschiede… [Deno Manual](https://deno.land/manual.html#goals)
+* und weitere Unterschiede …
 
 ## Get started
 
 ```
 curl -fsSL https://deno.land/x/install/install.sh | sh
 brew install deno
-deno -V
-deno --version
+deno -V  # --version
 ```
 
 Ein einfaches Programm direkt aus dem Internet:
 
-> ~~deno https://deno.land/welcome.ts~~
->
-> deno run https://deno.land/std/examples/welcome.ts
+```
+deno run https://deno.land/std/examples/welcome.ts
+```
 
 Dateien/Module werden heruntergeladen und lokal gecached. Aktualisieren mit:
 
-> deno run myprogram.ts --reload
+```
+deno run myprogram.ts --reload
+```
 
 ## Server
 

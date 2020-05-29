@@ -24,6 +24,10 @@ export const style = `<style>
 
     h1 { display: block; text-align: center; padding-top: 6vmin; }
     img { max-height: 90vmin; max-width: 90vmin; }
+    p > img {
+        display: block;
+        margin: 0 auto;
+    }
     code {font-size: 4vmin; }
     pre {line-height: 1.2; }
 </style>`

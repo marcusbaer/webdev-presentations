@@ -1,1 +1,1 @@
-static . -p 8000
+static . -p 8008
