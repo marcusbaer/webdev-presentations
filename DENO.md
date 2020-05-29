@@ -19,7 +19,6 @@
 
 * Projekt im Mai 2018 gestartet 
 * „A secure JavaScript/TypeScript runtime built with V8, Rust and Tokio“
-* basiert auf V8
 * in Rust geschrieben (NodeJS in C und C++), verspricht viel Leistung
 * Asynchronität mit Tokio, [Tokio - The asynchronous run-time for the Rust programming language.](https://tokio.rs/)
 * intensive Weiterentwicklung im letzten Jahr, Deno 1.0 ist erschienen
