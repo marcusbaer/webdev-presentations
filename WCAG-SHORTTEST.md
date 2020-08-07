@@ -270,23 +270,67 @@ Alle Funktionalitäten des Inhalts sind durch eine Tastaturschnittstelle bedienb
 
 https://testen.bitv-test.de/index.php?a=di&iid=81&s=n
 
+Beschriftungen von Formularelementen sind vorhanden.
+
+Die Beschriftung von Formularelementen soll vor (das heißt links neben oder über) dem zugehörigen Eingabefeld angeordnet werden. Nur die Beschriftung von Checkboxes und Radiobuttons kann (und sollte normalerweise) rechts neben dem zugehörigen Eingabefeld angeordnet werden.
+
+Wenn für die Eingabe ein bestimmtes Format verlangt wird, so sind die Anweisungen für alle Benutzer lesbar.
+
 > Abgrenzung zu Prüfschritt 1.3.1h klären!!
 
-<!-- TODO -->
-
-#### Werkzeuge
 #### Herangehensweise
+
+- Sind Beschriftungen vorhanden ?
+  - Sind alle Formularelemente beschriftet?
+  - Sind Pflichtfelder in label- oder legend-Elementen klar angezeigt? Wenn zur Anzeige Symbole wie etwa ein Sternchen (*) genutzt werden, muss deren Bedeutung am Beginn des Formulars erklärt sein.
+  - Wenn Eingabefelder ein bestimmtes Eingabeformat vorgeben, wird dieses vor dem Eingabefeld klar beschrieben? (Beispiele wären "Format der Datumseingabe: TT.MM.JJJJ" oder "Telefonnummer: Nur Zahlen ohne Leerstellen oder Bindestriche eingeben".)
+
+- Sind Beschriftungen richtig positioniert?
+- Mittels Web Developer Toolbar die Funktion Miscellaneous > Linearize page die Struktur der Seite linearisieren.
+- Prüfen, ob in der linearisierten Ansicht die Beschriftung der Eingabefelder klar den Feldern zuzuordnen ist, das heißt, die Beschriftung soll immer direkt **über** oder **vor** dem Feld stehen. Die Beschriftung von Checkboxen und Radiobuttons kann (und sollte in der Regel auch) **nach** dem Formularelement stehen.
+
 #### Prüfschritt erfüllt
+
+Wenn der Inhalt eine Eingabe durch den Benutzer verlangt werden Beschriftungen (Labels) oder Anweisungen bereitgestellt. (Stufe A)
 
 ### Prüfschritt 4.1.2a - Name, Rolle, Wert verfügbar
 
 https://testen.bitv-test.de/index.php?a=di&iid=100&s=n
 
-<!-- TODO -->
+Alle selbst gestalteten Komponenten einer Website (also Elemente oder Widgets, die nicht auf interaktiven HTML-Elementen beruhen) sind so umgesetzt, dass die semantischen Informationen (Name, Rolle, Eigenschaften) vorhanden sind. Werden nicht semantische Elemente (etwa div oder span) eingesetzt und mithilfe von JavaScript zu Bedienelmenten umfunktioniert, wird die Semantik mithilfe von WAI-ARIA bereitgestellt.
+
+Die wechselnden Zustände der Bedienelemente werden nicht nur visuell über CSS und Javascript abgebildet, sondern auch über scriptgesteuerte Änderung der Werte der ARIA-Attriubte, damit die Semantik auch bei nicht-visueller Nutzung verfügbar ist.
+
+> Für alle Bestandteile der Benutzerschnittstelle (einschließlich, aber nicht beschränkt auf: Formularelemente, Links und durch Skripte generierte Komponenten) können Name und Rolle durch Software bestimmt werden; Zustände, Eigenschaften und Werte, die vom Benutzer festgelegt werden können, können durch Software festgelegt sein; und die Benachrichtigung über Änderungen an diesen Elementen steht den Benutzeragenten zur Verfügung, einschließlich assistierender Techniken. (Stufe A)
+>
+> Anmerkung: Dieses Erfolgskriterium ist hauptsächlich für Webautoren gedacht, die ihre eigenen Bestandteile der Benutzerschnittstelle entwickeln oder skripten. Standard-HTML-Steuerelemente erfüllen zum Beispiel bereits dieses Erfolgskriterium, wenn sie entsprechend der Spezifikation benutzt werden.
 
 #### Werkzeuge
+
+- Codeprüfung bzw. Web Developer Toolbar
+- Web Developer Toolbar > Information > Display Link Details
+- Im Zweifelsfall WAI-Infoseite checken
+  - [WAI-ARIA Best Practices](https://www.w3.org/TR/wai-aria-practices-1.1/)
+    - Welche Rollen, Attribute sind für welches Widgets notwendig und empfohlen
+
 #### Herangehensweise
+
+Der Prüfschritt ist anwendbar, wenn die Seite interaktive Bedienelemente (Links, Formularelemente, oder programmierte Elemente, die auf `onclick` oder andere Event Handler reagieren) enthält.
+
+1. Seite im Firefox Browser aufrufen
+2. Bedienelemente der Seite auf korrekte Semantik prüfen:
+   - Gibt es offensichtliche Links oder Schaltflächen ohne href-Attribut? Dies lässt sich z.B. mit Hilfe der Web Developer Toolbar über die Funktion Information > Verweisdetails anzeigen (display link details) feststellen.
+   - Gibt es Formularelemente wie Checkboxen oder Radio-Buttons, die von der systemüblichen Darstellung abweichen, da sie mit anderen Elementen wie div oder img nachgebildet wurden?
+   - Gibt es auf der Seite selbstgebaute Widgets wie etwa Schieberegler oder Tabpanels? 
+3. Mittels Developer Tools prüfen, ob über WAI-ARIA Name, Eigenschaften und gegebenenfalls Zustände abgebildet werden. Zustandsänderungen müssen durch Änderungen der Attribute-Werte reflektiert werden.
+4. Grafische Zustandsänderungen durch den geskripteten Austausch von Bildern, die anstelle von Bedienelementen eingesetzt werden, müssen auch für Hilfsmittel verfügbare sinnvolle Änderungen von alt-Attributen bzw. WAI-ARIA Eigenschaften erzeugen.
+
 #### Prüfschritt erfüllt
+
+https://extranet.powerofone.de/confluence/pages/viewpage.action?pageId=116171190
+
+- Interaktive Bedienelemente wie Links und Schaltflächen sind so optimiert, dass programmatisch (z.B. durch Screenreader) Namen und Rollen dieser Elemente ermittelbar sind - sprich korrekt bedienbar sind.
+- vor allem ist die generelle Semantik durch ARIA zu unterstützen (role, aria- etc.)
 
 ## Prüfschritte mit mittlerem Gewicht
 
@@ -449,6 +493,7 @@ mit Verlinkung:
 # Quellen
 
 - [Web Content Accessibility Guidelines (WCAG) 2.1](https://www.w3.org/TR/WCAG21/)
+- [WAI-ARIA Best Practices](https://www.w3.org/TR/wai-aria-practices-1.1/)
 - [BITV-Selbstbewertung](https://testen.bitv-test.de/selbstbewertung/test.php)
 - [Werkzeugliste](https://www.bitvtest.de/bitv_test/das_testverfahren_im_detail/werkzeugliste.html)
 - [Web Developer Toolbar](http://www.bitvtest.de/bitvtest/das_testverfahren_im_detail/werkzeugliste.html#webdeveloper)
