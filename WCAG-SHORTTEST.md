@@ -142,11 +142,48 @@ https://testen.bitv-test.de/index.php?a=di&iid=72&s=n
 
 https://testen.bitv-test.de/index.php?a=di&iid=79&s=n
 
-<!-- TODO -->
+Beschriftungen sollen über Markup mit den Formularelementen, die sie beschriften, verknüpft sein.
+
+Bei label-Elementen geschieht das über das for-Attribut oder den Einschluss des beschrifteten Formularelements in das label-Element. Sind Beschriftungen nicht mit dem label-Element ausgezeichnet, soll eine Beschriftung des zugehörigen Formularelements auf anderem Weg (etwa über das aria-labelledby-Attribut) sichergestellt sein.
+
+Ist bei Gruppen von Formularelementen eine Gruppenbeschriftung für das Verständnis der Beschriftung der einzelnen Formularelemente nötig, sollte die Verfügbarkeit sichergestellt werden (z.B. mit Hilfe von fieldset mit legend).
+
+Visuell voneinander abgesetzte oder logisch miteinander verbundene Gruppen von Formularelementen sollten mit fieldset oder mithilfe von Überschriften sinnvoll strukturiert sein.
 
 #### Werkzeuge
+
+- Web Developer Toolbar: Miscellaneous > Linearize page
+
 #### Herangehensweise
+
+Web Developer Toolbar die Funktion Miscellaneous > Linearize page
+
+1. Sind Formularfelder beschriftet
+2. Wenn ja
+   - Steht das Label / Beschriftung bei Textfeldern vor oder über dem Feld
+   - Steht das Label / Beschriftung bei Checkboxen und Radios rechts neben (oder nach) dem Feld
+3. Ist das Label pflichtig
+   - z.B. mit Sternchen *
+   - Gibt es einen **allgemeinen Pflichtfeldhinweis vor dem Formular** (z.B. "* Pflichtfeld")
+4. Gibt es **spezielle Eingabefelder** wie Datumsfelder
+   - Gibt es eine genaue Information im oder am Feld, die erkärt, wie das Feld befüllt werden soll
+
+Hinweis: auch hier wird noch einmal geprüft, wenn es gängige Formularkombinationen wie Suche oder Datum gibt, dass diese korrekt ausgezeichnet sind.
+
+- Sind Beschriftungen und Formular-Elemente verküpft?
+  1. Mit der Maus auf die Beschriftung von Formular-Elementen klicken und prüfen, ob der Cursor dadurch auf das Formular-Element gesetzt wird.
+  2. Ist das nicht der Fall, prüfen, ob Beschriftung und Formular-Element mit aria-labelledby verknüpft sind oder ein Name für das Formular-Element auf andere Weise programmatisch bereitgestellt wird
+
+- Prüfung von Gruppen von Formular-Elementen
+  1. Prüfen, ob visuell voneinander abgesetzte oder logisch miteinander verbundene Gruppen von Formular-Elementen mithilfe fieldset oder Überschriften sinnvoll strukturiert sind.
+  2. Falls eine Gruppenbeschriftung für das Verständnis der Beschriftung der einzelnen Formularelemente nötig sind, prüfen, ob die Gruppenbeschriftung mit dem legend-Element eines fieldset oder über eine ausreichend unterstützte Alternative (etwa role="group") ausgezeichnet ist.
+
+- Gliederung von Auswahllisten
+  - Wenn Auswahllisten (select) voneinander abgesetzte Gruppen von Optionen enthalten, sind diese mit optgroup ausgezeichnet (mit der Web Developer Toolbar > Informationen > Elementinformationen einblenden > Kindelemente überprüfen)
+
 #### Prüfschritt erfüllt
+
+Wenn der Inhalt eine Eingabe durch den Benutzer verlangt werden Beschriftungen (Labels) oder Anweisungen bereitgestellt. (Stufe A)
 
 ### Prüfschritt 1.4.3a - Kontraste von Texten ausreichend
 
