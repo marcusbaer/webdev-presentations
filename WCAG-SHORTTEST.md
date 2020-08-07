@@ -93,21 +93,47 @@ Mögliche Technik auch hier: einen per CSS versteckten Alternativtext für die G
 
 https://testen.bitv-test.de/index.php?a=di&iid=67&s=n
 
-<!-- TODO -->
+Wenn die Tonspur eines aufgezeichneten Videos Informationen enthält, müssen Untertitel als Alternative bereitgestellt werden.
 
-#### Werkzeuge
 #### Herangehensweise
+
+1. Das Video wird im auf der Website eingebundenen Player oder in einem externen, vom Format abhängigen Video-Player abgespielt.
+2. Es wird geprüft, ob parallel zum Video Untertitel automatisch angezeigt werden oder zugeschaltet werden können.
+3. Wenn Untertitel vorhanden sind, wird eine kurze Sequenz des Videos mit Untertiteln angesehen, um stichprobenartig festzustellen, ob die Untertitel dem hörbaren Inhalt entsprechen. Dies betrifft auch akustische Ereignisse, die für das Verständnis des Inhalts wichtig sind.
+
 #### Prüfschritt erfüllt
+
+Untertitel werden für alle aufgezeichneten Audioinhalte in synchronisierten Medien bereitgestellt, außer die Medien sind eine Medienalternative für Text und als solche deutlich gekennzeichnet. (Stufe A).
+
+Aufgezeichnete Videos mit synchroner Bild- und Tonspur haben erweiterte Untertitel, die alle Informationen der Tonspur enthalten. Dazu gehört gegebenenfalls die Anzeige, wer spricht, und bedeutungstragende Tonereignisse (etwa informationstragende Geräusche, Lachen, oder Applaus).
+
+Für Kriterien einer teilweisen oder nicht vollen Erfüllung siehe https://testen.bitv-test.de/index.php?a=di&iid=67&s=n
 
 ### Prüfschritt 1.3.1a - HTML-Strukturelemente für Überschriften
 
 https://testen.bitv-test.de/index.php?a=di&iid=72&s=n
 
-<!-- TODO -->
+Überschriften müssen korrekt mit den HTML-Strukturelementen H1 bis H6 ausgezeichnet sein und die Inhalte der Seite erschließen.
 
 #### Werkzeuge
+
+- [HeadingsMap Browser-Plugin](http://www.bitvtest.de/bitvtest/das_testverfahren_im_detail/werkzeugliste.html)
+- [Web Developer Toolbar](http://www.bitvtest.de/bitvtest/das_testverfahren_im_detail/werkzeugliste.html#webdeveloper)
+- [Bookmarklet "Inhalte gegliedert"](http://www.bitvtest.de/bitvtest/das_testverfahren_im_detail/werkzeugliste.html#gegliedert)
+
 #### Herangehensweise
+
+1. Seite im Firefox aufrufen.
+2. Über die [Web Developer Toolbar](http://www.bitvtest.de/bitvtest/das_testverfahren_im_detail/werkzeugliste.html#webdeveloper) die Seite ohne Stylesheets anzeigen (CSS > Stile deaktivieren > Alle Stile deaktivieren wählen), dann das [Bookmarklet "Inhalte gegliedert"](http://www.bitvtest.de/bitvtest/das_testverfahren_im_detail/werkzeugliste.html#gegliedert) aufrufen.
+3. Alternativ das [HeadingsMap Browser-Plugin](http://www.bitvtest.de/bitvtest/das_testverfahren_im_detail/werkzeugliste.html) nutzen, um die Überschriften-Hierarchie anzuzeigen.
+4. Prüfen, ob Inhalte, die visuell als Überschriften zu erkennen sind, mittels der HTML-Strukturelemente H1 bis H6 als Überschriften ausgezeichnet sind. Die Hierarchie der eingesetzten HTML-Überschriftselemente soll der Gliederung der Inhalte entsprechen.
+5. Prüfen, ob HTML-Strukturelemente H1 bis H6 lediglich zur Erzeugung unterschiedlicher Schriftgrößen eingesetzt werden
+
 #### Prüfschritt erfüllt
+
+- Alle Inhalte der Webseite sind mithilfe von Überschriften korrekt strukturiert
+- Die Überschriften-Hierarchie ist korrekt geschachtelt von H1 - H6
+- Es wird nicht **strong** oder **bold** verwendet, um überschriftenähnliche Hervorhebungen zu erzeugen. (Bookmarklet "Inhalte gegliedert")
 
 ### Prüfschritt 1.3.1h - Beschriftung von Formularelementen programmatisch ermittelbar
 
@@ -315,6 +341,7 @@ mit Verlinkung:
 - [Web Content Accessibility Guidelines (WCAG) 2.1](https://www.w3.org/TR/WCAG21/)
 - [BITV-Selbstbewertung](https://testen.bitv-test.de/selbstbewertung/test.php)
 - [Werkzeugliste](https://www.bitvtest.de/bitv_test/das_testverfahren_im_detail/werkzeugliste.html)
+- [Web Developer Toolbar](http://www.bitvtest.de/bitvtest/das_testverfahren_im_detail/werkzeugliste.html#webdeveloper)
 - [Font Awesome - Accessibility](https://fontawesome.com/how-to-use/on-the-web/other-topics/accessibility)
 
 - [Accessibility: Image Alt text best practices](https://support.siteimprove.com/hc/en-gb/articles/115000013031-Accessibility-Image-Alt-text-best-practices)
