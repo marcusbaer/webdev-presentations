@@ -189,25 +189,88 @@ Wenn der Inhalt eine Eingabe durch den Benutzer verlangt werden Beschriftungen (
 
 https://testen.bitv-test.de/index.php?a=di&iid=86&s=n
 
-<!-- TODO -->
+Alle Texte der Seite sollen ausreichende Helligkeitskontraste haben. Sie sollen auch für farbfehlsichtige Benutzer wahrnehmbar sein.
 
 #### Werkzeuge
+
+- Colour Contrast Analyzer (CCA)
+- Web Developer Toolbar: Informationen > Elementinformationen einblenden
+- [Firefox Addons Stylus](https://addons.mozilla.org/de/firefox/addon/styl-us/)
+
 #### Herangehensweise
+
+Mit dem Contrast Analyzer prüfen, wo man trotz Sichtprüfung nicht sicher ist
+
+- Mit der Pipette Vorder- und Hintergrund des zu untersuchenden Elements anwählen
+  - Kontrastverhältnis **mindestens**
+    - Schriftgrößen **unter 24px** bzw. 18,7px bei fetter Schrift: 4,5:1
+    - Schriftgrößen **über 24px** bzw. über 18,7px bei fetter Schrift: 3:1
+  - Für **Fliesstextlinks** ohne sonstige Kennzeichnung mindestens
+    - also z.B. ohne Unterstreichung, Icon oder Fettung etc.
+    - Kontrastverhältnis: 3:1
+  - Die Kontrastanforderung gilt auch für Textvorbelegungen von Formularfeldern (**Placeholder**): 4,5:1
+
+> Hinweis: In der Firefox Erweiterung "Stylus" erstellen
+>
+> - Styles > Verwalten > Neuen Style hinzufügen
+> - Neuen Namen für den Style vergeben z.B. "Kontrastcheck"
+> - CSS rechts in den Editor eingeben: html {background-color:black;color:white}
+> - speichern
+> - Der neue Style steht nun im Layer von Stylus zum An- und Abhaken zur Verfügung
+
+1. Prüfung nicht festgelegter Farben. Über das Bookmarklet "Vorder-und Hintergrundfarbe definiert" oder ein User Stylesheet (html {background-color:black;color:white}) prüfen, ob für jedes Element, für das eine Vordergrundfarbe festgelegt wurde, auch eine Hintergrundfarbe festgelegt ist und umgekehrt.
+2. Sichtpüfung. Sind die Schriftkontraste stark genug?
+3. Im Zweifel den Contrast Analyser öffen. Schriftfarbe und Hintergrundfarbe auswählen und Kontrastverhältnis prüfen.
+4. In der Web Developer Toolbar die Funktion Informationen > Elementinformationen einblenden aktivieren.
+5. Text, der überprüft werden soll, anklicken. Im eingeblendeten Fenster "Elementinformationen" im Bereich "Text" wird die jeweilige Schriftgröße in Pixeln angegeben.
+6. Mit Hilfe des Contrast Analysers im Bereich Vordergrund mit der Pipette die Vordergrundfarbe auswählen, dann im Bereich Hintergrund die Hintergrundfarbe. Für Schriftgrößen unter 24 px (beziehungsweise 18,7 px bei fetter Schrift) prüfen, ob das Kontrastverhältnis bei 4,5:1 oder größer liegt. Für große Schriften prüfen, ob das Kontrastverhältnis bei 3:1 oder größer liegt.
+7. Bei andersfarbigen Fließtextlinks ohne sonstige Unterschiede in der Auszeichung, wie etwa Unterstreichung, prüfen, ob das Kontrastverhältnis zum Standardfließtext mindestens 3:1 beträgt.
+
 #### Prüfschritt erfüllt
+
+Die visuelle Darstellung von Text und Bildern von Text hat ein Kontrastverhältnis von mindestens 4,5:1 mit folgenden Ausnahmen: (Stufe AA)
 
 ### Prüfschritt 2.1.1a - Ohne Maus nutzbar
 
 https://testen.bitv-test.de/index.php?a=di&iid=88&s=n
 
-<!-- TODO -->
+Die Webseite soll auch ohne Maus - also ausschließlich mit der Tastatur - zu benutzen sein.
 
 #### Werkzeuge
 #### Herangehensweise
+
+1. Seite im Firefox Browser aufrufen.
+2. Mit der Tabulatortaste die Links und Formularelemente durchgehen.
+3. Prüfen, ob alle wesentlichen Links und Formularelemente erreicht und benutzt werden können.
+4. Falls die Seite Elemente enthält, die wie Bedienelemente aussehen, jedoch nicht mit der Tabulatortaste angesteuert werden, prüfen, ob diese Elemente auf die Maus reagieren (zum Beispiel mit Bewegung, Vergrößerung, Einblenden von weiteren Inhalten).
+5. Falls die Seite scrollbare Bereiche enthält, sollen nicht sichtbare Inhalte dieser Bereiche auch über die Tastatur erreichbar sein.
+6. Seite im Chrome Browser aufrufen und Schritte 2 bis 5 wiederholen.
+
 #### Prüfschritt erfüllt
+
+Alle Funktionalitäten des Inhalts sind durch eine Tastaturschnittstelle bedienbar, ohne dass eine bestimmte Zeiteinteilung für einzelne Tastenanschläge erforderlich ist, außer wenn die zugrunde liegende Funktion Eingaben verlangt, die vom Pfad der Bewegung des Benutzers und nicht nur von den Endpunkten abhängig sind. (Stufe A)
+
+- Mit der Tabulator-Taste alle Links, Formularelemente und interaktive Elemente durchgehen
+- Alles muss mit Tastatur erreich- und bedienbar sein
+- die Nutzung mit der Tastatur muss nicht der Mouse-Nutzung entsprechen
+- Der Prüfschritt ist bestanden, wenn alle Links, Formularelemente und interaktive Elemente mit Tastatur erreicht werden.
+
+- Sprunglink zum Hauptinhalt vorhanden?
+
+#### Abgrenzung zu anderen Prüfschritten
+
+- Dieser Prüfschritt betrifft die **Auslösbarkeit** von Funktionen und Links auch über die Tastatur.
+- **Tastaturfallen** sind Gegenstand von [Prüfschritt 2.1.2a](https://testen.bitv-test.de/index.php?a=di&iid=89&s=n).
+- Bei skriptgenerierten oder über Skripts eingeblendeten Elementen (etwa ausklappenden Texten oder Lightboxen) ist die **sinnvolle Reihenfolge** im Quellcode Gegenstand von [Prüfschritt 1.3.2b](https://testen.bitv-test.de/index.php?a=di&iid=37&s=n).
+- Die Fokus**hervorhebung** ist Gegenstand von [Prüfschritt 2.4.7a](https://testen.bitv-test.de/index.php?a=di&iid=102&s=n) "Aktuelle Position des Fokus deutlich"
+- Die Sinnvolle Fokus**reihenfolge** wird in [2.4.3a](https://testen.bitv-test.de/index.php?a=di&iid=91&s=n) "Schlüssige Reihenfolge bei Tastaturbedienung" bewertet.
+
 
 ### Prüfschritt 3.3.2a - Beschriftungen von Formularelementen vorhanden
 
 https://testen.bitv-test.de/index.php?a=di&iid=81&s=n
+
+> Abgrenzung zu Prüfschritt 1.3.1h klären!!
 
 <!-- TODO -->
 
@@ -389,6 +452,10 @@ mit Verlinkung:
 - [BITV-Selbstbewertung](https://testen.bitv-test.de/selbstbewertung/test.php)
 - [Werkzeugliste](https://www.bitvtest.de/bitv_test/das_testverfahren_im_detail/werkzeugliste.html)
 - [Web Developer Toolbar](http://www.bitvtest.de/bitvtest/das_testverfahren_im_detail/werkzeugliste.html#webdeveloper)
+- [Color Contrast Analyzer](https://developer.paciellogroup.com/resources/contrastanalyser/)
 - [Font Awesome - Accessibility](https://fontawesome.com/how-to-use/on-the-web/other-topics/accessibility)
 
 - [Accessibility: Image Alt text best practices](https://support.siteimprove.com/hc/en-gb/articles/115000013031-Accessibility-Image-Alt-text-best-practices)
+- [WebAIM Contrast and Color Accessibility](https://webaim.org/articles/contrast/)
+- [The Basics and Importance of Color Contrast for Web Accessibility](https://www.boia.org/blog/the-basics-and-importance-of-color-contrast-for-web-accessibility)
+- [W3C WAI Colors with Good Contrast](https://www.w3.org/WAI/perspective-videos/contrast/)
