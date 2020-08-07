@@ -117,9 +117,9 @@ https://testen.bitv-test.de/index.php?a=di&iid=72&s=n
 
 #### Werkzeuge
 
-- [HeadingsMap Browser-Plugin](http://www.bitvtest.de/bitvtest/das_testverfahren_im_detail/werkzeugliste.html)
-- [Web Developer Toolbar](http://www.bitvtest.de/bitvtest/das_testverfahren_im_detail/werkzeugliste.html#webdeveloper)
-- [Bookmarklet "Inhalte gegliedert"](http://www.bitvtest.de/bitvtest/das_testverfahren_im_detail/werkzeugliste.html#gegliedert)
+- [Web Developer Toolbar](http://www.bitvtest.de/bitvtest/das_testverfahren_im_detail/werkzeugliste.html#webdeveloper): Seite ohne CSS anzeigen: CSS > Stile deaktivieren > Alle Stile deaktivieren
+- [Bookmarklet "Inhalte gegliedert"](http://www.bitvtest.de/bitvtest/das_testverfahren_im_detail/werkzeugliste.html#gegliedert): Die Struktur der Überschriften auf der Webseite kontrollieren
+- [HeadingsMap Browser-Plugin](http://www.bitvtest.de/bitvtest/das_testverfahren_im_detail/werkzeugliste.html): Überschriften-Hierarchie für jede Webseite anzeigen und kontrollieren, keine Hierarchiebrüche
 
 #### Herangehensweise
 
@@ -133,7 +133,10 @@ https://testen.bitv-test.de/index.php?a=di&iid=72&s=n
 
 - Alle Inhalte der Webseite sind mithilfe von Überschriften korrekt strukturiert
 - Die Überschriften-Hierarchie ist korrekt geschachtelt von H1 - H6
-- Es wird nicht **strong** oder **bold** verwendet, um überschriftenähnliche Hervorhebungen zu erzeugen. (Bookmarklet "Inhalte gegliedert")
+- Es wird nicht **strong** oder **bold** verwendet, um überschriftenähnliche Hervorhebungen zu erzeugen (Kontaktseiten, z.B. `[STRONG]Geschäftsführer[/STRONG]`)
+  - Prüfen, ob visuell hervorgehobene Inhalte keine Überschriften sind - mit bold oder strong ausgezeichnet sind.
+  - Sichtprüfung vornehmen
+  - ggf. das Bookmarklet "Inhalte gegliedert" nutzen
 
 ### Prüfschritt 1.3.1h - Beschriftung von Formularelementen programmatisch ermittelbar
 
@@ -300,6 +303,13 @@ https://testen.bitv-test.de/index.php?a=di&iid=99&s=n
 
 
 # Barrierefreie Optimierung
+
+Best-Practices und Pflichten zur Erfüllung einer barrierefreien Optimierung.
+
+## Überschriften-Hierarchie
+
+- Wenn möglich immer mit einer H1 die Überschriften-Hierarchie starten (z.B. Logo der Webseite)
+- Die Überschrift des Hauptinhalts beginnt dann mit der H2
 
 ## Inline SVG
 
