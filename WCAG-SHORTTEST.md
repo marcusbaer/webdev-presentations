@@ -327,10 +327,15 @@ Der Prüfschritt ist anwendbar, wenn die Seite interaktive Bedienelemente (Links
 
 #### Prüfschritt erfüllt
 
-https://extranet.powerofone.de/confluence/pages/viewpage.action?pageId=116171190
-
 - Interaktive Bedienelemente wie Links und Schaltflächen sind so optimiert, dass programmatisch (z.B. durch Screenreader) Namen und Rollen dieser Elemente ermittelbar sind - sprich korrekt bedienbar sind.
 - vor allem ist die generelle Semantik durch ARIA zu unterstützen (role, aria- etc.)
+
+#### Umgang mit dem Prüfschritt
+
+<!-- TODO : darin weiter machen ab Umgang mit dem Prüfschritt -->
+https://extranet.powerofone.de/confluence/pages/viewpage.action?pageId=116171190
+
+
 
 ## Prüfschritte mit mittlerem Gewicht
 
