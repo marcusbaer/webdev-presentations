@@ -1,106 +1,73 @@
-# Docker
-
-
-
-```
-enter code samples here
-```
-
-Hands-on Docker für Frontend-Entwickler
-
-- installation instructions: website
-- demo: docker run hello world, apache, ubuntu, texlive, node (node -v)
-- nennen: MySQL, Mailhog, Wordpress
-- demo: create image from ubuntu container (cli changes)
-- demo: run commands in node: npm start, npm build (e.g. POPO) and create image from it
-- demo: -e PORT=80 -e SERVER_NAME=Docker
-- demo without Docker: export PORT=80 && node server.js (different time)
-- demo: docker ps, stop, start, login, create an image from
-- demo: GraphQL
-
-## Docker
+##
 
 ![Docker Logo](https://cdn.worldvectorlogo.com/logos/docker.svg)
 
-- Docker = Docker Engine
-    - wenn "Docker" sagen, meinen wir Docker Engine
-    - Client-Server Applikation, der Docker daemon
-      - REST API für Interaktionen mit dem daemon
-      - und command line interface (CLI) client, der über API mit daemon spricht
-- Docker ist nur eine von mehreren Container-Plattformen
-- aber ist Technologie der Wahl zum Packen und Deployen moderner verteilter Anwendungen
-- der am meisten verwendete Container-Service und einfacher zu deployen als andere Technologien
-- Open-Source, robust, sicher, kosteneffizient und bietet viele Features
-- getragen von einer großen Community von Firmen und Einzelpersonen
-- als führende Container-Plattform, bietet es guten Support und großes Ökosystem
-- und es läuft auch auf Windows, ermöglicht durch einen Linux virtualization layer, der sich zwischen Windows und Docker befindet
-- Docker Machines, WSL 2
-- auch Windows Container werden unterstützt
-- Docker ist damit beste Wahl für die Mehrheit der Anwendungsfälle
-- Docker Desktop Download und Installation: https://www.docker.com/get-started
+## Docker
+
+- Docker = Client-Server Applikation mit CLI + Desktop
+- Technologie der Wahl zum Packen und Deployen moderner verteilter Anwendungen
+- große Community für die Mehrheit der Anwendungsfälle
+- guter Support und großes Ökosystem
+- läuft auch auf Windows
+- Docker Desktop: [https://www.docker.com/get-started](https://www.docker.com/get-started)
 
 ## Docker Container
 
-- in einem Atemzug mit Docker sind Container zu nennen
-- Container sind Umgebungen, die nur die Ressourcen bereitstellen, die eine Anwendung gerade benötigt
-- im Gegensatz zu VM = Gast-Betriebssystem
-- Docker kann so erforderliche Infrastruktur von Anwendungen signifikant reduzieren
-- geringere Größe und einfacheres System bedeuten auch, dass Container schneller gestartet und gestoppt werden können als VMs
-- deutlich responsiver hinsichtlich Skalierungsanforderungen
+- stellen *benötigte* Ressourcen bereit ≠ VM
+- Infrastruktur von Anwendungen signifikant kleiner
+- geringere Größe, einfacheres System &mdash; schneller
+- besser zu skalieren
 
+![VM vs Docker](https://jfrog--c.eu12.content.force.com/servlet/servlet.ImageServer?id=0151r000006uDem&oid=00D20000000M3v0&lastMod=1584630235000)
 
-![VM vs Docker](./DOCKER/vm-vs-docker.png)
-<!-- https://jfrog--c.eu12.content.force.com/servlet/servlet.ImageServer?id=0151r000006uDem&oid=00D20000000M3v0&lastMod=1584630235000 -->
+## Docker Container
 
-- Container sind idealer Baustein für den modernen Cloud-Ansatz bei Softwarearchitekturen
-- einem monolythischen Programm steht eine Ansammlung lose gekoppelter Microservices gegenüber
-- Container bringen Vorteile bei der Replikation
-- können Fehler tolerant sein: wenn Container failed -- Fallback auf andere Microservices im Cluster
-- leichter zu warten: Patch oder Updates betreffen nur einen kleinen Teil des Clusters
-- ihr kompaktes Design macht sie hoch portabel
-- leicht zu integrieren in Continuous Integration (CI) oder Continuous Delivery (CD) Workflows
-- sehr praktisches Werkzeug für Entwickler
-- Projekte werden unabhängig von der Host-Umgebung, vom System des jeweiligen Entwicklers
-- definierte Systemumgebung: Container verhalten sich auf jedem Host gleich, auch im CI Prozess
-- Virtualisierung des Entwickler-Setups: einfaches (automatisiertes) Aufsetzen und Aktualisieren der Umgebung
-- einfachere Migration und Duplikation von Umgebungen: Docker Repositories, Erweiterung der Instanzen
-- wir können sie auf unterschiedlichen Servern mit verschiedenen Konfigurationen hosten
+Container sind ideal für moderne Cloud-Architekturen mit lose gekoppelten Microservices.
 
-## Grundprinzip
+- Vorteile bei Replikation
+- gute Fehlertoleranz dank Fallbacks im Cluster
+- bessere Wartbarkeit
+- hohe Portabilität durch kompaktes Design
+- leicht zu integrieren in CI/CD
 
-- **Docker Engine**: zu installierendes Programm zum Bauen, Starten und Managen der Container
-- **Docker Daemon**: Teil der Engine, der auf Anfragen hört und verarbeitet
-- **Docker Client**: CLI zur Kommunikation mit dem Docker System
-- **Docker Image**: ein nicht schreibbares Template (read-only) zum Erstellen von Docker Containern. Image besteht aus einer Reihe von Layern, welche alle erforderlichen Installationen, Abhängigkeiten, Libraries und Prozesse für eine vollständig lauffähige Container-Umgebung enthalten.
-- **Docker Container**: eine "lebende" Instanz eines Docker Images, in welcher individuelle Microservices laufen oder gar ein ganzer Application Stack. Beim Starten eines Containers fügt man den darunterliegenden Image Layern einen oberen schreibbaren Layer hinzu (Container Layer). Container speichert alle während der Laufzeit vorgenommenen Änderungen.
-- **Docker Registry**: ein Katalagsystem zum Hosten, Pushen und Pullen von Docker images: eigene lokale Registry oder einer von vielen Registry Services von Drittanbietern (Amazon ECR, Google Container Registry oder Dockers eigene Registry "Docker Hub").
+## Docker Container
 
-![Docker Architecture](./DOCKER/docker-architecture.png)
-<!-- https://jfrog--c.eu12.content.force.com/servlet/servlet.ImageServer?id=0151r000006uDFc&oid=00D20000000M3v0&lastMod=1584523377000 -->
+- praktisches Werkzeug für Entwickler
+- Projekte = unabhängig von Host
+- einfaches (automatisiertes) Aufsetzen und Aktualisieren
+- leichte Migration und Duplikation von Umgebungen
+- Hosting mit verschiedenen Konfigurationen
 
+## Konzept und Aufbau
 
+- **Docker Engine** baut und startet Container
+- **Docker Daemon** verarbeitet Anfragen an API
+- **Docker Client** als CLI zur Kommunikation mit Docker
+- **Docker Image**
+  - read-only Template zum Erstellen von Containern
+  - Reihe von Layern, die erforderliche Installationen enthalten
+  - Austauschformat
+
+## Konzept und Aufbau
+
+- **Docker Container**
+  - lebende Instanz eines Docker Images
+  - Starten eines Containers fügt den darunter liegenden Image Layern einen oberen schreibbaren Layer hinzu (Container Layer)
+  - Container speichert alle während der Laufzeit vorgenommenen Änderungen
+
+## Konzept und Aufbau
+
+- **Docker Registry**
+  - Katalog zum Hosten von Docker Images
+  - lokale Registry oder andere Services (Docker Hub)
+
+![Docker Architecture](https://jfrog--c.eu12.content.force.com/servlet/servlet.ImageServer?id=0151r000006uDFc&oid=00D20000000M3v0&lastMod=1584523377000)
+
+## Hands-on Docker
+
+Docker ist dafür designed einzelne Prozesse in jedem Container auszuführen.
 
 - https://labs.play-with-docker.com/
-
-## Docker Image
-
-https://jfrog.com/knowledge-base/a-beginners-guide-to-understanding-and-building-docker-images/#:~:text=A%20Docker%20image%20is%20a,publicly%20with%20other%20Docker%20users.
-
-A Docker image is a read-only template that contains a set of instructions for creating a container that can run on the Docker platform. It provides a convenient way to package up applications and preconfigured server environments, which you can use for your own private use or share publicly with other Docker users.
-
-Docker images are also the starting point for anyone using Docker for the first time.
-
-So, in this introduction, we’ll not only take you through the basics of Docker images, but also show you where to find ready-made off-the-shelf images, which will give you a head start in building your own containerized applications, tools and services.
-
-As a new Docker user, you’ll also need to understand how to build your own custom images. So we’ll briefly cover how to create Docker images for deploying your code and assembling container-based services.
-
-But first let’s look at the composition of a Docker image in more detail.
-
-ETC!
-
-- Beispielimages: Ubuntu, MySQL, Apache, Nginx, Node
-
-Docker is designed for running a single process in each container.
 
 
 The `-it` instructs Docker to allocate a pseudo-TTY connected to the container’s stdin; creating an interactive bash shell in the container.
@@ -110,11 +77,6 @@ The `-it` instructs Docker to allocate a pseudo-TTY connected to the container�
 ## Docker Manifest
 
 Dockerfile
-
-## Container Registries und Repositories
-
-
-
 
 ## Installation
 
@@ -161,3 +123,5 @@ Docker Machine is a tool for provisioning and managing your Dockerized hosts (ho
 - https://www.infoq.com/news/2020/07/docker-ecs-plugin/
 - https://runnable.com/docker/install-docker-on-windows-10
 - https://docs.docker.com/docker-for-windows/install/
+- https://www.docker.com/101-tutorial
+- https://labs.play-with-docker.com/
