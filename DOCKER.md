@@ -221,9 +221,9 @@ CMD [ "npm", "start" ]
 docker build --tag marcus/node:2.0 .
 
 docker run --rm -dit --name node
-    -v $(pwd)/public/tutorial:/usr/src/app/public/tutorial
-    -p 80:8080
-    marcus/node:2.0 npm start
+  -v $(pwd)/public/tutorial:/usr/src/app/public/tutorial
+  -p 80:8080
+  marcus/node:2.0 npm start
 ```
 
 ## Docker Hub Repository
