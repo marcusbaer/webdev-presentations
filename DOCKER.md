@@ -65,27 +65,181 @@ Container sind ideal für moderne Cloud-Architekturen mit lose gekoppelten Micro
 
 ## Hands-on Docker
 
+> [https://labs.play-with-docker.com/](https://labs.play-with-docker.com/)
+
+### Getting Started
+
 Docker ist dafür designed einzelne Prozesse in jedem Container auszuführen.
 
-- https://labs.play-with-docker.com/
+```
+docker run -dp 80:80 docker/getting-started
 
+docker run -dp 80:80 docker/getting-started:pwd
+docker ps
+docker images
+docker stop <container>
+```
 
-The `-it` instructs Docker to allocate a pseudo-TTY connected to the container’s stdin; creating an interactive bash shell in the container.
+### Apache
 
-`-d` Detach = Run container in background and print container ID
+```
+echo "<html>Hallo Web.Dev</html>"
+    > public/tutorial/index.html
+
+docker run --rm --name apache
+    -v $(pwd)/public:/app
+    -p 80:8080 -p 443:8443
+    bitnami/apache:latest
+```
+
+### Aufräumen
+
+```
+docker images -a
+docker rmi <apache-image>
+docker rmi <getting-started-image>
+docker ps -a
+docker rm <container>
+```
+
+### Container starten
+
+`docker run <image> <command>`
+
+- `-p 80:8080` Port und Mapping (`host:guest`)
+- `-v $(pwd)/public:/app` Volume-Binding
+- `-e PORT=8080` Umgebungsvariable
+- `-d` Detach = started Container im Hintergrund und zeigt Container ID
+- `-it` anbinden einer Pseudo-TTY, mit `stdin` des Containers verbunden; erzeugt interaktive Bash-Shell im Container
+
+### Container starten
+
+- `--rm` nach Ausführung löschen
+- `--name container-name` Name eines Containers
+
+### Node
+
+> [https://hub.docker.com/_/node](https://hub.docker.com/_/node)
+
+```
+docker run --rm -e NODE_ENV=production
+    node:13-alpine node -v
+
+docker run --rm -d -it --name node
+    -v $(pwd):/usr/src/app -p 80:8080 -e PORT=8080
+    -e SERVER_NAME=Docker -w /usr/src/app
+    node:13-alpine node server.js
+
+docker stop node
+```
+
+### Node
+
+Ausführen über NPM commands in `package.json`
+
+```
+docker run --rm -dit --name node
+    -v $(pwd):/usr/src/app -p 80:8080
+    -e PORT=8080 -e SERVER_NAME=Docker
+    -w /usr/src/app
+    node:13-alpine npm start
+
+docker logs [-f] <container>
+```
+
+### SSH in Container
+
+```
+docker exec -it node /bin/sh
+
+$ vi public/tutorial/formular.html
+$ exit
+```
+
+### Image aus Container erzeugen
+
+```
+docker commit node marcus/node:1.0
+
+docker stop node
+
+docker run --rm -d -it --name node2
+    -v $(pwd):/usr/src/app -p 80:8080
+    marcus/node:1.0 npm start
+```
+
+### Image ohne Volume
+
+```
+ls public/tutorial
+docker run --rm -p 80:8080 marcus/node:1.0 npm start
+```
+
+Wir lernen
+
+1. Volume-Binding erzeugt Datei auf Host
+2. Volumes sind nicht Bestandteil des erzeugten Images!
 
 ## Docker Manifest
 
-Dockerfile
+`Dockerfile` erstellen aus `docker run` Befehl
 
-## Installation
+- FROM
+- ENV, WORKDIR
+- COPY, RUN
+- EXPOSE, VOLUME
+- CMD
 
-## Create a Docker Image
+### Dockerfile
 
-## Hello World
+```
+FROM node:13-alpine AS node
 
-## Ablauf 
+ENV PORT=8080
+ENV SERVER_NAME=Docker
+ENV NODE_ENV=production
 
+WORKDIR /usr/src/app
+
+COPY package.json /usr/src/app/package.json
+COPY server.js /usr/src/app/server.js
+COPY public /usr/src/app/public
+
+RUN cd /usr/src/app && \\
+    npm install
+
+EXPOSE 8080
+
+VOLUME [ "/usr/src/app/public/tutorial" ]
+
+CMD [ "npm", "start" ]
+```
+
+### Image aus Dockerfile bauen
+
+```
+docker rmi marcus/node:1.0
+docker build --tag marcus/node:1.0 .
+docker run --rm -dit --name node -v $(pwd)/public/tutorial:/usr/src/app/public/tutorial -p 80:8080 marcus/node:1.0 npm start
+```
+
+## Docker Hub Repository
+
+```
+docker push marcus/node:2.0
+```
+
+### Image als TAR speichern
+
+```
+# docker save --output marcus-node-2.0.0.tar marcus/node:2.0
+# docker load --input marcus-node-2.0.0.tar
+# (`docker save` an image or `docker export` a container. This will output a tar file to standard output, so you will like to do something like docker save 'dockerizeit/agent' > dk.agent.latest.tar. Then you can use `docker load` or `docker import` in a different host.)
+
+# 10. run container from loaded image
+# docker run -e -p 8080 marcus/node:2.0
+# docker port 
+```
 
 ## Docker Compose
 

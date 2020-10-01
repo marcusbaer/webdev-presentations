@@ -79,7 +79,7 @@ Hands-on Docker für Frontend-Entwickler
   - Image besteht aus einer Reihe von Layern, welche alle erforderlichen Installationen, Abhängigkeiten, Libraries und Prozesse für eine vollständig lauffähige Container-Umgebung enthalten
   - ist der übliche Weg, um Anwendungen oder vorkonfigurierte Umgebungen zu packen, welche dann anderen Anwendern (Entwickler, DevOps, Repositories) zur Verfügung gestellt werden
   - Docker Images sind auch der Einstiegspunkt in die Dockerwelt
-  - Beispiel-Images: Ubuntu, Apache, Nginx, MySQL, Wordpress, Mailhog usw. .... Node
+  - Beispiel-Images: Ubuntu, Apache, Nginx, MySQL, Wordpress, Mailhog, LaTeX usw. .... Node
 - **Docker Container**:
   - eine "lebende" Instanz eines Docker Images, in welcher individuelle Microservices laufen oder gar ein ganzer Application Stack
   - Beim Starten eines Containers fügt man den darunterliegenden Image Layern einen oberen schreibbaren Layer hinzu (Container Layer)
