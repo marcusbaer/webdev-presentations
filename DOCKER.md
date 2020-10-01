@@ -218,9 +218,12 @@ CMD [ "npm", "start" ]
 ### Image aus Dockerfile bauen
 
 ```
-docker rmi marcus/node:1.0
-docker build --tag marcus/node:1.0 .
-docker run --rm -dit --name node -v $(pwd)/public/tutorial:/usr/src/app/public/tutorial -p 80:8080 marcus/node:1.0 npm start
+docker build --tag marcus/node:2.0 .
+
+docker run --rm -dit --name node
+    -v $(pwd)/public/tutorial:/usr/src/app/public/tutorial
+    -p 80:8080
+    marcus/node:2.0 npm start
 ```
 
 ## Docker Hub Repository
@@ -229,7 +232,7 @@ docker run --rm -dit --name node -v $(pwd)/public/tutorial:/usr/src/app/public/t
 docker push marcus/node:2.0
 ```
 
-### Image als TAR
+## Image als TAR
 
 ```
 docker save --output marcus-node-2.0.0.tar marcus/node:2.0
@@ -241,7 +244,69 @@ docker port
 
 ## Docker Compose
 
-Docker-Compose is essentially a higher-level scripting interface on top of Docker itself, making it easier (ostensibly) to manage launching several containers simultaneously. Its config file (docker-compose.yml) is confusing since some of its settings are passed down to the lower-level docker process, and some are used only at the higher level.
+- übergeordnetes Scripting Interface für Docker
+- erleichtert das gleichzeitige Starten mehrerer Container
+- etwas verwirrende Konfiguration mit `docker-compose.yml`: einige Parameter an Docker process weiter gereicht, andere nicht
+
+### docker-compose.yml
+
+```
+version: '3'
+services:
+    node:
+        # build: .
+        image: 'marcus/node:2.0'
+        ports:
+            - '80:8080'
+        volumes:
+            - './public/tutorial:/usr/src/app/public/tutorial'
+        # command: npm run build
+
+volumes:
+    public:
+```
+
+### Verwenden von Docker Compose
+
+```
+docker-compose up [-d]
+
+docker-compose down
+```
+
+### Mehrere Container
+
+```
+version: '3'
+services:
+    apache:
+        image: 'bitnami/apache:latest'
+        ports:
+            - '80:8080'
+            - '443:8443'
+        volumes:
+            - ./public:/app
+
+    node:
+        # build: .
+        image: 'marcus/node:2.0'
+        ports:
+            - '80:8080'
+        volumes:
+            - './public/tutorial:/usr/src/app/public/tutorial'
+
+    deploy:
+        build: .
+        volumes:
+            - "./public:/usr/src/app"
+        command: npm run build
+
+volumes:
+    public:
+```
+
+Beispiel: eprimo
+
 
 # 
 
