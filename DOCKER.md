@@ -229,36 +229,21 @@ docker run --rm -dit --name node -v $(pwd)/public/tutorial:/usr/src/app/public/t
 docker push marcus/node:2.0
 ```
 
-### Image als TAR speichern
+### Image als TAR
 
 ```
-# docker save --output marcus-node-2.0.0.tar marcus/node:2.0
-# docker load --input marcus-node-2.0.0.tar
-# (`docker save` an image or `docker export` a container. This will output a tar file to standard output, so you will like to do something like docker save 'dockerizeit/agent' > dk.agent.latest.tar. Then you can use `docker load` or `docker import` in a different host.)
+docker save --output marcus-node-2.0.0.tar marcus/node:2.0
+docker load --input marcus-node-2.0.0.tar
 
-# 10. run container from loaded image
-# docker run -e -p 8080 marcus/node:2.0
-# docker port 
+docker run -p 8080 marcus/node:2.0
+docker port 
 ```
 
 ## Docker Compose
 
 Docker-Compose is essentially a higher-level scripting interface on top of Docker itself, making it easier (ostensibly) to manage launching several containers simultaneously. Its config file (docker-compose.yml) is confusing since some of its settings are passed down to the lower-level docker process, and some are used only at the higher level.
 
-## Docker Machine
-
-Docker Machine is a tool for provisioning and managing your Dockerized hosts (hosts with Docker Engine on them). Typically, you install Docker Machine on your local system. Docker Machine has its own command line client docker-machine and the Docker Engine client, docker. You can use Machine to install Docker Engine on one or more virtual systems. These virtual systems can be local (as when you use Machine to install and run Docker Engine in VirtualBox on Mac or Windows) or remote (as when you use Machine to provision Dockerized hosts on cloud providers). The Dockerized hosts themselves can be thought of, and are sometimes referred to as, managed “machines”.
-
-## Docker Swarm
-
-## Kubernetes
-
-## Praxisbeispiele aus der Entwicklung
-
-- virtueller MySQL-Server ohne Installation
-- Server zur Auslieferung statischer Inhalte läuft im Hintergrund
-- Build-System läuft im Hintergrund
-- INQA..
+# 
 
 ## Quellen
 
