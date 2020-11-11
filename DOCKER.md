@@ -329,3 +329,10 @@ Beispiel: eprimo
 - https://docs.docker.com/docker-for-windows/install/
 - https://www.docker.com/101-tutorial
 - https://labs.play-with-docker.com/
+
+## Docker Vertiefung
+
+- Docker Machine, https://docs.docker.com/machine/overview/
+  - https://stackoverflow.com/questions/38623027/what-is-the-difference-between-docker-machine-and-docker-compose
+- Deploying Docker containers on ECS
+- Docker Swarm, https://www.ionos.de/digitalguide/server/knowhow/kubernetes-vs-docker/

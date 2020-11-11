@@ -10,8 +10,7 @@ COPY package.json /usr/src/app/package.json
 COPY server.js /usr/src/app/server.js
 COPY public /usr/src/app/public
 
-RUN cd /usr/src/app && \\
-    npm install
+RUN npm set progress=false && npm install
 
 EXPOSE 8080
 

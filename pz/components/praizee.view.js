@@ -28,7 +28,7 @@ export const style = `<style>
         display: block;
         margin: 0 auto;
     }
-    code {font-size: 4vmin; }
+    code {font-size: 5.2vmin; background: lightgray; padding: 0.5vmin; }
     pre {line-height: 1.2; }
 </style>`
 
