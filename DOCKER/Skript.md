@@ -1,27 +1,5 @@
 # Docker
 
-
-
-```
-enter code samples here
-```
-
-Hands-on Docker für Frontend-Entwickler
-
-- installation instructions: website
-- demo: docker run hello world, apache, ubuntu, texlive, node (node -v)
-- nennen: MySQL, Mailhog, Wordpress
-- demo: create image from ubuntu container (cli changes)
-- demo: run commands in node: npm start, npm build (e.g. POPO) and create image from it
-- demo: -e PORT=80 -e SERVER_NAME=Docker
-- demo without Docker: export PORT=80 && node server.js (different time)
-- demo: docker ps, stop, start, login, create an image from
-- demo: GraphQL
-
-## Docker
-
-![Docker Logo](https://cdn.worldvectorlogo.com/logos/docker.svg)
-
 - Docker = Docker Engine
     - wenn "Docker" sagen, meinen wir Docker Engine
     - Client-Server Applikation, der Docker daemon
@@ -48,9 +26,6 @@ Hands-on Docker für Frontend-Entwickler
 - geringere Größe und einfacheres System bedeuten auch, dass Container schneller gestartet und gestoppt werden können als VMs
 - deutlich responsiver hinsichtlich Skalierungsanforderungen
 
-
-![VM vs Docker](./vm-vs-docker.png)
-<!-- https://jfrog--c.eu12.content.force.com/servlet/servlet.ImageServer?id=0151r000006uDem&oid=00D20000000M3v0&lastMod=1584630235000 -->
 
 - Container sind idealer Baustein für den modernen Cloud-Ansatz bei Softwarearchitekturen
 - einem monolythischen Programm steht eine Ansammlung lose gekoppelter Microservices gegenüber
@@ -88,10 +63,6 @@ Hands-on Docker für Frontend-Entwickler
   - ein Katalagsystem zum Hosten, Pushen und Pullen von Docker images
   - eigene lokale Registry oder einer von vielen Registry Services von Drittanbietern (Amazon ECR, Google Container Registry oder Dockers eigene Registry "Docker Hub").
 
-![Docker Architecture](./docker-architecture.png)
-<!-- https://jfrog--c.eu12.content.force.com/servlet/servlet.ImageServer?id=0151r000006uDFc&oid=00D20000000M3v0&lastMod=1584523377000 -->
-
-
 
 
 ## Hands-on Docker
@@ -109,50 +80,6 @@ The `-it` instructs Docker to allocate a pseudo-TTY connected to the container�
 
 Dockerfile
 
-## Installation
-
-## Create a Docker Image
-
-## Hello World
-
-## Ablauf 
-
-
 ## Docker Compose
 
 Docker-Compose is essentially a higher-level scripting interface on top of Docker itself, making it easier (ostensibly) to manage launching several containers simultaneously. Its config file (docker-compose.yml) is confusing since some of its settings are passed down to the lower-level docker process, and some are used only at the higher level.
-
-## Docker Machine
-
-Docker Machine is a tool for provisioning and managing your Dockerized hosts (hosts with Docker Engine on them). Typically, you install Docker Machine on your local system. Docker Machine has its own command line client docker-machine and the Docker Engine client, docker. You can use Machine to install Docker Engine on one or more virtual systems. These virtual systems can be local (as when you use Machine to install and run Docker Engine in VirtualBox on Mac or Windows) or remote (as when you use Machine to provision Dockerized hosts on cloud providers). The Dockerized hosts themselves can be thought of, and are sometimes referred to as, managed “machines”.
-
-## Docker Swarm
-
-## Kubernetes
-
-## Praxisbeispiele aus der Entwicklung
-
-- virtueller MySQL-Server ohne Installation
-- Server zur Auslieferung statischer Inhalte läuft im Hintergrund
-- Build-System läuft im Hintergrund
-- INQA..
-
-## Quellen
-
-- [What Is Docker? A Beginner’s Guide](https://jfrog.com/knowledge-base/what-is-docker-why-use-docker-containers-a-beginners-guide/)
-- [A Beginner’s Guide to Understanding and Building Docker Images](https://jfrog.com/knowledge-base/a-beginners-guide-to-understanding-and-building-docker-images/#:~:text=A%20Docker%20image%20is%20a,publicly%20with%20other%20Docker%20users.)
-- https://jfrog.com/knowledge-base/6-alternatives-to-docker-all-in-one-solutions-and-standalone-container-tools/
-- https://www.ionos.de/digitalguide/server/knowhow/kubernetes-vs-docker/
-- https://www.edureka.co/community/51049/how-is-docker-machine-different-from-docker-engine
-- https://www.macadamian.com/learn/docker-machine-basic-examples/
-- https://phase2.github.io/devtools/common-tasks/ssh-into-a-container/
-- https://stackoverflow.com/questions/24482822/how-to-share-my-docker-image-without-using-the-docker-hub
-- https://stackoverflow.com/questions/22655867/what-is-the-difference-between-save-and-export-in-docker#:~:text=There%20are%20two%20main%20differences,smaller%20then%20the%20saved%20one.
-- https://docs.docker.com/get-started/part2/
-- https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-docker.html
-- https://console.aws.amazon.com/ecs/home#/firstRun
-- https://www.infoq.com/news/2020/07/docker-ecs-plugin/
-- https://runnable.com/docker/install-docker-on-windows-10
-- https://docs.docker.com/docker-for-windows/install/
-- https://www.docker.com/101-tutorial
-- https://labs.play-with-docker.com/
