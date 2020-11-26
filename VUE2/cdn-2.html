@@ -1,0 +1,159 @@
+<html>
+    <head>
+        <title>Vue basics</title>
+        <meta charset="utf-8">
+        <!-- development version, includes helpful console warnings -->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vuex@2/dist/vuex.js"></script>
+        <script type="module">
+
+            Vue.use(Vuex)
+
+            const store = new Vuex.Store({
+                state: {
+                    count: 0
+                },
+                getters: {
+                    // clickCounterFor: state => city => state.cityClicks[city] || 0,
+                },
+                actions: {
+                    increment ({commit}, city) {
+                        commit('countClickFor', city)
+                    }
+                },
+                mutations: {
+                    countClickFor (state, city) {
+                        state.count++
+                    }
+                }
+            })
+
+            Vue.directive('stop-propagation', {
+                bind (el, binding, vnode) {
+                    el.addEventListener('click', ev => {
+                        ev.stopPropagation();
+                        const logGroup = '%c Vue directive %c stop propagation ';
+                        console.groupCollapsed(logGroup, 'background: #003464; border-bottom-left-radius: 4px; border-top-left-radius: 4px; color: white; padding: 2px 0;', 'background: #af111d; border-bottom-right-radius: 4px; border-top-right-radius: 4px; color: white; padding: 2px 0; font-weight: normal;');
+                        console.log(ev)
+                        console.groupEnd(logGroup)
+                    });
+                }
+            })
+
+            Vue.component('locator', {
+                props: ['location'],
+                template: '#locator-template',
+                computed: {
+                    mapLink () {
+                        const zoom = 12
+                        return `https://www.openstreetmap.org/?mlat=${this.location.latitude}&mlon=${this.location.longitude}#map=${zoom}/${this.location.latitude}/${this.location.longitude}`
+                    }
+                }
+            })
+
+            Vue.component('weather-condition', {
+                props: ['city', 'condition'],
+                template: '#weather-condition-template'
+            })
+
+            Vue.component('city', {
+                props: ['city'],
+                template: '#city-template',
+                data () {
+                    return {
+                        currentCondition: {},
+                        location: {}
+                    }
+                },
+                async mounted() {
+                    const lang = 'en'
+                    const response = await fetch(`http://${lang}.wttr.in/${this.city.name}?format=j1`)
+                    const weatherData = await response.json()
+                    console.log(this.city.name, weatherData.current_condition, weatherData.nearest_area)
+                    this.currentCondition = weatherData.current_condition[0]
+                    this.location = weatherData.nearest_area[0]
+                },
+                methods: {
+                    pick (city) {
+                        // console.log(city)
+                        this.$emit('picked', city)
+                    }
+                }
+            });
+
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    message: 'The weather in cities at ' + new Date().toLocaleString(),
+                    hintVisible: true,
+                    cities: [
+                        { name: 'Köln' },
+                        { name: 'Ohrid' },
+                        { name: 'Skopje' },
+                        { name: 'Wuppertal' },
+                    ]
+                },
+                computed: {
+                    // ...Vuex.mapGetters([
+                    //     'overallClickCounter',
+                    // ]),
+                    clickCounter () {
+                        return this.$store.state.count
+                    },
+                },
+                methods: {
+                    onItemClicked (city) {
+                        alert(`Clicked at ${city.name}`)
+                        this.$store.dispatch('increment', city.name)
+                    }
+                },
+                store
+            })
+        </script>
+        <style>
+            h2 a { display: none; font-size: 1rem; }
+            h2:hover a { display: inline; }
+            li { cursor: pointer; }
+            span { cursor: pointer; }
+            span:hover { text-decoration: underline; }
+        </style>
+    </head>
+    <body>
+        <h1>Weather info</h1>
+        <div id="app">
+            <p>{{ message }}</p>
+            <span v-bind:title="message" @click="hintVisible = !hintVisible">
+                Find out the weather in different cities!
+            </span>
+            <div v-if="hintVisible">
+                Edit the message <input v-model="message">
+            </div>
+            <div>You clicked {{ clickCounter }} times at cities.</div>
+            <ol>
+                <city v-for="(city, index) in cities" :city="city" v-bind:key="index" @picked="onItemClicked"></city>
+            </ol>
+        </div>
+        <template id="city-template">
+            <li @click="pick(city)">
+                <locator :location="location">{{ city.name }}</locator>
+                <weather-condition :condition="currentCondition"></weather-condition>
+            </li>
+        </template>
+        <template id="weather-condition-template">
+            <ul v-if="condition.weatherDesc">
+                <li>Temperature: {{ condition.temp_C }}°C</li>
+                <li>Clouds: {{ condition.weatherDesc[0].value }}</li>
+                <li>Wind: {{ condition.winddir16Point }} at {{ condition.windspeedKmph }} km/h</li>
+            </ul>
+        </template>
+        <template id="locator-template">
+            <div>
+                <h2>
+                    <slot></slot>
+                    <a :href="mapLink" v-stop-propagation>Position of weather station in map</a>
+                </h2>
+                <!-- <p>{{ location }}</p> -->
+            </div>
+        </template>
+    </body>
+</html>

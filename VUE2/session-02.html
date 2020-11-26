@@ -1,0 +1,99 @@
+<html>
+    <head>
+        <title>Vue introduction</title>
+        <meta charset="utf-8">
+        <style>
+            .active { background: lightgray; }
+        </style>
+        <!-- development version, includes helpful console warnings -->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <script type="module">
+
+        Vue.component('city', {
+            props: ['city'],
+            template: '<li @click="pick(city)" :class="{active:isActive}" v-pointer>{{ city.name }} <a :href="mapLink" v-stop-propagation><slot>open map</slot></a><weather-condition :condition="currentCondition"/></li>',
+            data () {
+                return {
+                    currentCondition: {},
+                    location: {},
+                    isActive: false
+                }
+            },
+            computed: {
+                mapLink () {
+                    const zoom = 12
+                    return `https://www.openstreetmap.org/?mlat=${this.location.latitude}&mlon=${this.location.longitude}#map=${zoom}/${this.location.latitude}/${this.location.longitude}`
+                }
+            },
+            methods: {
+                pick (city) {
+                    this.$emit('picked', city)
+                    this.isActive = !this.isActive
+                }
+            },
+            async mounted() {
+                const lang = 'en'
+                const response = await fetch(`http://${lang}.wttr.in/${this.city.name}?format=j1`)
+                const weatherData = await response.json()
+                console.log(weatherData.current_condition, weatherData.nearest_area)
+                this.currentCondition = weatherData.current_condition[0]
+                this.location = weatherData.nearest_area[0]
+            }
+        })
+
+        Vue.component('weather-condition', {
+            props: ['condition'],
+            template: '#weather-condition-template'
+        })
+
+        Vue.directive('pointer', {
+            bind (el, binding, vnode) {
+                el.style.cursor = 'pointer'
+            }
+        })
+
+        Vue.directive('stop-propagation', {
+            bind (el, binding, vnode) {
+                el.addEventListener('click', ev => ev.stopPropagation())
+            }
+        })
+
+        new Vue({
+            el: '#app',
+            data: {
+                cities: [
+                    { name: 'Berlin' },
+                    { name: 'Köln' },
+                    { name: 'Ohrid' },
+                    { name: 'Skopje' },
+                ],
+                editMode: false,
+                message: 'The weather in cities at',
+                now: new Date().toLocaleString(),
+            },
+            methods: {
+                onItemClicked (city) {
+                    // alert(`Clicked at ${city.name}`)
+                }
+            }
+        })
+        </script>
+    </head>
+    <body>
+        <h1>Weather info</h1>
+        <div id="app">
+            <p v-pointer :title="message" @click="editMode = !editMode">{{ message }} {{ now }}</p>
+            <input v-model="message" v-if="editMode" />
+            <ol>
+                <city v-for="(city, index) in cities" :city="city" v-bind:key="index" @picked="onItemClicked">show</city>
+            </ol>
+        </div>
+        <template id="weather-condition-template">
+            <ul v-if="condition.weatherDesc">
+                <li>Temperature: {{ condition.temp_C }}°C</li>
+                <li>Clouds: {{ condition.weatherDesc[0].value }}</li>
+                <li>Wind: {{ condition.winddir16Point }} at {{ condition.windspeedKmph }} km/h</li>
+            </ul>
+        </template>
+    </body>
+</html>

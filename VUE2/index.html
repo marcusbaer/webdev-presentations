@@ -1,0 +1,113 @@
+<html>
+    <head>
+        <title>Vuex introduction</title>
+        <meta charset="utf-8">
+        <style>
+            .active { background: lightgray; }
+            .city { border: 1px solid gray; margin: 1rem 0; padding: 0.5rem; }
+            .city:hover { border-color: black; }
+        </style>
+        <!-- development version, includes helpful console warnings -->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vuex@2/dist/vuex.js"></script>
+        <script type="module">
+
+        Vue.use(Vuex)
+
+        const store = new Vuex.Store({
+            state: {
+                clicksByCity: {},
+                totalClicks: 0
+            },
+            getters: {
+                // cityClicks: state => city => state.clicksByCity[city] || 0,
+                cityClicks: state => city => {
+                    // TODO: https://vuex.vuejs.org/guide/getters.html
+                    const foo = state.clicksByCity[city]
+                    console.log(city, state.clicksByCity, foo)
+                    return state.clicksByCity[city] || 0
+                },
+            },
+            actions: {
+                countClick ({commit}, city) {
+                    commit('countClick', city)
+                }
+            },
+            mutations: {
+                countClick (state, city) {
+                    if (!state.clicksByCity[city]) {
+                        state.clicksByCity[city] = 1
+                    } else {
+                        state.clicksByCity[city] += 1
+                    }
+                    state.totalClicks++
+                }
+            }
+        })
+
+        Vue.component('city', {
+            props: ['city'],
+            template: '#city-template',
+            data () {
+                return {
+                    isActive: false
+                }
+            },
+            computed: {
+                ...Vuex.mapGetters([
+                    'cityClicks',
+                ]),
+                numberOfCityClicks () {
+                    return this.cityClicks(this.city.name)
+                }
+            },
+            methods: {
+                pick (city) {
+                    this.isActive = !this.isActive
+                    this.$store.dispatch('countClick', city.name)
+                }
+            },
+        })
+
+        Vue.directive('pointer', {
+            bind (el, binding, vnode) {
+                el.style.cursor = 'pointer'
+            }
+        })
+
+        new Vue({
+            el: '#app',
+            data: {
+                cities: [
+                    { name: 'Berlin' },
+                    { name: 'Köln' },
+                    { name: 'Ohrid' },
+                    { name: 'Skopje' },
+                ],
+            },
+            computed: {
+                numberOfTotalClicks () {
+                    return this.$store.state.totalClicks
+                },
+            },
+            store
+        })
+        </script>
+    </head>
+    <body>
+        <h1>Cities</h1>
+        <div id="app">
+            <ol>
+                <city v-for="(city, index) in cities" :city="city" v-bind:key="index"></city>
+            </ol>
+            <p>total clicks: {{ numberOfTotalClicks }}</p>
+        </div>
+        <template id="city-template">
+            <li @click="pick(city)" v-pointer
+                class="city" :class="{active:isActive}"
+            >
+                {{ city.name }} ({{ numberOfCityClicks }})
+            </li>
+        </template>
+    </body>
+</html>

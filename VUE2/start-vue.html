@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title>Vue introduction</title>
+        <meta charset="utf-8">
+        <!-- development version, includes helpful console warnings -->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <script type="module">
+        new Vue({
+            el: '#app',
+            data: {
+                message: 'The weather in cities at ' + new Date().toLocaleString(),
+            }
+        })
+        </script>
+    </head>
+    <body>
+        <h1>Weather info</h1>
+        <div id="app">
+            <p>{{ message }}</p>
+        </div>
+    </body>
+</html>
