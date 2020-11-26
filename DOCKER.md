@@ -108,14 +108,15 @@ docker rm <container>
 
 - `-p 80:8080` Port und Mapping (`host:guest`)
 - `-v $(pwd)/public:/app` Volume-Binding
+- `-w /app` Arbeitsverzeichnis im Container
 - `-e PORT=8080` Umgebungsvariable
-- `-d` Detach = started Container im Hintergrund und zeigt Container ID
-- `-it` anbinden einer Pseudo-TTY, mit `stdin` des Containers verbunden; erzeugt interaktive Bash-Shell im Container
+- `--name container-name` Name eines Containers
 
 ### Container starten
 
+- `-d` Detach = started Container im Hintergrund und zeigt Container ID
+- `-it` anbinden einer Pseudo-TTY, mit `stdin` des Containers verbunden; erzeugt interaktive Bash-Shell im Container
 - `--rm` nach Ausführung löschen
-- `--name container-name` Name eines Containers
 
 ### Node
 
@@ -220,6 +221,8 @@ CMD [ "npm", "start" ]
 ```
 docker build --tag marcus/node:2.0 .
 
+docker run --rm -p 80:8080 marcus/node:2.0 npm start
+
 docker run --rm -dit --name node
   -v $(pwd)/public/tutorial:/usr/src/app/public/tutorial
   -p 80:8080
@@ -236,10 +239,13 @@ docker push marcus/node:2.0
 
 ```
 docker save --output marcus-node-2.0.0.tar marcus/node:2.0
+
+docker rmi $(docker images -a -q)
+
 docker load --input marcus-node-2.0.0.tar
 
-docker run -p 8080 marcus/node:2.0
-docker port 
+docker run -dit -p 8080 marcus/node:2.0
+docker port <container>
 ```
 
 ## Docker Compose
@@ -322,6 +328,7 @@ Beispiel: eprimo
 - https://stackoverflow.com/questions/24482822/how-to-share-my-docker-image-without-using-the-docker-hub
 - https://stackoverflow.com/questions/22655867/what-is-the-difference-between-save-and-export-in-docker#:~:text=There%20are%20two%20main%20differences,smaller%20then%20the%20saved%20one.
 - https://docs.docker.com/get-started/part2/
+- https://www.digitalocean.com/community/tutorials/how-to-remove-docker-images-containers-and-volumes-de
 - https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-docker.html
 - https://console.aws.amazon.com/ecs/home#/firstRun
 - https://www.infoq.com/news/2020/07/docker-ecs-plugin/
