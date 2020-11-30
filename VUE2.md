@@ -329,13 +329,13 @@ We're starting with a new example to focus on the state management and use a mod
 - load Vuex script from CDN
 - and we tell Vue to use Vuex plugin: `Vue.use(Vuex)`
 
-### Store
+### Setup Store
 
 is JS:
 ```
 const store = new Vuex.Store({
     state: {
-        totalClicks: 0
+        totalClicksCounter: 0
     },
     actions: {
         countClick ({commit}, city) {
@@ -344,7 +344,7 @@ const store = new Vuex.Store({
     },
     mutations: {
         countClick (state, city) {
-            state.totalClicks++
+            state.totalClicksCounter++
         }
     }
 })
@@ -372,7 +372,7 @@ add to Vue:
 ```
 computed: {
     numberOfTotalClicks () {
-        return this.$store.state.totalClicks
+        return this.$store.state.totalClicksCounter
     },
 },
 ```
@@ -384,9 +384,38 @@ and render in template after `ol`:
 
 ### Counting clicks by city
 
-refactor store:
+extend store:
 ```
-code of store here...
+const store = new Vuex.Store({
+    state: {
+        clicksByCity: {},
+        ...
+    },
+    getters: {
+        cityClicks: state => city => state.clicksByCity[city] || 0,
+        totalClicks: state => {
+            const cities = Object.keys(state.clicksByCity)
+            let totalClicks = 0
+            cities.forEach(city => {
+                totalClicks += state.clicksByCity[city]
+            })
+            return totalClicks
+        }
+    },
+    actions: {
+        ...
+    },
+    mutations: {
+        countClick (state, city) {
+            if (!state.clicksByCity[city]) {
+                Vue.set(state.clicksByCity, city, 1)
+            } else {
+                state.clicksByCity[city] += 1
+            }
+            ...
+        }
+    }
+})
 ```
 
 in city component:
@@ -394,6 +423,7 @@ in city component:
 computed: {
     ...Vuex.mapGetters([
         'cityClicks',
+        'totalClicks'
     ]),
     numberOfCityClicks () {
         return this.cityClicks(this.city.name)
