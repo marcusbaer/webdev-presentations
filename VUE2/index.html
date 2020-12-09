@@ -1,121 +1,22 @@
 <html>
     <head>
-        <title>Vuex introduction</title>
+        <title>Vue introduction</title>
         <meta charset="utf-8">
-        <style>
-            .active { background: lightgray; }
-            .city { border: 1px solid gray; margin: 1rem 0; padding: 0.5rem; }
-            .city:hover { border-color: black; }
-        </style>
         <!-- development version, includes helpful console warnings -->
         <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/vuex@2/dist/vuex.js"></script>
         <script type="module">
-
-        Vue.use(Vuex)
-
-        const store = new Vuex.Store({
-            state: {
-                clicksByCity: {},
-                totalClicksCounter: 0
-            },
-            getters: {
-                cityClicks: state => city => state.clicksByCity[city] || 0,
-                totalClicks: state => {
-                    const cities = Object.keys(state.clicksByCity)
-                    let totalClicks = 0
-                    cities.forEach(city => {
-                        totalClicks += state.clicksByCity[city]
-                    })
-                    return totalClicks
-                }
-            },
-            actions: {
-                countClick ({commit}, city) {
-                    commit('countClick', city)
-                }
-            },
-            mutations: {
-                countClick (state, city) {
-                    if (!state.clicksByCity[city]) {
-                        // not reactive
-                        // state.clicksByCity[city] = 1
-                        // https://vuex.vuejs.org/guide/mutations.html
-                        // https://vuejs.org/v2/guide/reactivity.html
-                        Vue.set(state.clicksByCity, city, 1)
-                    } else {
-                        state.clicksByCity[city] += 1
-                    }
-                    state.totalClicksCounter++
-                }
-            }
-        })
-
-        Vue.component('city', {
-            props: ['city'],
-            template: '#city-template',
-            data () {
-                return {
-                    isActive: false
-                }
-            },
-            computed: {
-                ...Vuex.mapGetters([
-                    'cityClicks',
-                    'totalClicks'
-                ]),
-                numberOfCityClicks () {
-                    return this.cityClicks(this.city.name)
-                }
-            },
-            methods: {
-                pick (city) {
-                    this.isActive = !this.isActive
-                    this.$store.dispatch('countClick', city.name)
-                }
-            },
-        })
-
-        Vue.directive('pointer', {
-            bind (el, binding, vnode) {
-                el.style.cursor = 'pointer'
-            }
-        })
-
         new Vue({
             el: '#app',
             data: {
-                cities: [
-                    { name: 'Berlin' },
-                    { name: 'Köln' },
-                    { name: 'Ohrid' },
-                    { name: 'Skopje' },
-                ],
-            },
-            computed: {
-                numberOfTotalClicks () {
-                    return this.$store.getters.totalClicks
-                    // return this.$store.state.totalClicksCounter
-                },
-            },
-            store
+                message: 'The weather in cities at ' + new Date().toLocaleString(),
+            }
         })
         </script>
     </head>
     <body>
-        <h1>Cities</h1>
+        <h1>Weather info</h1>
         <div id="app">
-            <ol>
-                <city v-for="(city, index) in cities" :city="city" v-bind:key="index"></city>
-            </ol>
-            <p>total clicks: {{ numberOfTotalClicks }}</p>
+            <p>{{ message }}</p>
         </div>
-        <template id="city-template">
-            <li @click="pick(city)" v-pointer
-                class="city" :class="{active:isActive}"
-            >
-                {{ city.name }} ({{ numberOfCityClicks }})
-            </li>
-        </template>
     </body>
 </html>

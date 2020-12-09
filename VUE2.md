@@ -172,6 +172,17 @@ in template:
 <city v-for="(city, index) in cities" :city="city" v-bind:key="index" @picked="onItemClicked"></city>
 ```
 
+Events can be caught by custom directives. Very common need to call `event.preventDefault()` etc. can be handled by *event modifiers*. 
+
+```
+<a v-on:click.stop="doThis"></a>
+
+<a v-on:click.once="doThis"></a>
+
+// can be chained
+<a v-on:click.stop.prevent="doThat"></a>
+```
+
 ### Conditional styles
 
 add data to city component:
@@ -233,7 +244,7 @@ template: '<li>....<weather-condition/></li>',
 
 ## Fetching data
 
-refactor city component:
+refactor city component (as in session 2):
 ```
 Vue.component('city', {
     ...
