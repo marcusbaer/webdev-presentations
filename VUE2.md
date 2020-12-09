@@ -244,7 +244,7 @@ template: '<li>....<weather-condition/></li>',
 
 ## Fetching data
 
-refactor city component (as in session 2):
+refactor city component:
 ```
 Vue.component('city', {
     ...
@@ -304,7 +304,7 @@ render link into href attribute:
 {{ city.name }} <a :href="mapLink">open map</a>...
 ```
 
-catch event by adding stop propagation directive to link:
+catch event by adding stop propagation directive to link (we cannot use the event modifier as we don't have a click event):
 ```
 {{ city.name }} <a :href="mapLink" v-stop-propagation>open map</a>...
 ```
