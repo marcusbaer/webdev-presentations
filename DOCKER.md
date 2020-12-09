@@ -313,9 +313,67 @@ volumes:
 
 Beispiel: eprimo
 
+#
+```
 
-# 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+```
+
+
+# News
+
+- https://blog.tailwindcss.com/tailwindcss-v2
+- https://www.smashingmagazine.com/2020/11/best-practices-ecommerce-ui-design/
+- https://calendar.perfplanet.com/2020/
+- https://lou-flan.com/girlwithcssearring.html
+- https://diana-adrianne.com/purecss-gaze/
+
+
+
+<!--
 ## Quellen
 
 - [What Is Docker? A Beginner’s Guide](https://jfrog.com/knowledge-base/what-is-docker-why-use-docker-containers-a-beginners-guide/)
@@ -343,3 +401,5 @@ Beispiel: eprimo
   - https://stackoverflow.com/questions/38623027/what-is-the-difference-between-docker-machine-and-docker-compose
 - Deploying Docker containers on ECS
 - Docker Swarm, https://www.ionos.de/digitalguide/server/knowhow/kubernetes-vs-docker/
+
+-->
