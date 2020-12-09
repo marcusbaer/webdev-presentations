@@ -453,8 +453,8 @@ in city template:
 
 - single file components are a good way to have template, JS and styles at the same place
 - for larger projects or when frontend entirely driven by JS
-- require the usage of a bundler, like Webpack
-- [Documentation](https://vuejs.org/v2/guide/single-file-components.html) of 
+- requires the usage of a bundler, like Webpack
+- [Documentation](https://vuejs.org/v2/guide/single-file-components.html)
 - https://codesandbox.io/s/
 
 ## How to get started by yourself
