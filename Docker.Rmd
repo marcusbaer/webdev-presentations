@@ -1,0 +1,28 @@
+---
+title: "Docker Handout"
+author: "Marcus Baer"
+date: "13 Dezember 2020"
+output: pdf_document
+---
+
+<!-- https://www.is.uni-freiburg.de/resources/computational-economics/R_Markdown.pdf -->
+
+## VS Code Extension "R Markdown All in One"
+
+- Cmd + Shift + K = Knit
+- Cmd + Alt + I = Insert code
+
+## R Markdown
+
+This is an *R Markdown* document. Markdown is a simple formatting syntax for authoring HTML, PDF and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+```{r}
+3 + 4
+```
+
+Here we have Node example
+
+```{node}
+console.log('Hello world');
+```
+
