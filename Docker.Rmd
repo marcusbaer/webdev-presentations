@@ -41,13 +41,19 @@ sqrt (2)
 knitr::include_graphics('./sustainability.png')
 ```
 
-### Cars
+### Cars und Exponentialfunktion
 
 
 ```{r cars, echo = FALSE}
 summary(cars)
 plot(cars)
 ```
+
+```{r exp}
+x<-seq(-3,3,0.1)
+plot(x,exp(x))
+```
+
 
 ## Math
 
