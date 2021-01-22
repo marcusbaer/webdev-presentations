@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <title>more complex implicit state machine</title>
+    <style>
+        button { border-radius: 50%; height: 120px; width: 120px; }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuex@2/dist/vuex.js"></script>
+    <script type="module">
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    buttonOptions: {
+                        green: "GREEN",
+                        yellow: "YELLOW",
+                        red: "RED"
+                    },
+                    state: 'red'
+                }
+            },
+            computed: {
+                buttonText() {
+                    return this.buttonOptions[this.state]
+                }
+            },
+            methods: {
+                onClick () {
+                    this.state = this.state === 'red' ? 'green' : 'red'
+                }
+            },
+        })
+    </script>
+</head>
+
+<body>
+    <div id="app">
+        <button @click="onClick" :style="{backgroundColor: state}">{{ buttonText }}</button>
+        <hr>
+        <div>{{ state }}</div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <title>more complex implicit state machine</title>
+    <style>
+        button {
+            border-radius: 50%;
+            height: 120px;
+            width: 120px;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuex@2/dist/vuex.js"></script>
+    <script src="https://unpkg.com/xstate@4/dist/xstate.js"></script>
+    <script type="module">
+
+        const { Machine, actions, interpret } = XState
+
+        const lightMachine = Machine({
+            key: "light",
+            initial: "red",
+            states: {
+                green: {
+                    on: {
+                        TIMER: "yellow"
+                    }
+                },
+                yellow: {
+                    on: {
+                        TIMER: "red"
+                    }
+                },
+                red: {
+                    on: {
+                        TIMER: "green"
+                    }
+                }
+            }
+        })
+
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    buttonOptions: {
+                        green: "GREEN",
+                        yellow: "YELLOW",
+                        red: "RED"
+                    },
+                    lightMachine: lightMachine,
+                    state: null
+                }
+            },
+            computed: {
+                buttonText() {
+                    return this.buttonOptions[this.state]
+                }
+            },
+            mounted() {
+                this.state = this.lightMachine.initial
+                // setInterval(() => {
+                //     this.state = this.lightMachine.transition(this.state, "TIMER").value
+                // }, 3000)
+            },
+            methods: {
+                onClick() {
+                    this.state = this.lightMachine.transition(this.state, "TIMER").value
+                }
+            },
+        })
+    </script>
+</head>
+
+<body>
+    <div id="app">
+        <button @click="onClick" :style="{backgroundColor: state}">{{ buttonText }}</button>
+        <hr>
+        <div>{{ state }}</div>
+    </div>
+</body>
+
+</html>
