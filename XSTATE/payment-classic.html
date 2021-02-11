@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <title>payment classic</title>
+    <style>
+    </style>
+    <script type="module">
+        const logNode = document.querySelector('.log');
+        const submitNode = document.querySelector('button');
+        const totalNode = document.querySelector('#total');
+
+        const fakeFetchPayment = (context, event) => new Promise((resolve, reject) => {
+            setTimeout(() => {
+                const dice = Math.floor(Math.random() * Math.floor(2));
+                if (dice === 0) return resolve({msg: `Payment of ${context.total} succeeded.`});
+                return reject({msg: 'Payment failed.'});
+            }, 1000);
+        });
+
+        const fetchPayment = (total = 0) =>
+            fetch(`/payment.json?total=${total}`).then((response) => response.json());
+
+        submitNode.addEventListener('click', (ev) => {
+            const paymentTotal = totalNode.value
+            if (paymentTotal > 0) {
+                fakeFetchPayment({
+                    total: paymentTotal
+                }).then(({msg}) => {
+                    logNode.innerText = msg;
+                }).catch(({msg}) => {
+                    logNode.innerText = msg;
+                });
+            } else {
+                logNode.innerText = 'Error occured';
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <label for="total">Total</label>
+    <input id="total" value="0" type="number" min="0" max="99" />
+    <button>Submit</button>
+    <p class="log"></p>
+    <hr>
+    <p>Check the console</p>
+</body>
+
+</html>

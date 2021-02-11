@@ -5,11 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex,nofollow">
-    <title>payment machine</title>
+    <title>payment vue machine</title>
     <style>
         img { width: 100%; }
+        .--done { font-weight: bold; }
+        .--error { color: red; }
     </style>
     <script src="https://unpkg.com/xstate@4/dist/xstate.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vuex@2/dist/vuex.js"></script> -->
     <script type="module">
         // import { Machine, actions, assign, interpret, send } from 'https://unpkg.com/xstate@4/dist/xstate.web.js'
         const { Machine, actions, assign, interpret, send } = XState;
@@ -114,27 +118,51 @@
         });
         /* ********* VISUALIZER END ********* */
 
-        const service = interpret(paymentMachine).onTransition(state => {
-            console.log(state);
-            logNode.innerText = `${state.value.toUpperCase()} (${JSON.stringify(state.context)})`;
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    log: '',
+                    service: null,
+                    stateDone: false,
+                    stateValue: null,
+                    total: 0
+                }
+            },
+            computed: {
+                logStyle() {
+                    return {
+                        '--error': this.stateValue === 'error',
+                        '--done': this.stateDone,
+                    }
+                }
+            },
+            mounted() {
+                this.service = interpret(paymentMachine).onTransition(state => {
+                    console.log(state);
+                    this.stateDone = state.done;
+                    this.stateValue = state.value;
+                    this.log = `${state.value.toUpperCase()} (${JSON.stringify(state.context)})`;
+                });
+                this.service.start();
+            },
+            methods: {
+                onSubmit() {
+                    this.service.send({ type: 'SET_TOTAL', total: Number(this.total) });
+                    this.service.send({ type: 'SUBMIT' });
+                }
+            }
         });
-
-        submitNode.addEventListener('click', (ev) => {
-            service.send({ type: 'SET_TOTAL', total: Number(totalNode.value) });
-            service.send({ type: 'SUBMIT' });
-        });
-
-        // console.log(paymentMachine.initial);
-        service.start();
-        // service.stop();
     </script>
 </head>
 
 <body>
-    <label for="total">Total</label>
-    <input id="total" value="0" type="number" min="0" max="99" />
-    <button>Submit</button>
-    <p class="log"></p>
+    <div id="app">
+        <label for="total">Total</label>
+        <input id="total" v-model="total" type="number" min="0" max="99" />
+        <button @click.prevent="onSubmit">Submit</button>
+        <p class="log" :class="logStyle">{{ log }}</p>
+        </div>
     <hr>
     <p>Check the console</p>
     <img src="./payment-machine.png" alt="state chart of payment machine">
