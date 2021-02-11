@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <title>payment machine</title>
+    <style>
+    </style>
+    <script src="https://unpkg.com/xstate@4/dist/xstate.js"></script>
+    <script type="module">
+        // import { Machine, actions, assign, interpret, send } from 'https://unpkg.com/xstate@4/dist/xstate.web.js'
+        const { Machine, actions, assign, interpret, send } = XState;
+
+        const logNode = document.querySelector('.log');
+        const submitNode = document.querySelector('button');
+        const totalNode = document.querySelector('#total');
+
+        const fakeFetchPayment = (context, event) => new Promise((resolve, reject) => {
+            setTimeout(() => {
+                const dice = Math.floor(Math.random() * Math.floor(2));
+                if (dice === 0) return resolve({msg: `Payment of ${context.total} succeeded.`});
+                return reject({msg: 'Payment failed.'});
+            }, 1000);
+        });
+
+        const fetchPayment = (total = 0) =>
+            fetch(`/payment.json?total=${total}`).then((response) => response.json());
+
+        const paymentMachine = Machine({
+            id: 'paymentMachine',
+            initial: 'idle',
+            context: {
+                total: 0,
+                message: null
+            },
+            states: {
+                idle: {
+                    after: {
+                        10000: 'timeout'
+                    },
+                    on: {
+                        SET_TOTAL: {
+                            target: 'data_ready',
+                            actions: 'assignTotal'
+                        }
+                    }
+                },
+                data_ready: {
+                    on: {
+                        SUBMIT: [{
+                            target: 'loading',
+                            cond: ({ total }) => total > 0, // Guard
+                        }, {
+                            target: 'error',
+                        }]
+                    }
+                },
+                loading: {
+                    invoke: {
+                        id: 'payment',
+                        src: fakeFetchPayment,
+                        // src: fetchPayment,
+                        onDone: {
+                            target: 'success',
+                            actions: assign({ message: (context, event) => event.data.msg })
+                        },
+                        onError: {
+                            target: 'error',
+                            actions: assign({ message: (context, event) => event.data.msg })
+                        }
+                    },
+                    entry: 'fetchData',
+                    on: {
+                        PAYMENT_RECEIVED: 'success',
+                        PAYMENT_FAILED: 'error',
+                    }
+                },
+                error: {
+                    entry: 'assignErrorMessage',
+                    on: {
+                        SUBMIT: {
+                            target: 'loading',
+                            cond: ({ total }) => total > 0, // Guard
+                        }
+                    }
+                },
+                success: {
+                    type: 'final',
+                },
+                timeout: {
+                    type: 'final',
+                }
+            }
+        }, {
+            actions: {
+                assignErrorMessage: assign({
+                    message: 'Error occured'
+                }),
+                assignTotal: assign({
+                    total: (context, event) => context.total + event.total
+                }),
+            },
+            services: {
+                doPayment: (context, event) => fetchPayment(context.total),
+            }
+        });
+
+        const service = interpret(paymentMachine).onTransition(state => {
+            console.log(state);
+            logNode.innerText = `${state.value.toUpperCase()} (${JSON.stringify(state.context)})`;
+        });
+
+        submitNode.addEventListener('click', (ev) => {
+            service.send({ type: 'SET_TOTAL', total: Number(totalNode.value) });
+            // const dataReadyState = paymentMachine.transition(paymentMachine.initial, { type: 'SET_TOTAL', total: 20 });
+            // console.log(dataReadyState);
+
+            service.send({ type: 'SUBMIT' });
+            // const loadingState = paymentMachine.transition(dataReadyState, { type: 'SUBMIT' });
+            // console.log(loadingState);
+        });
+
+        // console.log(paymentMachine.initial);
+        service.start();
+
+        // service.stop();
+    </script>
+</head>
+
+<body>
+    <label for="total">Total</label>
+    <input id="total" value="0" type="number" />
+    <button>Submit</button>
+    <p class="log"></p>
+    <hr>
+    <p>Check the console</p>
+</body>
+
+</html>

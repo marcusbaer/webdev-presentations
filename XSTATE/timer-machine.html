@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <title>timer machine</title>
+    <style>
+    </style>
+    <script src="https://unpkg.com/xstate@4/dist/xstate.js"></script>
+    <script type="module">
+        // import { Machine, actions, assign, interpret, send } from 'https://unpkg.com/xstate@4/dist/xstate.web.js'
+        const { Machine, actions, assign, interpret, send } = XState;
+
+        const timerMachine = Machine({
+            id: 'timer',
+            initial: 'active',
+            states: {
+                active: {
+                    after: {
+                        5000: 'finished'
+                    }
+                },
+                finished: { type: 'final' }
+            }
+        });
+
+        const service = interpret(timerMachine).onTransition(state => {
+            console.log(state);
+        });
+
+        service.start();
+
+        // service.stop();
+    </script>
+</head>
+
+<body>
+    <p>Check the console</p>
+</body>
+
+</html>
