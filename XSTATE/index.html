@@ -5,19 +5,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex,nofollow">
-    <title>state machines</title>
+    <title>POC</title>
 </head>
 
 <body>
-    <h1>About State Machines</h1>
-    <ol>
-        <li><a href="./01-implicit-state-handling.html">implicit handling</a></li>
-        <li><a href="./02-implicit-state-machine.html">an implicit state machine</a></li>
-        <li><a href="./03-more-complex-implicit-state-machine.html">a more complex implicit state machine</a></li>
-        <li><a href="./04-explicit-state-machine.html">an explicit state machine</a></li>
-        <li><a href="./05-explicit-state-machine-with-vuex.html">a state machine with vuex</a></li>
-        <li><a href="./06-trafficlight-de.html">German Traffic Light</a></li>
-    </ol>
+    <h1>State Machines</h1>
+    <article aria-labelledby="intro">
+        <h2 id="intro">Introduction</h2>
+        <h3>Statecharts</h3>
+        <p><img src="https://statecharts.github.io/on-off.svg" alt="A simple statechart"></p>
+        <p>Put simply, a statechart is a beefed up <a href="https://statecharts.github.io/what-is-a-state-machine.html">state machine</a>.  The beefing up solves a lot of the problems that state machines have, especially <a href="https://statecharts.github.io/state-machine-state-explosion.html">state explosion</a> that happens as state machines grow.</p>
+        <p>Statecharts offer a surprising array of benefits</p>
+        <ul>
+            <li>It’s <a href="https://statecharts.github.io/benefit-easy-to-understand.html">easier to understand a statechart</a> than many other forms of code.</li>
+            <li>The <a href="https://statecharts.github.io/benefit-decoupled-behaviour-component.html">behaviour is decoupled</a> from the component in question.
+                <ul>
+                    <li>This makes it <a href="https://statecharts.github.io/benefit-make-changes-to-the-behaviour.html">easier to make changes to the behaviour</a>.</li>
+                    <li>It also makes it <a href="https://statecharts.github.io/benefit-reason-about-code.html">easier to reason about the code</a>.</li>
+                    <li>And the behaviour can be <a href="https://statecharts.github.io/benefit-testable-behaviour.html">tested independently</a> of the component.</li>
+                </ul>
+            </li>
+            <li>The process of building a statechart causes <a href="https://statecharts.github.io/benefit-all-states-explored.html">all the states to be explored</a>.</li>
+            <li>Studies have shown that statechart based code has <a href="https://statecharts.github.io/benefit-low-bug-count.html">lower bug counts</a> than traditional code.</li>
+            <li>Statecharts lends itself to dealing with <a href="https://statecharts.github.io/benefit-handle-anomalies.html">exceptional situations</a> that might otherwise be overlooked.</li>
+            <li>As complexity grows, statecharts <a href="https://statecharts.github.io/benefit-scales-with-complexity.html">scale well</a>.</li>
+            <li>A statechart is a great communicator: Non-developers can <a href="https://statecharts.github.io/benefit-non-developers-understanding.html">understand the statecharts</a>, while QA can <a href="benefit-qa-exploration-tool.html">use a statecharts as an exploratory tool</a>.</li>
+        </ul>
+        <p>It’s worth noting that you’re <a href="https://statecharts.github.io/benefit-explicit.html">already coding state machines</a>, except that they’re hidden in the code. If you have an <code>if (result == null)</code> in your code, then your code has two states. Have a look at a <a href="https://statecharts.github.io/use-case-statecharts-in-user-interfaces.html">use case of statecharts in user interfaces</a> for more information.</a></p>
+        <p>There are a few downsides to using statecharts that you should be aware of.</p>
+        <ul>
+            <li>Programmers typically <a href="https://statecharts.github.io/drawback-learn-new-technique.html">need to learn something new</a>, although the underpinnings (state machines) would be something that most programmers are familiar with.</li>
+            <li><a href="https://statecharts.github.io/drawback-foreign-paradigm.html">It’s usually a very foreign way of coding</a>, so teams might experience pushback based on how very different it is.</li>
+            <li>There is an overhead to extracting the behaviour in that the <a href="https://statecharts.github.io/drawback-lines-of-code.html">number of lines of code might increase</a> with smaller statecharts.</li>
+        </ul>
+        <h3>XState</h3>
+        <p>Executable statecharts are a good way to use statecharts, although there are a few downsides. One of the most recommended frameworks is <a href="https://xstate.js.org/">XState</a>.</p>
+        <ul>
+            <li>It's a javascript library.</li>
+            <li>It brings its own visualizer.</li>
+            <li>Provides a package for using in Vue applications.</li>
+            <li>Is very close to the <a href="https://www.sciencedirect.com/science/article/pii/0167642387900359/pdf">original thoughts on statecharts.</a></li>
+            <li>Includes concepts as finite state machines, hierarchy (nested machines), parallel state machines and history.</li>
+        </ul>
+    </article>
+    <nav aria-labelledby="examples">
+        <h2 id="examples">Examples</h2>
+        <ol>
+            <li><a href="./payment-classic.html">Payment without machine</a></li>
+            <li><a href="./payment-machine.html">Payment Machine</a></li>
+            <li><a href="./payment-vue-machine.html">Payment Machine with Vue</a></li>
+            <li><a href="./timer-machine.html">Timer Machine</a></li>
+        </ol>
+    </nav>
+    <nav aria-labelledby="more">
+        <h2 id="more">More about</h2>
+        <ul>
+            <li><a href="https://statecharts.github.io/">Welcome to the world of Statecharts</a></li>
+            <li><a href="https://xstate.js.org/">XState</a></li>
+        </ul>
+    </nav>
 </body>
 
 </html>

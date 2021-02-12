@@ -1,6 +1,29 @@
-# Introduction to state machines with JS
+# Introduction
+
+Please have a look at the HTML in `XSTATE` folder!
+# More on state machines with JS
+
+    https://jonbellah.com/articles/intro-state-machines/
+    
+    https://statecharts.github.io
+
+- Core concepts
+  - State machines and statecharts
+  - Hierarchical machines
+  - Parallel machines
+  - Transitions
+  - Actions and guards
+  - History states
+- Design to Statecharts
+  - Collaborating with designers
+  - Breaking down designs
+- Testing statecharts
 ## Quellen
 
+- https://jonbellah.com/articles/intro-state-machines/
+- https://jsfoundry.dev/courses/learn-state-machines
+- xstate, https://www.youtube.com/watch?v=73Ch_EL4YVc
+  
 - https://www.youtube.com/watch?v=iDZxjJYMOUQ
 - https://www.youtube.com/watch?v=XaHk9vhmus4
 - https://www.youtube.com/watch?v=osaszd2aU9U
