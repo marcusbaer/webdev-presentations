@@ -478,6 +478,9 @@
     <li>Part-Freigabe unter anderem Namen: <code>part="nase" exportparts="nase: horn"</code></li>
 </ul>
 
+<h3>Public CSS API</h3>
+
+<p>CSS Shadow Parts = öffentliche CSS API einer Webkomponente, die mit <a href="https://www.npmjs.com/package/web-component-analyzer">web-component-analyzer</a> und <code>@csspart</code> JSDoc Annotation dokumentiert werden können.</p>
 
 <h2 id="declarative-shadow-dom">Declarative Shadow DOM</h2>
 
@@ -588,6 +591,23 @@ customElements.define('host-element', HostElement);
         styleNode.textContent = '.notes{display:block;}';
         document.body.appendChild(styleNode)
     }
+
+    function toggleFullScreen() {
+        if (!document.fullscreenElement) {
+            document.documentElement.requestFullscreen();
+        } else {
+            if (document.exitFullscreen) {
+            document.exitFullscreen();
+            }
+        }
+    }
+
+    document.addEventListener("keydown", function(e) {
+        if (e.keyCode == 70 || (document.fullscreenElement && e.keyCode == 27)) {
+            toggleFullScreen();
+        }
+    }, false);
+
 </script>
                 </div>
             </div>
