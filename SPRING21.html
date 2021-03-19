@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="utf8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noindex, nofollow">
+        <title>Präsentation</title>
+
+        <style>
+            code { background-color: #f0f8ff; }
+            h1, h2, h3 { margin-top: 3rem; }
+            html { color: #292b2c; font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif; font-size: 20px;}
+            img { max-width: 100%; }
+            pre { background-color: #f0f8ff; padding: 4px; overflow-x: scroll; }
+            ul { line-height: 140%; }
+            .alert { background-color: #f2dede; border: 1px solid #ebcccc; color: #a94442; padding: 8px; }
+            .markdown { background-color: bisque; padding: 4px; overflow-x: scroll; line-height: 140%;}
+            .notes { display: none; }
+            .mt-1 { margin-top: 1rem; }
+            .mt-2 { margin-top: 2rem; }
+            .mt-3 { margin-top: 3rem; }
+        </style>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/10.0.0/markdown-it.min.js"></script>
+        <!-- <script src="./pz/vendor/markdown-it.min.js"></script> -->
+    </head>
+    <body>
+        <div class="container p-3">
+            <div class="row">
+                <div class="col">
+
+<h1>Frühlingserwachen 2021</h1>
+
+<div class="markdown notes">
+* ein bunter Frühlingsblumenstrauß an Themen erwartet uns
+* eine bunte Mischung mitgebracht
+* mit teils schon etwas älteren Themen
+* vielleicht auch schon einmal vorgestellt
+</div>
+
+<ol class="toc"></ol>
+
+<h2 id="screen-wake-lock">Screen Wake Lock API</h2>
+
+<div class="markdown notes">
+* vorher schalte ich mal lieber den Wake Lock ein, damit mir heute keiner einschläft ...
+* Screen Wake Lock verhindert Abschalten des Bildschirms
+* in manchen Situationen nützlich, damit trotz Inaktivität der Screen offen bleibt und Skripte weiterhin ausgeführt werden
+* Alternative für Skripte: Web Worker
+* https://developer.mozilla.org/en-US/docs/Web/API/Screen_Wake_Lock_API
+</div>
+
+<pre>
+(async () => {
+    // Wake Lock API
+    const statusElem = document.createElement('h3');
+    document.body.appendChild(statusElem);
+    // Create a reference for the Wake Lock.
+    let wakeLock = null;
+    // create an async function to request a wake lock
+    try {
+        wakeLock = await navigator.wakeLock?.request('screen');
+        statusElem.textContent = wakeLock? 'Wake Lock is active!' : 'No Wake Lock support.';
+        wakeLock?.addEventListener('release', () => {
+            // the wake lock has been released
+            statusElem.textContent = 'Wake Lock has been released';
+        });
+        document.addEventListener('visibilitychange', async () => {
+            if (wakeLock !== null && document.visibilityState === 'visible') {
+                wakeLock = await navigator.wakeLock?.request('screen');
+                if (wakeLock) statusElem.textContent = 'Wake Lock has been activated again!';
+            }
+        });
+    } catch (err) {
+        // The Wake Lock request has failed - usually system related, such as battery.
+        statusElem.textContent = `${err.name}, ${err.message}`;
+    }
+})();
+</pre>
+
+<div id="wakelockstate" class="alert" role="alert">Wack Lock API state rendered here</div>
+<script type="module">
+(async () => {
+    // Wake Lock API
+    const statusElem = document.querySelector('#wakelockstate');
+    // Create a reference for the Wake Lock.
+    let wakeLock = null;
+    // create an async function to request a wake lock
+    try {
+        wakeLock = await navigator.wakeLock?.request('screen');
+        statusElem.textContent = wakeLock? 'Wake Lock is active!' : 'No Wake Lock support.';
+        wakeLock?.addEventListener('release', () => {
+            // the wake lock has been released
+            statusElem.textContent = 'Wake Lock has been released';
+        });
+        document.addEventListener('visibilitychange', async () => {
+            if (wakeLock !== null && document.visibilityState === 'visible') {
+                wakeLock = await navigator.wakeLock?.request('screen');
+                if (wakeLock) statusElem.textContent = 'Wake Lock has been activated again!';
+            }
+        });
+    } catch (err) {
+        // The Wake Lock request has failed - usually system related, such as battery.
+        statusElem.textContent = `${err.name}, ${err.message}`;
+    }
+})();
+</script>
+
+<h2 id="save-data">Save Data</h2>
+
+<div class="markdown notes">
+* Screen Wake Lock braucht mehr Strom
+* um Nachhaltigkeitsbilanz auszugleichen, ein anderes Thema vorstellen: Save Data
+</div>
+
+<!-- <ul>
+    <li><a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/save-data/#detecting_the_save-data_setting">Detecting Save Data Setting</a></li>
+    <li><a href="https://www.cnet.com/how-to/why-you-should-enable-data-saver-in-chrome-for-android-right-now/">Why you should enable in Chrome for Android</a></li>
+</ul> -->
+
+<pre>
+(async () => {
+    // Network Information API
+    const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+    // connection.addEventListener('change', updateConnectionStatus);
+    statusElem.textContent += ` Connection is ${connection?connection.effectiveType:'not detectable'}.`;
+    if (connection && connection.effectiveType === '4g') {
+        console.log('fast enough for me to do stuff')
+    } else if (connection && connection.effectiveType === 'slow-2g' && connection.saveData === true) {
+        // Implement data saving operations here.
+    }
+})();
+</pre>
+
+<div id="savedatastate" class="alert" role="alert">Save Data state rendered here</div>
+<script type="module">
+(async () => {
+    const statusElem = document.querySelector('#savedatastate');
+    // Network Information API
+    const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+    // connection.addEventListener('change', updateConnectionStatus);
+    statusElem.textContent = `Connection is ${connection?connection.effectiveType:'not detectable'}.`;
+    if (connection && connection.effectiveType === '4g') {
+        statusElem.textContent += ' Fast enough for me to do stuff.';
+    } else if (connection && connection.effectiveType === 'slow-2g' && connection.saveData === true) {
+        statusElem.textContent += ' Slow with Save Data active.';
+        // Implement data saving operations here.
+    }
+})();
+</script>
+
+<div class="markdown notes">
+* nun können wir endlich in unser erstes Thema starten :-)
+</div>
+
+
+<h2 id="css-pixelart">CSS Pixelart</h2>
+
+<div class="markdown notes">
+* nach langer Pause der Museen, wollen wir auch sofort dem Hunger nach Kunst gerecht werden
+* stellen ein Thema mit künstlerischem Anspruch an den Anfang
+</div>
+
+<img src="https://lou-flan.com/img/cssearring.png" alt="CSS Earring by Louise Flanagan" />
+
+<div class="markdown notes">
+* Louise Flanagan, australische Entwicklerin, hat sich eine persönliche Herausforderung gesucht
+* und das Bild "Das Mädchen mit dem Perlenohrring" von Johannes Vermeer in CSS nachgebaut
+</div>
+
+<ul>
+    <li>
+        <a href="https://codepen.io/louflan/pen/JjGVbjY" target="_blank">https://codepen.io/louflan/pen/JjGVbjY</a>
+    </li>
+</ul>
+
+<div class="markdown notes">
+* ganz neu ist das Thema nicht
+* auch andere haben in dieser Richtung Pixelkunst betrieben: https://diana-adrianne.com/purecss-gaze/
+</div>
+
+<ul>
+    <li>
+        <a href="https://diana-adrianne.com/purecss-gaze/" target="_blank">https://diana-adrianne.com/purecss-gaze/</a>
+    </li>
+</ul>
+
+<h3>Prinzip</h3>
+
+<pre>
+&lt;div class="pixel-container">
+    &lt;div class="pixel">&lt;/div>
+&lt;/div>
+</pre>
+
+<pre>
+:root {
+    --tunic: rgb(75, 159, 2);
+    --outline: black;
+    --white: white;
+    --hair: rgb(249, 199, 34);
+    --eyes: rgb(0, 136, 255);
+    --skin: rgb(198, 170, 109);
+    --shoes: rgb(130, 53, 53);
+}
+
+.pixel-container {
+    width: 25em;
+    height: 25em;
+}
+
+.pixel {
+    width: 1em;
+    height: 1em;
+    background-color: var(--white);
+    /* box-shadow: <horizontal position> <vertical position> <colour> */
+    box-shadow:
+        1em 0em var(--hair),
+        0em 1em var(--outline),
+        8em 1em var(--outline),
+        9em 1em var(--shoes),
+        24em 1em var(--tunic),
+        0em 2em var(--tunic),
+        24em 24em var(--hair);
+}
+</pre>
+
+<style>
+    :root {
+        --tunic: rgb(75, 159, 2);
+        --outline: black;
+        --white: white;
+        --hair: rgb(249, 199, 34);
+        --eyes: rgb(0, 136, 255);
+        --skin: rgb(198, 170, 109);
+        --shoes: rgb(130, 53, 53);
+    }
+    .pixel-container {
+        width: 25em;
+        height: 25em;
+    }
+    .pixel {
+        width: 1em;
+        height: 1em;
+        background-color: var(--white);
+        /* box-shadow: <horizontal position> <vertical position> <colour> */
+        box-shadow:
+            1em 0em var(--hair),
+            0em 1em var(--outline),
+            8em 1em var(--outline),
+            9em 1em var(--shoes),
+            24em 1em var(--tunic),
+            0em 2em var(--tunic),
+            24em 24em var(--hair);
+    }
+</style>
+<div class="pixel-container" style="border: 1px solid black;">
+    <div class="pixel"></div>
+</div>
+    
+<div class="markdown notes">
+* wem das zu mühselig ist und wer die Einfachheit dieses Prinzips nutzen will, kann mit JS automatisieren
+* ein Bild (in ein Canvas-Element) laden
+* Pixel für Pixel die Farben analysieren und CSS-Variablen ableiten
+* Box-Shadow für alle Pixel generieren
+</div>
+
+<h3>Links</h3>
+
+<div class="markdown notes">
+* es muss auch nicht immer gleich ein Meisterwerk dabei entstehen
+* interessanter Ansatz ggf. für kleine Schmuckelemente, die warum auch immer keine Bilder sein sollen
+* wer sich das genauer ansehen möchte
+* Links posten
+</div>
+
+<ul>
+    <li><a href="https://lou-flan.com/girlwithcssearring.html">https://lou-flan.com/girlwithcssearring.html</a></li>
+    <li><a href="https://dev.to/flangerhanger/css-pixel-art-using-box-shadow-2ba5">https://dev.to/flangerhanger/css-pixel-art-using-box-shadow-2ba5</a></li>
+</ul>
+
+<h2 id="css-battle">CSS Battle</h2>
+
+<div class="markdown notes">
+* für all jene, die daran Gefallen finden, vielleicht auch interessant
+* Wettbewerb um den besten Ansatz
+* der sei auf CSS Battle verwiesen
+</div>
+
+<ul>
+    <li><a href="https://cssbattle.dev" target="_blank">https://cssbattle.dev</a></li>
+</ul>
+
+<h2 id="pseudo-class-is">Pseudo-Klasse :is()</h2>
+
+<div class="markdown notes">
+* :is() pseudo-class
+* bereits Mitte 2020 im Web.Dev erwähnt, https://webplatform.news/issues/2020-06-04
+* nach Chrome-Update 88 im Januar nun breit unterstützt
+* und ggf. ein weiterer Grund, auf Präprozessoren zu verzichten
+* Kombination mit höchster Spezifizität in der Gruppe bestimmt die Gesamtspezifizität
+* alternativ könnte :where() helfen, mit der gleichen Funktionalität aber ohne die Gesamtspezifizität des Selektors zu erhöhen
+* Vorsicht mit komplexeren Selektoren, da hier der Browsersupport noch unterschiedlich ist: .card :is(.title, p a) { ... }
+* https://www.youtube.com/watch?v=McC4QkCvbaY
+</div>
+
+<pre>
+&lt;div class="card">
+    &lt;div>Lorem ipsum &lt;a href="#">dolor sit&lt;/a> amet.&lt;/div>
+    &lt;p>Lorem ipsum &lt;a href="#">dolor sit&lt;/a> amet.&lt;/p>
+    &lt;ul>&lt;li>Lorem ipsum &lt;a href="#">dolor sit&lt;/a> amet.&lt;/li>&lt;/ul>
+&lt;/div>
+
+&lt;style>
+    .card a {
+        color: red;
+    }
+
+    /* klassisch */
+    .card p a, .card ul a { ... }
+
+    /* "pseudo klassisch" */
+    .card :is(p, ul) a {
+        color: limegreen;
+    }
+&lt;/style>
+</pre>
+
+<div class="card">
+    <div>Lorem ipsum <a href="#">dolor sit</a> amet.</div>
+    <p>Lorem ipsum <a href="#">dolor sit</a> amet.</p>
+    <ul><li>Lorem ipsum <a href="#">dolor sit</a> amet.</li></ul>
+</div>
+<style>
+    .card a {
+        color: red;
+    }
+    .card :is(p, ul) a {
+        color: limegreen;
+    }
+</style>
+
+
+<h2 id="css-shadow-parts">CSS Shadow Parts</h2>
+
+<div class="markdown notes">
+* möchte in diesem Zusammenhang noch auf ein anderes Pseudoelement hinweisen
+* ::part() pseudo-element
+* vor drei Jahren (2018) schon einmal vorgestellt und auch im Zusammenhang mit der Vorstellung der Webcomponents, https://meowni.ca/posts/part-theme-explainer/
+* Browser-Unterstützung etwas länger vorhanden
+* mit CSS Custom Properties nur einzelne Variablenwerte hineinreichen, mit Parts komplexeres Styling
+* mit ::part in einem Shadow tree ("Schattenbaum") stylen, von außerhalb
+* man kann aber nur die Elemente stylen, die innerhalb des Shadow trees dafür vorgesehen sind
+* externer Zugriff nur auf diese Elemente und deren Pseudoklassen, auch :state() anwendbar
+* Link "CSS Shadow parts": https://dev.to/webpadawan/css-shadow-parts-are-coming-mi5
+</div>
+
+<ul>
+    <li>Stylen von Elementen im CSS Shadow von außerhalb</li>
+    <li>möglich nur für vom Autor definierte Elemente <code>part="name"</code></li>
+    <li>externer Zugriff nur auf diese Elemente und deren Pseudoklassen (keine Kinder)</li>
+    <li>auch Pseudoklasse <code>:state()</code> kann angewendet werden: <code>::part(video):state(playing)</code></li>
+</ul>
+
+
+<pre>
+&lt;einhorn-element>
+    &lt;template shadowroot="open">
+        &lt;h1 part="headline">Einhorn&lt;/h1>
+        &lt;p part="info">
+            This element can be styled from outside.
+            But remember: &lt;a href="#">Don't go outside!&lt;/a>
+        &lt;/p>
+        &lt;p>This element is not styleable.&lt;/p>
+        &lt;style>
+            a { color: red; }
+            h1 { color: rebeccapurple; }
+            p { color: blue; width: fit-content; }
+        &lt;/style>
+    &lt;/template>
+&lt;/einhorn-element>
+
+&lt;style>
+    einhorn-element::part(headline) { color: limegreen; }
+    einhorn-element::part(info) { color: limegreen; }
+    einhorn-element::part(info):hover { background-color: limegreen; color: var(--col-brand-02, darkgray); }
+    einhorn-element::part(info) a { color: orange; }
+&lt;/style>
+</pre>
+
+<einhorn-element>
+    <template shadowroot="open">
+        <h1 part="headline">Einhorn</h1>
+        <p part="info">
+            This element can be styled from outside.
+            But remember: <a href="#">Don't go outside!</a>
+        </p>
+        <p>This element is not styleable.</p>
+        <style>
+            a { color: red; }
+            h1 { color: rebeccapurple; }
+            p { color: blue; width: fit-content; }
+        </style>
+    </template>
+</einhorn-element>
+<style>
+    einhorn-element::part(headline) { color: limegreen; }
+    einhorn-element::part(info) { color: limegreen; }
+    einhorn-element::part(info):hover { background-color: limegreen; color: var(--col-brand-02); }
+    einhorn-element::part(info) a { color: orange; }
+</style>
+
+
+<h3>Weiterleiten von Parts</h3>
+
+<ul>
+    <li>Styling von Parts in Sub-Komponenten erfordert Freigabe mit <code>exportparts="name"</code></li>
+</ul>
+
+
+<pre>
+&lt;einhorn-element>
+    &lt;template shadowroot="open">
+        ...
+        &lt;einhorn-hoernchen exportparts="horn">
+            &lt;template shadowroot="closed">
+                &lt;h2 part="horn">Horn des Einhorns&lt;/h2>
+                &lt;p part="erklaerung">Das Horn ist vorn und dient als Abstandhalter.&lt;/p>
+                &lt;style>
+                    :is(h2, p) { color: orange; }
+                &lt;/style>
+            &lt;/template>
+        &lt;/einhorn-hoernchen>
+    &lt;/template>
+&lt;/einhorn-element>
+&lt;style>
+    einhorn-element::part(horn) { color: limegreen; }
+&lt;/style>
+</pre>
+
+<einhorn-element>
+    <template shadowroot="open">
+        <h1 part="headline">Einhorn</h1>
+        <p part="info">
+            This element can be styled from outside.
+            But remember: <a href="#">Don't go outside!</a>
+        </p>
+        <p>This element is not styleable.</p>
+        <style>
+            a { color: red; }
+            h1 { color: rebeccapurple; }
+            p { color: blue; width: fit-content; }
+            einhorn-hoernchen { margin: 16px; display: block; }
+        </style>
+        <einhorn-hoernchen exportparts="horn">
+            <template shadowroot="closed">
+                <h2 part="horn">Horn des Einhorns</h2>
+                <p part="erklaerung">Das Horn ist vorn und dient als Abstandhalter.</p>
+                <style>
+                    :is(h2, p) { color: orange; }
+                </style>
+            </template>
+        </einhorn-hoernchen>
+    </template>
+</einhorn-element>
+<style>
+    einhorn-element::part(headline) { color: limegreen; }
+    einhorn-element::part(info) { color: limegreen; }
+    einhorn-element::part(info):hover { background-color: limegreen; color: var(--col-brand-02); }
+    einhorn-element::part(info) a { color: orange; }
+    einhorn-element::part(horn) { color: limegreen; }
+</style>
+
+<p class="mt-3">komplexere Möglichkeiten (bisher) nicht unterstützt:</p>
+
+<ul>
+    <li>mehrere Parts nach außen freigeben: <code>exportparts="horn erklaerung"</code></li>
+    <li>Part-Freigabe unter anderem Namen: <code>part="nase" exportparts="nase: horn"</code></li>
+</ul>
+
+
+<h2 id="declarative-shadow-dom">Declarative Shadow DOM</h2>
+
+<div class="markdown notes">
+* da wir schon einmal beim Thema "Schatten" sind
+* Chrome kann jetzt auch "Declarative Shadow DOM" (im Bsp für CSS Shadow bereits verwendet), https://www.chromestatus.com/feature/5191745052606464
+* Bedeutung vor allem für Server-Side Rendering (SSR) gesehen, das ohne Anhängigkeiten zu JS sein soll, https://github.com/mfreed7/declarative-shadow-dom/blob/master/README.md
+* von Firefox aus diversen Gründen abgelehnt, https://github.com/mozilla/standards-positions/issues/335
+* Rendering erfolgt, sobald schließendes Element angetroffen wird
+* mehr Infos: https://web.dev/declarative-shadow-dom/
+</div>
+
+<pre>
+&lt;host-element>
+    &lt;template shadowroot="open">
+        &lt;button>A clickable button&lt;/button>
+        &lt;h2>Hello World&lt;/h2>
+        &lt;slot>&lt;/slot>
+        &lt;p>a paragraph&lt;/p>
+        &lt;style>h2 { color: blue; }&lt;/style>
+        &lt;link rel="stylesheet" href="./css/experimental.css" />
+    &lt;/template>
+    &lt;h3>Light content&lt;/h3>
+&lt;/host-element>
+</pre>
+
+<host-element>
+    <template shadowroot="open">
+        <button>A clickable button</button>
+        <h2>Hello World</h2>
+        <slot></slot>
+        <p>a paragraph</p>
+        <style>h2 { color: blue; }</style>
+    </template>
+    <h3>Light content</h3>
+</host-element>
+
+<h3>Verwertung in JS möglich</h3>
+
+<pre>
+class HostElement extends HTMLElement {
+    constructor() {
+        super();
+    
+        // Detect whether we have SSR content already:
+        if (this.shadowRoot) {
+            // A Declarative Shadow Root exists!
+            // wire up event listeners, references, etc.:
+            const button = this.shadowRoot.firstElementChild;
+            button.addEventListener('click', this.toggle);
+        } else {
+            // A Declarative Shadow Root doesn't exist.
+            // Create a new shadow root and populate it:
+            const shadow = this.attachShadow({mode: 'open'});
+            shadow.innerHTML = `&lt;button>&lt;slot>default button message&lt;/slot>&lt;/button>&lt;h3>a default shadow dom component&lt;/h3>&lt;style>h3 { color: green; }&lt;/style>`;
+            shadow.firstChild.addEventListener('click', this.toggle);
+        }
+    }
+
+    toggle(ev) {
+        console.log('toggle', ev)
+    }
+}
+
+customElements.define('host-element', HostElement);
+</pre>
+
+<h3>Tiefer eintauchen</h3>
+
+<ul>
+    <li><a href="https://web.dev/declarative-shadow-dom/" target="_blank">https://web.dev/declarative-shadow-dom/</a></li>
+</ul>
+
+
+<h2 id="next-generation-tailwind">Tailwind</h2>
+
+<p>The next generation of Tailwind CSS.</p>
+
+<ul>
+    <li><a href="https://blog.tailwindcss.com/just-in-time-the-next-generation-of-tailwind-css" target="_blank">Tailwind CSS</a></li>
+</ul>
+
+
+<h2 id="windi">Windi</h2>
+
+<p>A next generation compiler as an alternative to Tailwind, providing faster load times, and supports all the features in Tailwind v2.0.</p>
+
+<ul>
+    <li><a href="https://windicss.org/" target="_blank">https://windicss.org/</a></li>
+</ul>
+
+<!-- END OF PRESENTATION -->
+
+<script type="module">
+    const tocNode = document.querySelector('.toc');
+    const headlineNodes = document.querySelectorAll('h2');
+    tocNode.innerHTML = Array.from(headlineNodes).map(node => `<li><a href="#${node.id}">${node.textContent}</a></li>`).join('')
+
+    const markdown = new window.markdownit();
+    const markdownNodes = document.querySelectorAll('.markdown');
+    Array.from(markdownNodes).forEach(node => {
+        node.innerHTML = markdown.render(node.textContent);
+    })
+
+    if (location.href.indexOf('#notes') > -1) {
+        console.log('ENABLE NOTES');
+        const styleNode = document.createElement('style');
+        styleNode.textContent = '.notes{display:block;}';
+        document.body.appendChild(styleNode)
+    }
+</script>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
