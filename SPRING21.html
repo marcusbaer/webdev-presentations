@@ -79,6 +79,10 @@
             statusElem.textContent = 'Wake Lock has been released';
         });
 
+        // wakeLock.release().then(() => {
+        //    wakeLock = null;
+        // });
+
         document.addEventListener('visibilitychange', async () => {
 
             if (wakeLock !== null && document.visibilityState === 'visible') {
@@ -109,6 +113,9 @@
             // the wake lock has been released
             statusElem.textContent = 'Wake Lock has been released';
         });
+        // wakeLock.release().then(() => {
+        //    wakeLock = null;
+        // });
         document.addEventListener('visibilitychange', async () => {
             if (wakeLock !== null && document.visibilityState === 'visible') {
                 wakeLock = await navigator.wakeLock?.request('screen');
