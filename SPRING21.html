@@ -11,7 +11,7 @@
             h1, h2, h3 { margin-top: 3rem; }
             html { color: #292b2c; font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif; font-size: 20px;}
             img { max-width: 100%; }
-            pre { background-color: #f0f8ff; padding: 4px; overflow-x: scroll; }
+            pre { background-color: #f0f8ff; line-height: 32px; padding: 4px; overflow-x: scroll; }
             ul { line-height: 140%; }
             .alert { background-color: #f2dede; border: 1px solid #ebcccc; color: #a94442; padding: 8px; }
             .markdown { background-color: bisque; padding: 4px; overflow-x: scroll; line-height: 140%;}
@@ -19,6 +19,13 @@
             .mt-1 { margin-top: 1rem; }
             .mt-2 { margin-top: 2rem; }
             .mt-3 { margin-top: 3rem; }
+
+            @media print {
+                html { font-size: 12pt; }
+                img { max-height: 3cm; }
+                pre { max-height: 2cm; overflow-y: scroll; }
+                .notes { border-left: 3px solid black; }
+            }
         </style>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/10.0.0/markdown-it.min.js"></script>
@@ -53,24 +60,33 @@
 <pre>
 (async () => {
     // Wake Lock API
+
     const statusElem = document.createElement('h3');
     document.body.appendChild(statusElem);
-    // Create a reference for the Wake Lock.
+
+    // Create a reference for the Wake Lock
     let wakeLock = null;
-    // create an async function to request a wake lock
+
     try {
+
+        // Create an async function to request a Wake Lock
         wakeLock = await navigator.wakeLock?.request('screen');
+
         statusElem.textContent = wakeLock? 'Wake Lock is active!' : 'No Wake Lock support.';
+
         wakeLock?.addEventListener('release', () => {
             // the wake lock has been released
             statusElem.textContent = 'Wake Lock has been released';
         });
+
         document.addEventListener('visibilitychange', async () => {
+
             if (wakeLock !== null && document.visibilityState === 'visible') {
                 wakeLock = await navigator.wakeLock?.request('screen');
                 if (wakeLock) statusElem.textContent = 'Wake Lock has been activated again!';
             }
         });
+
     } catch (err) {
         // The Wake Lock request has failed - usually system related, such as battery.
         statusElem.textContent = `${err.name}, ${err.message}`;
@@ -120,15 +136,22 @@
 
 <pre>
 (async () => {
+
     // Network Information API
     const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
-    // connection.addEventListener('change', updateConnectionStatus);
+
     statusElem.textContent += ` Connection is ${connection?connection.effectiveType:'not detectable'}.`;
+
     if (connection && connection.effectiveType === '4g') {
-        console.log('fast enough for me to do stuff')
-    } else if (connection && connection.effectiveType === 'slow-2g' && connection.saveData === true) {
+        console.log('fast enough for me to do stuff');
+
+    } else if (connection && connection.effectiveType === 'slow-2g'
+        && connection.saveData === true) {
+
         // Implement data saving operations here.
     }
+
+    // connection.addEventListener('change', updateConnectionStatus);
 })();
 </pre>
 
@@ -603,6 +626,7 @@ customElements.define('host-element', HostElement);
     }
 
     document.addEventListener("keydown", function(e) {
+        // toggle fullscreen with "F"
         if (e.keyCode == 70 || (document.fullscreenElement && e.keyCode == 27)) {
             toggleFullScreen();
         }
