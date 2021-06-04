@@ -1,0 +1,83 @@
+---
+title: "Web Payment APIs"
+author: "Marcus Baer"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+# output: pdf_document
+output:
+  html_document:
+    # keep_md: yes
+    toc: true
+    theme: readable
+##   pdf_document: default
+---
+
+- TODO FÜR DEMO SHOP! individuelle Einstellungen der Lieferadresse können dynamisch verarbeitet werden (z.B. Lieferkosten)
+
+
+## Was ist das?
+
+Payment Request API und Payment Handler API sind Schnittstellen zur Integration von Bezahlverfahren im Browser.
+Mit Hilfe dieser W3C Web Standards sollen sich Bezahlungen auf Websites vereinfachen lassen, dank einer konsistenten User Experience für Endanwender und Händler.
+
+### Was kann ich damit tun?
+
+Checkout-Prozesse erweisen sich bei vielen Shops als schwierig und zeitraubend.
+Nicht selten verteilen sie sich über mehrere Schritte und erwarten vom Nutzer eine ständige Neuorientierung aufgrund wechselnder Formulargestaltung.
+
+Die Payment Request API bietet eine einheitliche Lösung zum Erfassen von Zahlungsdetails auf einer Website.
+Sie kann Zahlungsinformationen, wie Kreditkartendetails, sowie Versand- und Kontaktinformationen vom Zahler über eine schnelle und einfache Benutzeroberfläche sammeln.
+
+Zum jetzigen Zeitpunkt unterstützt die API standardmäßig nur kartenbasierte Zahlungsmethoden wie Kredit-, Debit- und Prepaidkarten im Internet (außer bei Safari, der nur Apple Pay unterstützt).
+Auf Mobilgeräten werden auch Karten und URL-basierte Zahlungsmethoden wie Google Pay, Samsung Pay, Apple Pay und Alipay unterstützt.
+
+Ist die Schnittstelle in die Website eines Shops integriert, kann der Anwender ein vom Shop unterstütztes Bezahlverfahren über eine einheitliche Oberfläche auswählen.
+Die Oberfläche bietet ihm eine übersichtliche Darstellung seiner Bestellung, sowie die Auswahl einer zum Konto angelegten Lieferadresse.
+Lieferkosten können flexibel berechnet werden, wenn der Wechsel einer Lieferadresse dies erfordert.
+
+Eigene Bezahlverfahren lassen sich mithilfe der Payment Request Handler API ergänzen.
+
+### Welche Vorteile bietet das?
+
+- **schnelleres Bezahlen:** Bezahlinformationen müssen einmalig eingegeben werden und lassen sich bei späteren Bezahlungen wiederverwenden. Fehleingaben werden vermieden. Die Anzahl der Schritte wird so reduziert und Checkout-Formulare obsolet.
+- **konsistente User Experience:** Da das Eingabeformular vom Browser kontrolliert wird, bleibt die UX über alle Websites erhalten und kann z.B. auch auf Spracheinstellungen reagieren.
+- **Barrierefreiheit:** Der Browser allein kontrolliert die Eingabefelder und deren Zugänglichkeit mittels Tastatur und Screenreader ohne weiteren Entwicklungsaufwand.
+- **Daten-Management:** Benutzer können Zahlungsinformationen und Lieferadressen selbst verwalten. Der Browser kann diese Geräte übergreifend synchronisieren.
+- **Einheitliches Fehler-Handling:** Der Browser übernimmt die Validierung von Karten-Nummern und informiert den Nutzer über abgelaufene oder demnächst ablaufende Karten. Er schlägt zudem automatisch eine zu verwendende Karte vor, basierend auf Mustern, Präferenzen und Händler-Restriktionen (z.B. nur Visa).
+
+### Wo kann es genutzt werden?
+
+- nicht in IE
+- für Firefox nur im Nightly Build
+
+### Welche Nachteile oder Einschränkungen gibt es?
+
+- Payment Request API ist nur für das Sammeln von Zahlungsinformationen zuständig, ein Payment Service Provider wird weiterhin benötigt
+- Verarbeitung von Kreditkartendaten erfordert Zertifizierung
+- Kreditkarte ist gleichzeitig einziges Standard-Bezahlverfahren der API
+- nur wenige Payment Provider unterstützen diese API bisher
+
+## Payment Handler API
+
+Die Payment Handler API stellt eine Möglichkeit dar, ein eigenes Bezahlverfahren einzubinden.
+Diese App basierte Lösung relativiert zwar einige der genannten Vorteile, führt jedoch mit der Entkopplung von Zahlungsprozess und Shop zu interessanten Gedanken:
+
+- sensible Zahlungsinformationen sind stärker abgetrennt
+- auch andere Shops können die eigene Bezahlanwendung nutzen
+
+## Wie kann es umgesetzt werden?
+
+Aus diesem Grund empfiehlt sich eine Web Payment API freundliche progressive Implementierung:
+
+1. Benutzer älterer Browser werden durch Checkout-Schritte für Rechnungsadresse, Lieferadresse und Bezahlung geleitet
+2. moderne Browser empfehlen die Installation der Bezahl-App (Subdomain kapselt Login mit Bezahlschritt des Checkouts)
+3. Nutzer profitieren von einheitlicher UX für Lieferadresse und können mit installierter App bezahlen
+
+## Was kostet es?
+
+- Mehraufwand bei Integration der Payment Handler API
+
+## Quellen
+
+- https://www.adyen.com/blog/online-payments-using-the-new-web-payment-apis
+- https://developers.google.com/web/fundamentals/payments/merchant-guide/deep-dive-into-payment-request
+- https://developer.mozilla.org/en-US/docs/Web/API/Payment_Request_API
