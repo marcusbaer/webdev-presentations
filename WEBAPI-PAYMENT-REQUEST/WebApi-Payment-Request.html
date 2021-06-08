@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="utf8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noindex, nofollow">
+        <title>Präsentation</title>
+
+        <style>
+            code { background-color: #f0f8ff; }
+            h1, h2, h3 { margin-top: 3rem; }
+            html { color: #292b2c; font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif; font-size: 20px;}
+            img { max-width: 100%; }
+            pre { background-color: #f0f8ff; line-height: 32px; padding: 4px; overflow-x: scroll; }
+            ul { line-height: 140%; }
+            .alert { background-color: #f2dede; border: 1px solid #ebcccc; color: #a94442; padding: 8px; }
+            .markdown { background-color: bisque; padding: 4px; overflow-x: scroll; line-height: 140%;}
+            .notes { display: none; }
+            .mt-1 { margin-top: 1rem; }
+            .mt-2 { margin-top: 2rem; }
+            .mt-3 { margin-top: 3rem; }
+
+            @media print {
+                html { font-size: 12pt; }
+                img { max-height: 3cm; }
+                pre { max-height: 2cm; overflow-y: scroll; }
+                .notes { border-left: 3px solid black; }
+            }
+        </style>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/10.0.0/markdown-it.min.js"></script>
+        <!-- <script src="./pz/vendor/markdown-it.min.js"></script> -->
+    </head>
+    <body>
+        <div class="container p-3">
+            <div class="row">
+                <div class="col">
+
+<h1>Web Payment APIs</h1>
+
+<div class="markdown notes">
+* nach langer Pause der Web.Dev Meetings nun endlich Start zu einer neuen Uhrzeit
+* mit neuer IT Struktur
+</div>
+
+<!-- <ol class="toc"></ol> -->
+
+<h2 id="intro">Was ist das?</h2>
+
+<div class="markdown notes">
+* Payment Request API und Payment Handler API sind Schnittstellen zur Integration von Bezahlverfahren im Browser.
+* Mit Hilfe dieser W3C Web Standards sollen sich Bezahlungen auf Websites vereinfachen lassen, dank einer konsistenten User Experience für Endanwender und Händler.
+</div>
+
+<ul>
+    <li>Payment Request API und Payment Handler API integrieren Bezahlverfahren</li>
+    <li>konsistente User Experience für Endanwender und Händler</li>
+</ul>
+
+
+<h2 id="usage">Was kann ich damit tun?</h2>
+
+<div class="markdown notes">
+* Checkout-Prozesse erweisen sich bei vielen Shops als schwierig und zeitraubend.
+* Nicht selten verteilen sie sich über mehrere Schritte und erwarten vom Nutzer eine ständige Neuorientierung aufgrund wechselnder Formulargestaltung.
+
+* Die Payment Request API bietet eine einheitliche Lösung zum Erfassen von Zahlungsdetails auf einer Website.
+* Sie kann Zahlungsinformationen, wie Kreditkartendetails, sowie Versand- und Kontaktinformationen vom Zahler über eine schnelle und einfache Benutzeroberfläche sammeln.
+
+* Zum jetzigen Zeitpunkt unterstützt die API standardmäßig nur kartenbasierte Zahlungsmethoden wie Kredit-, Debit- und Prepaidkarten im Internet (außer bei Safari, der nur Apple Pay unterstützt).
+* Auf Mobilgeräten werden auch Karten und URL-basierte Zahlungsmethoden wie Google Pay, Samsung Pay, Apple Pay und Alipay unterstützt.
+
+* Ist die Schnittstelle in die Website eines Shops integriert, kann der Anwender ein vom Shop unterstütztes Bezahlverfahren über eine einheitliche Oberfläche auswählen.
+* Die Oberfläche bietet ihm eine übersichtliche Darstellung seiner Bestellung, sowie die Auswahl einer zum Konto angelegten Lieferadresse.
+* Lieferkosten können flexibel berechnet werden, wenn der Wechsel einer Lieferadresse dies erfordert.
+
+* Eigene Bezahlverfahren lassen sich mithilfe der Payment Request Handler API ergänzen.
+</div>
+
+<ul>
+    <li>Payment Request API bietet einheitliche Lösung zum Erfassen von Zahlungsdetails</li>
+    <li>Zahlungsinformationen, Versand- und Kontaktinformationen über Benutzeroberfläche einsammeln</li>
+    <li>unterstützt standardmäßig nur kartenbasierte Zahlungsmethoden</li>
+    <li>auf Mobilgeräten auch Google Pay, Samsung Pay, Apple Pay</li>
+    <li>Anwender wählt vom Shop unterstütztes Bezahlverfahren aus</li>
+    <li>flexible Handhabung von Lieferkosten</li>
+    <li>eigene Bezahlverfahren können ergänzt werden</li>
+</ul>
+
+<h2 id="vorteile">Vorteile</h2>
+
+<div class="markdown notes">
+* Welche Vorteile bietet das?
+* **schnelleres Bezahlen:** Bezahlinformationen müssen einmalig eingegeben werden und lassen sich bei späteren Bezahlungen wiederverwenden. Fehleingaben werden vermieden. Die Anzahl der Schritte wird so reduziert und Checkout-Formulare obsolet.
+* **konsistente User Experience:** Da das Eingabeformular vom Browser kontrolliert wird, bleibt die UX über alle Websites erhalten und kann z.B. auch auf Spracheinstellungen reagieren.
+* **Barrierefreiheit:** Der Browser allein kontrolliert die Eingabefelder und deren Zugänglichkeit mittels Tastatur und Screenreader ohne weiteren Entwicklungsaufwand.
+* **Daten-Management:** Benutzer können Zahlungsinformationen und Lieferadressen selbst verwalten. Der Browser kann diese Geräte übergreifend synchronisieren.
+* **Einheitliches Fehler-Handling:** Der Browser übernimmt die Validierung von Karten-Nummern und informiert den Nutzer über abgelaufene oder demnächst ablaufende Karten. Er schlägt zudem automatisch eine zu verwendende Karte vor, basierend auf Mustern, Präferenzen und Händler-Restriktionen (z.B. nur Visa).
+</div>
+
+<ul>
+    <li>schnelleres Bezahlen</li>
+    <li>konsistente User Experience</li>
+    <li>Barrierefreiheit</li>
+    <li>Daten-Management</li>
+    <li>Einheitliches Fehler-Handling</li>
+</ul>
+
+<h2 id="einschraenkungen">Einschränkungen</h2>
+
+<div class="markdown notes">
+* Welche Nachteile oder Einschränkungen gibt es?
+* Payment Request API ist nur für das Sammeln von Zahlungsinformationen zuständig, ein Payment Service Provider für Zahlungsabwicklung wird weiterhin benötigt
+* Verarbeitung von Kreditkartendaten erfordert Zertifizierung (PCI Standard)
+* Kreditkarte ist gleichzeitig einziges Standard-Bezahlverfahren der API
+* nur wenige Payment Service Provider unterstützen diese API bisher (im Zusammenhang deren Unterstützung von Pay with Google: Stripe, Braintree)
+</div>
+
+<ul>
+    <li>Payment Service Provider erforderlich</li>
+    <li>Zertifizierung bei Verarbeitung von Kreditkartendaten</li>
+    <li>Kreditkarte ist einziges Standard-Bezahlverfahren</li>
+    <li>wenige PSP</li>
+</ul>
+
+<h2 id="browser">Browserunterstützung</h2>
+
+<ul>
+    <li>nicht im IE</li>
+    <li>für Firefox nur im Nightly Build</li>
+</ul>
+
+<div class="markdown notes">
+* IE -- Hätte das jemand erwartet?
+</div>
+
+<h2 id="payment-request">Payment Request</h2>
+
+<pre>
+orderButton.addEventListener('click', (ev) => {
+
+    const currency = '€';
+
+    if ('PaymentRequest' in window) {
+        
+        // Apple Pay, Google Pay, VISA, Mastercard
+        const methodData = [
+            {
+                supportedMethods: 'basic-card',
+                data: {
+                    supportedNetworks: ['visa', 'mastercard', 'jcb']
+                }
+            }
+        ];
+
+        const paymentDetails = {
+            total: {
+              label: 'Gesamt',
+              amount:{
+                currency: currency,
+                value: 7.80
+              }
+            },
+            displayItems: [{
+                label: 'Quadrat',
+                amount: {
+                  currency: currency,
+                  value: 3.90,
+                },
+            }, {
+                label: 'Kreis',
+                amount: {
+                currency: currency,
+                value: 3.90,
+                },
+            }]
+        };
+
+        const request = new PaymentRequest(methodData, paymentDetails);
+
+        request.show().then(paymentResponse => {
+            // payment request UI closed
+
+            return paymentResponse.complete().then(() => {
+
+                processPayment(paymentResponse);
+            });
+
+        }).catch(console.error);
+});
+</pre>
+
+<h2 id="payment-handler">Payment Handler API</h2>
+
+<div class="markdown notes">
+* Die Payment Handler API stellt eine Möglichkeit dar, ein eigenes Bezahlverfahren einzubinden.
+* Diese App basierte Lösung relativiert zwar einige der genannten Vorteile, führt jedoch mit der Entkopplung von Zahlungsprozess und Shop zu interessanten Gedanken:
+
+* sensible Zahlungsinformationen sind stärker abgetrennt
+* auch andere Shops können die eigene Bezahlanwendung nutzen
+</div>
+
+<p>Payment Handler API stellt eine Möglichkeit dar, ein eigenes Bezahlverfahren einzubinden</p>
+
+<pre>
+const methodData = [
+    {
+        supportedMethods: 'https://einhorn-pay.vercel.app',
+    },
+    {
+        supportedMethods: 'basic-card',
+        data: {
+            supportedNetworks: ['visa', 'mastercard', 'jcb']
+        }
+    }
+];
+</pre>
+
+<h2 id="implementation">Implementierung</h2>
+
+<div class="markdown notes">
+* Wie kann es umgesetzt werden?
+* Aus diesem Grund empfiehlt sich eine Web Payment API freundliche progressive Implementierung:
+
+1. Benutzer älterer Browser werden durch Checkout-Schritte für Rechnungsadresse, Lieferadresse und Bezahlung geleitet
+2. moderne Browser empfehlen die Installation der Bezahl-App (Subdomain kapselt Login mit Bezahlschritt des Checkouts)
+3. Nutzer profitieren von einheitlicher UX für Lieferadresse und können mit installierter App bezahlen
+</div>
+
+<ol>
+    <li>älterer Browser werden durch Checkout-Schritte für Rechnungsadresse, Lieferadresse und Bezahlung geleitet</li>
+    <li>moderne Browser empfehlen die Installation der Bezahl-App (Subdomain kapselt Login mit Bezahlschritt des Checkouts)</li>
+    <li>Nutzer können mit installierter App bezahlen</li>
+</ol>
+
+<h2 id="example">Beispiel</h2>
+
+<ul>
+    <li><a href="https://payment-five.vercel.app" target="_blank">EINHORN Shop</a></li>
+    <li><a href="https://einhorn-pay.vercel.app/app.html" target="_blank">EINHORN Pay</a></li>
+</ul>
+
+<!-- <h2 id="costs">Was kostet es?</h2>
+<ul>
+    <li>Mehraufwand bei Integration der Payment Handler API</li>
+</ul> -->
+
+<!-- <h2 id="bib">Quellen</h2>
+<div class="markdown notes">
+* https://www.adyen.com/blog/online-payments-using-the-new-web-payment-apis
+* https://developers.google.com/web/fundamentals/payments/merchant-guide/deep-dive-into-payment-request
+* https://developer.mozilla.org/en-US/docs/Web/API/Payment_Request_API
+* https://medium.com/dev-channel/integrating-the-payment-request-api-with-a-payment-service-provider-b6a23aa44bd6
+</div> -->
+
+
+<!-- END OF PRESENTATION -->
+
+<script type="module">
+    const tocNode = document.querySelector('.toc');
+    const headlineNodes = document.querySelectorAll('h2');
+
+    if (tocNode) {
+        tocNode.innerHTML = Array.from(headlineNodes).map(node => `<li><a href="#${node.id}">${node.textContent}</a></li>`).join('')
+    }
+
+    const markdown = new window.markdownit();
+    const markdownNodes = document.querySelectorAll('.markdown');
+    Array.from(markdownNodes).forEach(node => {
+        node.innerHTML = markdown.render(node.textContent);
+    })
+
+    if (location.href.indexOf('#notes') > -1) {
+        console.log('ENABLE NOTES');
+        const styleNode = document.createElement('style');
+        styleNode.textContent = '.notes{display:block;}';
+        document.body.appendChild(styleNode)
+    }
+
+    function toggleFullScreen() {
+        if (!document.fullscreenElement) {
+            document.documentElement.requestFullscreen();
+        } else {
+            if (document.exitFullscreen) {
+            document.exitFullscreen();
+            }
+        }
+    }
+
+    document.addEventListener("keydown", function(e) {
+        // toggle fullscreen with "F"
+        if (e.keyCode == 70 || (document.fullscreenElement && e.keyCode == 27)) {
+            toggleFullScreen();
+        }
+    }, false);
+
+</script>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

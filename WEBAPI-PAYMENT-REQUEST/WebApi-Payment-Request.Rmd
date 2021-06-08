@@ -81,3 +81,4 @@ Aus diesem Grund empfiehlt sich eine Web Payment API freundliche progressive Imp
 - https://www.adyen.com/blog/online-payments-using-the-new-web-payment-apis
 - https://developers.google.com/web/fundamentals/payments/merchant-guide/deep-dive-into-payment-request
 - https://developer.mozilla.org/en-US/docs/Web/API/Payment_Request_API
+- https://medium.com/dev-channel/integrating-the-payment-request-api-with-a-payment-service-provider-b6a23aa44bd6
