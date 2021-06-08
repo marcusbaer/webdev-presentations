@@ -240,6 +240,28 @@ const methodData = [
     <li><a href="https://einhorn-pay.vercel.app/app.html" target="_blank">EINHORN Pay</a></li>
 </ul>
 
+<div class="markdown notes">
+* SHOP
+* https://payment-five.vercel.app/einhorn-pay/modules/pwa.js
+
+* PAY
+* https://einhorn-pay.vercel.app/app.html --> Installation
+* https://einhorn-pay.vercel.app --> 301 https://einhorn-pay.vercel.app/payment-manifest.json
+* https://einhorn-pay.vercel.app/manifest.json --> registriert SW
+* https://einhorn-pay.vercel.app/einhornpay-sw.js --> canmakepayment, paymentrequest --> checkout.html
+* https://einhorn-pay.vercel.app/checkout.html --> postMessage(paymentAppResponse)
+* https://einhorn-pay.vercel.app/einhornpay-sw.js --> resolve payment response
+</div>
+
+<pre>
+// payment-manifest.json
+{
+    "default_applications": ["https://einhorn-pay.vercel.app/manifest.json"],
+    "supported_origins": ["https://einhorn-pay.vercel.app"]
+}
+</pre>
+
+
 <!-- <h2 id="costs">Was kostet es?</h2>
 <ul>
     <li>Mehraufwand bei Integration der Payment Handler API</li>
