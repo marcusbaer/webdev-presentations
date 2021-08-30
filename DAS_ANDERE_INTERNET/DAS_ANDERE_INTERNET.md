@@ -14,7 +14,8 @@
 
 ![http://www.ehas.org/wp-content/uploads/2012/01/Extremecomm_sig_ISBN.pdf](./lowtech-amazonas.png)
 
-![Freifunk WLAN-Knoten in Berlin](https://solar.lowtechmagazine.com/dithers/freifunk-wifi-node.png)
+![Freifunk WLAN-Knoten in Berlin](./freifunk-wifi-node.png)
+<!-- https://solar.lowtechmagazine.com/dithers/freifunk-wifi-node.png -->
 
 ![http://www.ehas.org/wp-content/uploads/2012/01/Extremecomm_sig_ISBN.pdf](./healthcare-voip.png)
 
@@ -22,5 +23,5 @@
 
 ![opportunistischer Kontakt](./opportunistic-contact.png)
 
-![Data mule AirJaldi](https://solar.lowtechmagazine.com/dithers/air-jaldi-epostman.png)
-
+![Data mule AirJaldi](./air-jaldi-epostman.png)
+<!-- https://solar.lowtechmagazine.com/dithers/air-jaldi-epostman.png -->
