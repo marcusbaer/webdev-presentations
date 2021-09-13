@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internet-Protokolle</title>
+    <script type="module">
+        class PzSlides extends HTMLElement {
+            constructor() {
+                super();
+                this.shadow = this.attachShadow({mode:"open"});
+                this.shadow.innerHTML = `<style>
+                    :host { display: block; width: 100vw; height: 100vh; }
+                    ::slotted(div) { display: none; max-height: 100%; max-width: 100%; padding: 2rem; }
+                    ::slotted(h1) { display: none; font-size: 250%; padding: 3rem 1rem 0 2rem; }
+                    ::slotted(img) { display: none; margin: 0 auto; max-height: 100%; max-width: 100%; }
+                    ::slotted(div.active), ::slotted(h1.active), ::slotted(img.active) { display: block; }
+                </style><slot></slot>`;
+                this.index = 0;
+            }
+
+            connectedCallback() {
+                this.slides = this.getSlidesFromSlot();
+                this.setSlide(0);
+
+                window.addEventListener("keyup", this.handleKeyUp.bind(this));
+                this.addEventListener("click", this.handleClick.bind(this));
+            }
+
+            disconnectedCallback() {
+                window.removeEventListener("keyup", this.handleKeyUp.bind(this));
+            }
+
+            getSlidesFromSlot() {
+                const slides = this.shadow.querySelector("slot").assignedNodes().filter(node => node.nodeName != "#text");
+                return slides;
+            }
+
+            setSlide(index = 0) {
+                this.index = index;
+                this.slides.forEach(slide => slide.classList.remove("active"));
+                this.slides[index].classList.add("active");
+            }
+
+            handleClick(event) {
+                if (this.index < this.slides.length-1) {
+                    this.setSlide(++this.index);
+                }
+            }
+
+            handleKeyUp(event) {
+                // full screen
+                if (event.keyCode == 70 || (document.fullscreenElement && event.keyCode == 27)) {
+                    this.toggleFullScreen();
+                }
+                // paging
+                if (event.key === "ArrowRight" && this.index < this.slides.length-1) {
+                    this.setSlide(++this.index);
+                } else if (event.key === "ArrowLeft" && this.index > 0) {
+                    this.setSlide(--this.index);
+                }
+            }
+
+            toggleFullScreen() {
+                if (!document.fullscreenElement) {
+                    document.documentElement.requestFullscreen();
+                } else {
+                    if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                    }
+                }
+            }
+        }
+        customElements.define("pz-slides", PzSlides);
+    </script>
+    <style>
+        html { font-family: sans-serif; font-size: 24px; }
+        body { background: black; color: white; margin: 0; padding: 0; }
+        h1, h2 { font-family: serif; letter-spacing: 0.1em; }
+    </style>
+</head>
+<body>
+    <pz-slides>
+        <h1>http://</h1>
+        <table border="0" cellpadding="5" cellspacing="0" bordercolor="#000000">
+            <tbody><tr>
+              <th align="left" valign="middle" nowrap="nowrap" bgcolor="#CCCCCC" scope="row">DoD</th>
+              <th align="center" nowrap="nowrap" bgcolor="#CCCCCC">Schichtenmodelle</th>
+              <th align="right" valign="middle" nowrap="nowrap" bgcolor="#CCCCCC">OSI</th>
+            </tr>
+            <tr>
+              <th rowspan="3" align="left" valign="middle" nowrap="nowrap" bgcolor="#CCCCCC" scope="row">4. Anwendung</th>
+              <td rowspan="3" align="center" nowrap="nowrap">HTTP, FTP, <br>
+                SMTP, POP, IMAP, ...</td>
+              <th align="right" valign="middle" nowrap="nowrap" bgcolor="#CCCCCC">7. Anwendung</th>
+            </tr>
+            <tr>
+              <th align="right" valign="middle" nowrap="nowrap" bgcolor="#CCCCCC">6. Darstellung</th>
+            </tr>
+            <tr>
+              <th align="right" valign="middle" nowrap="nowrap" bgcolor="#CCCCCC">5. Kommunikation</th>
+            </tr>
+            <tr>
+              <th align="left" valign="middle" nowrap="nowrap" bgcolor="#CCCCCC" scope="row">3. Transport</th>
+              <td align="center" nowrap="nowrap">TCP / UDP</td>
+              <th align="right" valign="middle" nowrap="nowrap" bgcolor="#CCCCCC">4. Transport</th>
+            </tr>
+            <tr>
+              <th align="left" valign="middle" nowrap="nowrap" bgcolor="#CCCCCC" scope="row">2. Vermittlung</th>
+              <td align="center" nowrap="nowrap">IPv4 / IPv6</td>
+              <th align="right" valign="middle" nowrap="nowrap" bgcolor="#CCCCCC">3. Vermittlung</th>
+            </tr>
+            <tr>
+              <th rowspan="2" align="left" valign="middle" nowrap="nowrap" bgcolor="#CCCCCC" scope="row">1. Netzzugang</th>
+              <td rowspan="2" align="center" nowrap="nowrap">IEEE 802.3 (Ethernet), <br>
+                IEEE 802.11 (WLAN), ...</td>
+              <th align="right" valign="middle" nowrap="nowrap" bgcolor="#CCCCCC">2. Sicherung</th>
+            </tr>
+            <tr>
+              <th align="right" valign="middle" nowrap="nowrap" bgcolor="#CCCCCC">1. Bitübertragung</th>
+            </tr>
+          </tbody>
+        </table>
+        <img height="700" src="https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/6ef36d1e-d91e-43e0-8732-f3e66ba9ea64/protocol-stack-h2-h3.png" alt="">
+        <ol>
+            <li>TLS als fester Bestandteil</li>
+            <li>Unterstützung mehrerer unabhängiger Datenströme</li>
+            <li>Connection IDs</li>
+            <li>Frames</li>
+        </ol>
+        <img height="700" src="https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/f2240cb4-eb62-4054-ad19-0e72190e0a4f/connection-setup.png" alt="">
+        <img height="700" src="https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/fbf86b42-8f20-4b27-aea5-f1fc164b2683/tcp-vs-quic-packetization.png" alt="">
+        <img height="700" src="https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/900ea8f0-3782-4505-b1b6-99ca2954bbce/multiplexing-basic.png" alt="">
+        <img height="700" src="https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/7981cb82-395c-4484-8873-46fd92804b4d/hol-blocking-basic.png" alt="">
+        <img height="700" src="https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/9413b221-47e9-427b-b958-b0e62fe7f681/1-migration-tcp.png" alt="">
+        <img height="700" src="https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/e6ae0ec1-3b85-49a9-9707-ee21ce5b02b3/2-migration-single-cid.png" alt="">
+        <img height="700" src="https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/715f189e-4ae6-4c4c-8db8-9fd8170049d8/3-migration-multi-cid.png" alt="">
+        <img height="700" src="https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/6a0b9339-6976-458d-afc2-4a0cb97a7291/4-migration-src-dst-cid.png" alt="">
+        <img height="700" src="https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/88c76a7a-2752-4e5b-a829-290cd4951af3/quic-framing.png" alt="">
+        <div></div>
+    </pz-slides>
+</body>
+</html>
