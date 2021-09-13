@@ -13,9 +13,11 @@
                 this.shadow.innerHTML = `<style>
                     :host { display: block; width: 100vw; height: 100vh; }
                     ::slotted(div) { display: none; max-height: 100%; max-width: 100%; padding: 2rem; }
+                    ::slotted(ol) { display: none; max-height: 100%; max-width: 100%; padding: 2rem; }
+                    ::slotted(table) { display: none; max-height: 100%; max-width: 100%; padding: 2rem; }
                     ::slotted(h1) { display: none; font-size: 250%; padding: 3rem 1rem 0 2rem; }
-                    ::slotted(img) { display: none; margin: 0 auto; max-height: 100%; max-width: 100%; }
-                    ::slotted(div.active), ::slotted(h1.active), ::slotted(img.active) { display: block; }
+                    ::slotted(img) { display: none; margin: 1rem auto; max-height: 100%; max-width: 100%; }
+                    ::slotted(div.active), ::slotted(h1.active), ::slotted(img.active), ::slotted(table.active), ::slotted(ol.active)   { display: block; }
                 </style><slot></slot>`;
                 this.index = 0;
             }
@@ -76,7 +78,7 @@
     </script>
     <style>
         html { font-family: sans-serif; font-size: 24px; }
-        body { background: black; color: white; margin: 0; padding: 0; }
+        body { background: white; color: black; margin: 0; padding: 0; }
         h1, h2 { font-family: serif; letter-spacing: 0.1em; }
     </style>
 </head>
