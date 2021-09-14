@@ -119,7 +119,7 @@ output:
 - es ist auf Geschwindigkeit ausgelegt
 - gehen Pakete verloren, ist das nicht schlimm, wie etwa beim Video-Streaming
 - QUIC verwendet UDP nicht wegen Performance, sondern wegen Kompatibilität
-- ideal wäre ein völlig unabhängiges neues Transportprotokoll, das würde aber zu ähnlichen Problemen führen wie bei Updates von TCP
+- ideal wäre ein völlig unabhängiges neues Transportprotokoll, der erforderliche Geräteaustausch würde aber zu ähnlichen Problemen führen wie bei Updates von TCP
 - daher baut QUIC auf UDP als ein neben TCP ebenfalls weit verbreitetes Protokoll der Transportschicht auf
 - ansonsten reimplementiert QUIC nahezu alle wesentlichen Features von TCP
 - es muss auch eine Verbindung aufbauen und ein recht komplexes Handshake durchführen
