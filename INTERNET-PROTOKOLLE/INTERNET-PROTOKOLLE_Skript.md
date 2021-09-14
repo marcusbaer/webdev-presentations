@@ -160,7 +160,8 @@ output:
 
 ![Multiplexing](https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/900ea8f0-3782-4505-b1b6-99ca2954bbce/multiplexing-basic.png)
 
-- **[SLIDE]** jede noch so einfache Website besteht in der Regel aus mehreren voneinander unabhängigen Ressourcen: HTML, CSS, JS, Bilder usw.
+- **[SLIDE]** der zweite Vorteil: das Multiplexing
+- jede noch so einfache Website besteht in der Regel aus mehreren voneinander unabhängigen Ressourcen: HTML, CSS, JS, Bilder usw.
 - jede dieser Dateien kann als Abfolge binärer Informationen gesehen werden, die vom Browser in irgendeiner Weise interpretiert werden
 - statt die Dateien komplett zu übertragen, werden von TCP daraus kleinere individuelle Pakete von etwa 1400 Byte Größe gemacht
 - deren Übertragung kann man als Byte-Stream verstehen
