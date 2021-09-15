@@ -20,6 +20,9 @@ output:
 - [X] Routing, https://www.elektronik-kompendium.de/sites/net/0810101.htm
 - [X] https://de.wikipedia.org/wiki/WebSocket
 - [X] https://t3n.de/news/http3-erklaert-hyper-text-transport-protocol-1398125
+- [X] HTTP/3 + QUIC Teil 2, https://www.smashingmagazine.com/2021/08/http3-performance-improvements-part2/
+- [X] https://www.ctrl.blog/entry/http2-push-chromium-deprecation.html
+- [X] https://blog.cloudflare.com/better-http-2-prioritization-for-a-faster-web/
 -->
 
 # Internetprotokolle
