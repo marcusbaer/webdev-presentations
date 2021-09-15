@@ -11,6 +11,17 @@ output:
 #   pdf_document: default
 ---
 
+<!--
+- [X] Wie funktioniert das Internet?, https://www.youtube.com/watch?v=fpqhjEtznVk&list=PLK6HUpk49AJyfacpJ9SUOpCh8sWJerbvn&index=36
+- [X] https://de.wikipedia.org/wiki/Internetprotokollfamilie#TCP/IP-Referenzmodell
+- [X] TCP/IP, https://www.elektronik-kompendium.de/sites/net/0606251.htm
+- [X] UDP - User Datagram Protocol, https://www.elektronik-kompendium.de/sites/net/0812281.htm
+- [X] IP-Routing, https://www.elektronik-kompendium.de/sites/net/0903151.htm
+- [X] Routing, https://www.elektronik-kompendium.de/sites/net/0810101.htm
+- [X] https://de.wikipedia.org/wiki/WebSocket
+- [X] https://t3n.de/news/http3-erklaert-hyper-text-transport-protocol-1398125
+-->
+
 # Internetprotokolle
 
 ## http://
