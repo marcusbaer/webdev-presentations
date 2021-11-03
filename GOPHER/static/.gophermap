@@ -46,10 +46,12 @@ iAusblick 	fake	(NULL)	0
 i	fake	(NULL)	0
 iQuellen	fake	(NULL)	0
 hArtikel bei Wikipedia	URL:https://de.wikipedia.org/wiki/Gopher	localhost	70
+hgopherspace.de: Was ist der Gopherspace	URL:http://gopherspace.de/start/was.php	localhost	70
+hRequest for Comments 1436: The Internet Gopher Protocol	URL:https://www.ietf.org/rfc/rfc1436.txt	localhost	70
+1Gopher vs. HTTP	/0/users/tfurrows/phlog/2018/aco_gopherVsHttp.txt	sdf.org	70
+hThe technical differences between HTTP and gopher	URL:http://boston.conman.org/2019/01/12.2	localhost	70
 dGopher Präsentation (PDF)	URL:https://www.elshami.com/Terms/G/gopher.pdf	localhost	70
 i	fake	(NULL)	0
 i	fake	(NULL)	0
 iInformationen zusammengetragen von Marcus Baer	fake	(NULL)	0
-i	fake	(NULL)	0
-1Veraltete Inhalte	/deprecated	localhost	70
 i	fake	(NULL)	0
