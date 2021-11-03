@@ -1,0 +1,36 @@
+
+E L E M E N T  T Y P E N
+
+Folgende Typen sind definiert:
+
+----------------------------------------------------
+ 0 = Textdatei
+ 1 = Gopher Untermenü
+ 2 = CCSO Nameserver
+ 3 = Fehlermeldung
+ 4 = BinHex enkodierte Datei (Mac)
+ 5 = DOS Datei
+ 6 = uuencodierte Datei
+ 7 = Suchabfrage
+ 8 = Telnet Session
+ 9 = Binäre Datei
+ c = Kalender Datei
+ d = Dokumente (ps, pdf, doc etc)
+ g = GIF (Bilder)
+ h = HTML Dateien
+ i = Info Text
+ I = andere Bilddateien (außer GIF)
+ M = MIME Datei (Emails etc)
+ s = Sound-Datei (wav)
+ T = Telnet 3270
+ + = Mirror oder alternativer Server (Loadbalancing)
+-----------------------------------------------------
+
+
+gopher+ kennt auch noch:
+
+----------------------------------------------------
+ : = Bitmap-Bilddatei
+ ; = Videodatei
+ < = Audiodatei
+----------------------------------------------------

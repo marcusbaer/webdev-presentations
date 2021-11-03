@@ -1,0 +1,24 @@
+
+C L I E N T S
+
+Zum Erkunden des Gopherspace gibt es eigene Clients.
+Der Webbrowser Lynx beherrscht ohne Weiteres das Gopherprotokoll.
+
+Die Webbrowser Firefox (bis Version 4), SeaMonkey (bis Version 2.1)
+und Windows Internet Explorer (bis Version 6.0) unterstützen das Protokoll nativ.
+
+Ab Version 6 Service Pack 1 des Internet Explorers (September 2002) wurde es
+wegen Sicherheitslücken im Programm deaktiviert; man hielt Gopher für nicht
+wichtig genug, um den Fehler zu beheben.
+
+Das Overbite Projekt entwickelt Browser Add-ons, um durch aktuelle Webbrowser auf
+den Gopherspace zugreifen zu können, sowie einen Android-Client.
+
+Im WWW findet man zudem Webseiten, die eine Schnittstelle vom Gopherspace
+in das WWW bereitstellen.
+
+------------------------------------
+
+Gopher mit Lynx in Docker ausführen:
+
+docker run --name lynx-client -it --rm --network="host" adamoss/lynx lynx gopher://gopherpedia.com:70

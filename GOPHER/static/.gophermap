@@ -1,0 +1,55 @@
+i***********************************************************	fake	(NULL)	0
+i**                U E B E R   G O P H E R                **	fake	(NULL)	0
+i**           Aus der Geschichte des Internets            **	fake	(NULL)	0
+i***********************************************************	fake	(NULL)	0
+i	fake	(NULL)	0
+i	fake	(NULL)	0
+iGopher kennenlernen	fake	(NULL)	0
+0Einführung	/gopher/introduction	localhost	70
+0Wortherkunft	/gopher/name	localhost	70
+0Geschichte	/gopher/history	localhost	70
+0Clients	/gopher/clients	localhost	70
+0Funktionsweise	/gopher/howitworks	localhost	70
+0Suchmaschinen	/gopher/search	localhost	70
+0Gophermap	/gopher/gophermap	localhost	70
+0Elementtypen	/gopher/itemtypes	localhost	70
+0Verbindungen	/gopher/connection	localhost	70
+0Vergleich mit HTTP	/gopher/http	localhost	70
+i	fake	(NULL)	0
+iGopher vertiefen	fake	(NULL)	0
+hRequest for Comments 1436: The Internet Gopher Protocol	URL:https://www.ietf.org/rfc/rfc1436.txt	localhost	70
+hgopherspace.de: Was ist der Gopherspace	URL:http://gopherspace.de/start/was.php	localhost	70
+hGophernicus (Client)	URL:https://github.com/gophernicus/gophernicus	localhost	70
+IBild in Gopher	/gopher/gophers.jpeg	localhost	70
+i	fake	(NULL)	0
+iGopher-Server	fake	(NULL)	0
+0Beispiel mit NodeJS	/gopher/nodeserver	localhost	70
+1Dynamisch	/test	localhost	70
+1Suchanfrage	/searchintro	localhost	70
+i	fake	(NULL)	0
+iGopher heute (Beispiele)	fake	(NULL)	0
+1Gopherspace	/	gopherspace.de	70
+1Port 70	/	port70.de	70
+1Gopherpedia	/	gopherpedia.com	70
+1Suckless Git-Repos	/	suckless.org	70
+7Suchen mit Veronica-2	/v2/vs	gopher.floodgap.com	70
+1Floodgap	/	gopher.floodgap.com	70
+1Wetterkarten und Vorhersagen (USA)	/groundhog	gopher.floodgap.com	70
+1Nachrichten-Feeds (USA)	/feeds	gopher.floodgap.com	70
+1Neue Gopher-Server seit 1999	/new	gopher.floodgap.com	70
+1Quux	/	gopher.quux.org	70
+1TAZ in Gopher	/	taz.de	70
+1Verschiedene Uebersetzungen der Bibel	/Bible	gopher.rbfh.de	70
+i	fake	(NULL)	0
+iAusblick 	fake	(NULL)	0
+0Gemini	/gopher/gemini	localhost	70
+i	fake	(NULL)	0
+iQuellen	fake	(NULL)	0
+hArtikel bei Wikipedia	URL:https://de.wikipedia.org/wiki/Gopher	localhost	70
+dGopher Präsentation (PDF)	URL:https://www.elshami.com/Terms/G/gopher.pdf	localhost	70
+i	fake	(NULL)	0
+i	fake	(NULL)	0
+iInformationen zusammengetragen von Marcus Baer	fake	(NULL)	0
+i	fake	(NULL)	0
+1Veraltete Inhalte	/deprecated	localhost	70
+i	fake	(NULL)	0

@@ -1,0 +1,30 @@
+
+V E R B I N D U N G E N
+
+Verbindungen basieren auf dem TCP-Protokoll und sind denen bei HTTP ähnlich,
+aber einfacher gestaltet, da z.B. ein Header entfällt:
+
+
+1. TCP/IP Verbindung herstellen: telnet localhost 70
+
+2. Gopher Server akzeptiert die Verbindung, antwortet aber nicht und wartet
+
+3. Client sendet einen Zeilenumbruch (CRLF carriage return und line feed)
+
+4. erst dann erhält er als Antwort das textbasierte Startmenü (Gophermap)
+
+
+Gopher
+------------------------------------------
+$ telnet gopherpedia.com 70
+
+/Windmill
+
+
+HTTP
+------------------------------------------
+$ telnet www.perdu.com 80
+
+GET / HTTP/1.1
+Host: perdu.com
+

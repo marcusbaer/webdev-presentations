@@ -1,0 +1,20 @@
+
+V E R G L E I C H   M I T   H T T P
+
+
+Gemeinsamkeiten:
+
+1. gopher und HTTP starten mit einer TCP-Verbindung auf einem IANA registrierten Port
+
+2. beide Server warten auf eine durch CRLF beendete Texteingabe (Request)
+
+3. beide antworten mit einfachem Text und beenden die TCP-Verbindung
+
+
+Unterschiede:
+
+* HTTP hat Frames, Multiplexing, Kompression und Sicherheit
+
+* HTTP kennt Header (Cookies, Session)
+
+* HTTP-Requests sind Resourcen-intensiver (Overhead bei Anfragen)

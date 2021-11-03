@@ -1,0 +1,24 @@
+
+F U N K T I O N S W E I S E
+
+Das Gopher-Netzwerkprotokoll ist in RFC 1436 definiert und ist vergleichbar
+mit dem Hypertext Transfer Protocol (HTTP). Gopher basiert, wie viele
+Anwendungsprotokolle, auf dem Transmission Control Protocol (TCP).
+Die Standardportnummer von Gopher ist 70.
+
+Dateien und Verzeichnisse werden in einer Menüstruktur auf dem Server abgelegt.
+Ein automatisch generiertes Menü bildet die Grundlage der Navigation
+für den Gopher-Client, welcher den Dokumententyp durch entsprechende Symbole
+anzeigt. 
+
+Im Gegensatz zu Webseiten sind Gopherseiten reine Textdateien ohne
+Formatierung oder eingebettete Grafiken. Bei früheren Modems hatte
+der pure, textbasierte Gopher einen entscheidenden Vorteil: Geschwindigkeit.
+Während Webseiten mit Bildern oft minutenlang brauchten um sich nach und nach auf den Bildschirm aufzubauen, war das Gopher-Menü sofort da.
+
+Als Gopherspace wird die Gesamtheit aller über das Gopher-Protokoll erreichbaren Ressourcen des Internets bezeichnet, deren URL mit "gopher://" beginnt.
+
+Gopherholes entsprechen den Websites des WWW.
+
+Mit dem erweiterten Protokoll Gopher+ können vor allem weitere Informationen,
+wie die Dateigröße zu den Angeboten geliefert werden.

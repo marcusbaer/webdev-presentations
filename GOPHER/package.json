@@ -1,0 +1,14 @@
+{
+  "author": "Marcus Baer",
+  "dependencies": {
+    "gopher-server": "^1.0.0"
+  },
+  "description": "docker run --name lynx-client -it --rm --network=\"host\" adamoss/lynx lynx gopher://localhost:70",
+  "license": "ISC",
+  "main": "gopher-server.js",
+  "name": "learning-gopher",
+  "scripts": {
+    "start": "node gopher-server.js"
+  },
+  "version": "1.0.0"
+}

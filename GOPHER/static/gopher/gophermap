@@ -1,0 +1,40 @@
+
+G O P H E R M A P
+
+Gophermaps sind einfache Textdateien (Verzeichnislisten), welche das Menü
+eines Gopherservers bereitstellen. Der Name der Datei ist „gophermap“
+ohne Dateiendung (ähnlich der index.html bei Webservern).
+
+Jede Zeile einer gophermap beginnt mit einem Zeichen für den Elementtyp (Item Type).
+Ihm folgt die Beschreibung eines Links oder ein Text. Pfad, Host und Port werden,
+jeweils davon und untereinander durch echte Tabs getrennt, angefügt.
+
+Jede Textzeile der gophermap wird mit einem „i“ ohne Leerzeichen begonnen
+(i = informational message). Um auch das Gopher Zeilenformat bei Texteinträgen
+zu erfüllen, gibt jeder Server einen frei gewählten Host und Port mit.
+
+
+
+i***********************************************************	fake	(NULL)	0
+i**                U E B E R   G O P H E R                **	fake	(NULL)	0
+i**           Aus der Geschichte des Internets            **	fake	(NULL)	0
+i***********************************************************	fake	(NULL)	0
+i	fake	(NULL)	0
+i	fake	(NULL)	0
+iGopher kennenlernen	fake	(NULL)	0
+0Einführung	/gopher/introduction	localhost	70
+0Wortherkunft	/gopher/name	localhost	70
+0Geschichte	/gopher/history	localhost	70
+0Clients	/gopher/clients	localhost	70
+0Funktionsweise	/gopher/howitworks	localhost	70
+0Suchmaschinen	/gopher/search	localhost	70
+0Gophermap	/gopher/gophermap	localhost	70
+0Elementtypen	/gopher/itemtypes	localhost	70
+i	fake	(NULL)	0
+iGopher vertiefen	fake	(NULL)	0
+hRFC 1436	URL:https://www.ietf.org/rfc/rfc1436.txt	localhost	70
+IBild in Gopher	/gopher/gophers.jpeg	localhost	70
+1Gopherpedia	/	gopherpedia.com	70
+1Wetter (USA)	/groundhog	gopher.floodgap.com	70
+7Suchen mit Veronica-2	/v2/vs	gopher.floodgap.com	70
+dGopher Präsentation (PDF)	URL:https://www.elshami.com/Terms/G/gopher.pdf	localhost	70

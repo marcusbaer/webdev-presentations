@@ -1,0 +1,28 @@
+
+G E S C H I C H T E
+
+Die Überlegung, die zu Gopher führte, war die umständliche Handhabung
+von FTP (file transfer protocol), bei dem man sich einloggen und über
+Konsolenbefehle in Verzeichnisse wechseln musste, um die gewünschte
+Datei finden und herunterladen zu können. Zudem wollte man ein einfach
+zu administrierendes Informationssystem schaffen, das wenig Ressourcen
+benötigt und auch von Neulingen ohne Hilfe bedient werden konnte.
+
+Mitte der 1990er Jahre hatten manche Organisationen, die über einen
+Internetzugang verfügten, zum Beispiel Universitäten oder Regierungen,
+einen Gopherserver und stellten der Allgemeinheit darauf Informationen
+aus allen Bereichen zur Verfügung.
+
+Mit dem Aufschwung des WWW und den inzwischen wesentlich komfortableren
+FTP-Programmen ging jedoch die Zeit des Gopherspace zu Ende. Ursächlich
+für den Niedergang war auch die Entscheidung der Universität von Minnesota,
+die das Urheberrecht an Gopher hält, für die kommerzielle Nutzung
+des Dienstes Gebühren zu verlangen. Quasi über Nacht verließen alle
+kommerziellen Einrichtungen aus lizenzrechtlichen Gründen den Gopherspace
+und wechselten zum Word Wide Web.
+
+Heute gibt es nur noch wenige Gopherserver, die Tendenz ist jedoch
+seit 2018 steigend. Einige Enthusiasten betreiben (kommentierbare) Phlogs
+und Gästebücher.
+
+(Wikipedia)

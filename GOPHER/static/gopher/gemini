@@ -1,0 +1,21 @@
+
+G E M I N I
+
+Möchte man lediglich Inhalte ausliefern, könnte gopher die bessere
+und schnellere Alternative zu HTTP sein. Den Komfort eines HTML-Dokuments
+mit eingebetteten Links und reichhaltigerer Semantik aufgeben
+fällt andererseits auch schwer.
+
+Würde gopher statt plain text etwa Markdown ausliefern und ein Client
+diese Formatierung verarbeiten, bekämen Inhalte ihre wertvolle Struktur zurück.
+
+
+G e m i n i  stellt sich als moderne Alternative zwischen HTTP und gopher auf,
+welches die Vorteile beider Protokolle vereint.
+
+* https://www.youtube.com/watch?v=Iq1k_FCWPXk
+* https://gemini.circumlunar.space/
+* https://thenewstack.io/souped-up-gopher-project-geminis-plan-to-revolutionize-internet-browsing/
+* https://de.wikipedia.org/wiki/Geminispace
+* https://www.youtube.com/watch?v=DoEI6VzybDk
+* https://portal.mozz.us/gemini/gemini.circumlunar.space/docs/gemtext.gmi
