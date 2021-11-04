@@ -22,7 +22,7 @@ iS U C H E	(NULL)	0
 i	(NULL)	0
 iBitte geben Sie nun einen Begriff an, nach dem gesucht werden soll!	(NULL)	0
 i	(NULL)	0
-7Suchbegriff	/search	localhost	70`);
+7Suchbegriff	/search	baerty.de	70`);
 	})
 );
 
@@ -30,11 +30,11 @@ app.use(
 	new DynamicRouter("/search\t:search", (request, params) => {
 		request.send(`iSuchergebnis für die Suche nach: ${params.search}	(NULL)	0
 i	(NULL)	0
-0Foo	/test/foo	localhost	70
-0Bar	/test/bar	localhost	70
+0Foo	/test/foo	baerty.de	70
+0Bar	/test/bar	baerty.de	70
 i	(NULL)	0
-1Test	/test	localhost	70
-1Über Gopher	/	localhost	70
+1Test	/test	baerty.de	70
+1Über Gopher	/	baerty.de	70
 `);
 	})
 );
@@ -48,8 +48,8 @@ i	(NULL)	0
 iDokument dynamisch gerendert am:	(NULL)	0
 i${time}	(NULL)	0
 i	(NULL)	0
-0Foo	/test/foo	localhost	70
-0Bar	/test/bar	localhost	70`);
+0Foo	/test/foo	baerty.de	70
+0Bar	/test/bar	baerty.de	70`);
 	})
 );
 
@@ -70,5 +70,5 @@ app.on("request", (request) => {
 
 // Start the server on port 70
 app.listen(70, () => {
-	console.log("Listening at gopher://localhost:70");
+	console.log("Listening at gopher://baerty.de:70");
 });

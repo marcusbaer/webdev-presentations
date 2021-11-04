@@ -9,13 +9,63 @@ fällt andererseits auch schwer.
 Würde gopher statt plain text etwa Markdown ausliefern und ein Client
 diese Formatierung verarbeiten, bekämen Inhalte ihre wertvolle Struktur zurück.
 
+G e m i n i  stellt sich als moderne Alternative zwischen HTTP und gopher auf.
+Es ähnelt gopher, basiert jedoch zum Schutz der Privatsphäre der Nutzer
+auf verschlüsselten Verbindungen.
 
-G e m i n i  stellt sich als moderne Alternative zwischen HTTP und gopher auf,
-welches die Vorteile beider Protokolle vereint.
+Texte können Konstrukte für Überschriften (drei Ebenen), flache Listenelemente
+sowie Link-Zeilen enthalten; Hervorhebungen einzelner Worte sind
+nicht vorgesehen, Bilder können nicht in Dokumente eingebettet werden.
 
-* https://www.youtube.com/watch?v=Iq1k_FCWPXk
-* https://gemini.circumlunar.space/
-* https://thenewstack.io/souped-up-gopher-project-geminis-plan-to-revolutionize-internet-browsing/
+Verlinkungen der Dokumente untereinander spannen so mehr oder weniger
+zusammenhängende Hypertext-Strukturen auf. Welche Inhalte ein Nutzer
+konsumieren möchte, bleibt ihm jedoch selbst überlassen. Auch deren Darstellung
+bestimmt der Anwender durch Auswahl und Konfiguration eines Clients für sich.
+Umgekehrt haben Verfasser mit der Trennung von Inhalt und Darstellung
+wenig Kontrolle, wie ihre überlieferten Informationen bei den Empfängern
+dargestellt werden.
+
+
+
+G a t e w a y s
+
+Mit Gemini-zu-HTTP-Gateways können Dokumente im Webbrowser betrachtet werden:
+https://portal.mozz.us/gemini/gemini.circumlunar.space/docs/gemtext.gmi
+
+
+
+B a s h  a l s  C l i e n t
+
+Die Bash in Verbindung mit ncat stellt die einfachste Art eines Clients dar:
+
+$ brew install nmap
+$ echo -ne 'gemini://gemini.susa.net/index.gmi\r\n'|ncat --ssl gemini.susa.net 1965
+
+
+
+B e i s p i e l
+
+# This would be an H1
+## This would be an H2
+### This would be an H3
+
+=> https://www.susa.net Click me, I always exist on my own line.
+
+> This line will show as a block-quote
+
+* This is the first list item.
+* This is another list item.
+
+Pre-formatted blocks start and end with lines containing three back-ticks (```)
+
+Anything else is just normal paragraph text, blank lines are always preserved.
+
+
+S p e z i f i k a t i o n
+
 * https://de.wikipedia.org/wiki/Geminispace
-* https://www.youtube.com/watch?v=DoEI6VzybDk
-* https://portal.mozz.us/gemini/gemini.circumlunar.space/docs/gemtext.gmi
+* https://gemini.circumlunar.space/
+* https://gemini.circumlunar.space/docs/specification.html
+* https://www.susa.net/wordpress/2020/06/gemini-protocol-markup/
+* https://thenewstack.io/souped-up-gopher-project-geminis-plan-to-revolutionize-internet-browsing/
+* What is Gemini?, https://www.youtube.com/watch?v=DoEI6VzybDk
