@@ -14,9 +14,11 @@ anzeigt.
 Im Gegensatz zu Webseiten sind Gopherseiten reine Textdateien ohne
 Formatierung oder eingebettete Grafiken. Bei früheren Modems hatte
 der pure, textbasierte Gopher einen entscheidenden Vorteil: Geschwindigkeit.
-Während Webseiten mit Bildern oft minutenlang brauchten um sich nach und nach auf den Bildschirm aufzubauen, war das Gopher-Menü sofort da.
+Während Webseiten mit Bildern oft minutenlang brauchten um sich nach und nach
+auf den Bildschirm aufzubauen, war das Gopher-Menü sofort da.
 
-Als Gopherspace wird die Gesamtheit aller über das Gopher-Protokoll erreichbaren Ressourcen des Internets bezeichnet, deren URL mit "gopher://" beginnt.
+Als Gopherspace wird die Gesamtheit aller über das Gopher-Protokoll erreichbaren
+Ressourcen des Internets bezeichnet, deren URL mit "gopher://" beginnt.
 
 Gopherholes entsprechen den Websites des WWW.
 
