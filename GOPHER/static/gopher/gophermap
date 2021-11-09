@@ -25,8 +25,8 @@ iGopher-Server	fake	(NULL)	0
 hGophernicus	URL:https://github.com/gophernicus/gophernicus	localhost	70
 hpygopherd	URL:https://github.com/jgoerzen/pygopherd	localhost	70
 0Beispiel mit NodeJS	nodeserver
-1Dynamisch	/test	baerty.de	70
-1Suchanfrage	/searchintro	baerty.de	70
+1Dynamisch	/test	nodelocal	70
+1Suchanfrage	/searchintro	nodelocal	70
 i	fake	(NULL)	0
 iGopher heute (Beispiele)	fake	(NULL)	0
 1Gopherspace	/	gopherspace.de	70
