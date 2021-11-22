@@ -31,3 +31,8 @@ Read more:
 - [ ] Wenn du nur Inhalt ausliefern willst, ist gopher die bessere Alternative
 - [ ] Wirklich? Was ist mit Formatierung usw. --> Gemini
 - [ ] modern alternative to HTTP is Gemini, https://www.youtube.com/watch?v=Iq1k_FCWPXk + https://gemini.circumlunar.space/ + https://thenewstack.io/souped-up-gopher-project-geminis-plan-to-revolutionize-internet-browsing/ + https://de.wikipedia.org/wiki/Geminispace + https://www.youtube.com/watch?v=DoEI6VzybDk + https://portal.mozz.us/gemini/gemini.circumlunar.space/docs/gemtext.gmi
+
+### PYGOPHERD
+
+docker build -t pygopherd-ubuntu --file=pygopherd-ubuntu.Dockerfile .
+docker run --name pygopherd -it --rm -p 70:70 -v ~/gopher:/var/gopher pygopherd-ubuntu

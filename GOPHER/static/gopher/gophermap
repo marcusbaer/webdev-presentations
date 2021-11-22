@@ -14,12 +14,13 @@ iGopher kennenlernen	fake	(NULL)	0
 0Gophermap	map
 0Elementtypen	itemtypes
 IBild in Gopher	gophers.jpg
+1Verzeichnis in Gopher	automenu
 0Verbindungen	connection
 0Vergleich mit HTTP	http
 i	fake	(NULL)	0
 iGopher vertiefen	fake	(NULL)	0
-hRequest for Comments 1436: The Internet Gopher Protocol	URL:https://www.ietf.org/rfc/rfc1436.txt
-hgopherspace.de: Was ist der Gopherspace	URL:http://gopherspace.de/start/was.php
+hRequest for Comments 1436: The Internet Gopher Protocol	URL:https://www.ietf.org/rfc/rfc1436.txt	localhost	70
+hgopherspace.de: Was ist der Gopherspace	URL:http://gopherspace.de/start/was.php	localhost	70
 i	fake	(NULL)	0
 iGopher-Server	fake	(NULL)	0
 hGophernicus	URL:https://github.com/gophernicus/gophernicus	localhost	70
