@@ -3,18 +3,18 @@
 ## Hungry Web
 
 - internet and its usage is consuming a lot of energy
-- its energy consumption is about 7% ((in 2021?) more than France?) of the global usage per year
-- if internet would be country, it would be the 7th largest country in the world
-- thus it produces a lot of CO₂ (2-3% of the worlds carbon emission), it's about the same as the aviation industry
+- its energy consumption is about 7% ((in 2021?)) of the global usage per year
+- thus it produces a lot of CO₂ (2-3% of the worlds carbon emission), it's about the same as of the global aviation industry
+- if internet would be a carbon emitting country, it would be the 7th largest country in the world (Germany)
 - Studien hierzu aber schwierig
-  - untersuchen nur Datenzentren, aber nicht die ganze Kette vom Endgerät über Zwischenstationen bis zum Server
+  - untersuchen nur Datenzentren, aber nicht die ganze Kette vom Endgerät über Zwischenstationen bis zum Server (data centres, transmission network, end user devices)
   - rasanter Technologie-Wandel erschwert Vergleichbarkeit
   - and organizations are hindered by a lack of transparency to get a more clear picture (https://www.bbc.co.uk/programmes/p085rwjs)
 - zur Nachhaltigkeit gehört aber auch die Betrachtung der Herstellung der Komponenten (in der Kette) und des damit verbundenen Energiebedarfs, sowie deren Folgen für die Umwelt
 - werden diese Faktoren mit einbezogen, zeigt sich das Internet als noch hungriger als die Statistiken angeben
 
 - energy consumption and carbon emission are rising every year
-- "the cloud" is something abstractive flying around, but it is a very earth bound thing, that is requiring a lot of power
+- "the cloud" is something abstractive in the sky, but it is a very earth bound thing, that is requiring a lot of power
 - negativer Trend durch KI, 5G-Anwendungen und geändertes Nutzerverhalten (video consumption), das mit der Entwicklung der Endgeräte einhergeht
 - politicians and tech companies want to connect everyone with broadband technology and their IoT devices
 - allein das Training einer auf Spracherkennung spezialisierten KI-Software verursacht 5 Mal so viel CO₂ wie ein Auto in seinem gesamten Lebenszyklus
@@ -154,7 +154,6 @@ Je größer der Internetauftritt, desto wirksamer sind bereits kleine Änderunge
   - 31% unused in a react bundle + hard to track when uglified
   - web components (14% unused in polsterpowerkonfigurator.roller.de: disconnectedCallback, polyfills, hidden features, result page with redirect)
 - im WebDev 2022 je 2 Punkte kleben lassen auf Schwerpunkte?: Animations, Security, React/Typescript, Webcomponents, Unit Tests, GraphQL, Drupal
-
 - use API standards to reduce specific implementations?
   - https://blog.stoplight.io/openapi-json-schema
   - https://json-schema.org/understanding-json-schema/
