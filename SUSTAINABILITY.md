@@ -70,7 +70,7 @@ Gute SEO hilft zudem bei der Auffindbarkeit der Inhalte.
 
 ### Bilder komprimieren
 
-Bilder mit komprimieren (WebP) und lazy loaden...
+Bilder komprimieren (WebP) und lazy loaden...
 
 ### Fonts und Typografie optimieren
 
