@@ -39,7 +39,15 @@ Als Anbieter von Dienstleistungen im Internet stehen wir in der Verantwortung, u
 
 Die allgemein gewachsene Aufmerksamkeit dieses Themas und damit verbundene Anfragen unserer Kunden fordern uns zusätzlich heraus, zügig zu handeln.
 
-## Vielfältige Themen
+## Energy consumption of the internet
+
+(https://www.youtube.com/watch?v=ebxeXqjesOo)
+
+- energy in manufacture and operation: data centres, transmission networks, end user devices
+- we can save energy: reduce server load, reduce data transfer, reduce device energy
+- the benefits: reduced energy usage, improved performance (search engine ranking, conversion rate), improved user experience (conventional terms of UX + accessibility + inclusivity)
+
+## Various areas where to save energy
 
 - The way we work, Prozesse
 - Content
@@ -63,17 +71,22 @@ Je größer der Internetauftritt, desto wirksamer sind bereits kleine Änderunge
 
 - Es müssen nicht immer Hintergrundvideos oder großformatige Bilder sein: Vektorgrafiken, Icons oder typografische Details sind visuell manchmal sogar spannender und setzen Akzente
 - Werbeanzeigen, Tracking von Drittanbietern oder Social-Media-Buttons verursachen viel Datenlast und sind nicht immer sinnvoll oder notwendig
+- evaluate optional trackers, e.g. Minimal Google Analytics (1.5KB < 17KB, but needs a cookie banner) or [Plausible](https://plausible.io/) (<1KB and no cookies)
 - Hosting auf eigenem Server ermöglicht Verzicht auf Analysesoftware, Nutzerverhalten aus Serverdaten ersichtlich
 - Gute SEO hilft bei der Auffindbarkeit der Inhalte: When optimising a website for search engine rankings, we are helping people find the information they want quickly and easily.
 - Copy writing: It has an impact on website efficiency because it affects the amount of time people spend browsing websites.
-- Reduce video: If video is necessary, see if you can reduce the amount of video streamed by removing auto-play from videos and by keeping video content short.
+- Reduce video: If video is necessary, see if you can reduce the amount of video streamed by removing auto-play from videos and by keeping video content short. optimize compression.
 
 ## Design & UX
 
+- streamline user journeys is the foundation of saving energy: if we have to invest time to find things, we waste energy as more pages or more data have to be loaded
+- don't drug the user (by accident) and make it hard for the user to leave: use of notifications, infinite scroll, autoplay content, sticky makes it difficult to leave
 - darker designs as displays need a lot of energy or at least support darkmode
-- Bilder komprimieren (WebP) und lazy loaden...
+- low energy colours relevant on OLED screens: white (highest energy), black (no energy), blue (high with ~25% more than red or green)
+- efficient images: reduce size to allow space and to let the minds of the people breathe, blur edges (because detail is data and data is energy), black & white (+ dithering?)
+- Bilder komprimieren (WebP or AVIF) und lazy loaden...
 - Systemschriften liegen auf dem Rechner und verbrauchen am wenigsten Energie, schränken aber die Designoptionen stark ein
-- anyway choose fonts carefully: Use system fonts where possible. Accept alternative local fonts. Use less font variations.
+- anyway choose fonts carefully: Use system fonts where possible. Accept alternative local fonts. Use fewer font weights (variations).
 - Webfonts bieten mehr gestalterische Freiheit, werden aber extern gehostet, sodass die Zahl der Requests und mit ihnen Ladezeit und Energieverbrauch steigen
 - Man kann sie aber „subsetten“. Lade nur die Glyphen, die tatsächlich gebraucht werden.
 - Zwischen Systemschriften und Webfonts liegt in Sachen Dateigröße das Variable-Fonts-Format. Embedded Fonts mache die Seite "schwerer", reduzieren dafür aber die Requests.
@@ -107,7 +120,7 @@ Je größer der Internetauftritt, desto wirksamer sind bereits kleine Änderunge
 
 - Tracking and advertising scripts (no user value but often large files) cause significant CPU usage, slow websites down and invade their privacy. Checkout https://webtest.app to measure impact.
 
-- Optimise images: Load images at the correct scale, compress image files without visible loss of quality. Use the most efficient file format for each image, such as WebP. All of this brings images to only a tenth of the original size.
+- Optimise images: Load images at the correct scale, compress image files without visible loss of quality. Use the most efficient file format for each image, such as WebP or AVIF. All of this brings images to only a tenth of the original size.
 - Optimise fonts: Stick to modern web font file formats like WOFF and WOFF2, which use higher compression. Subset fonts to only include the characters needed.
 - Use Progressive Web App technology (PWA) to cache files on the users device + improve UX (more efficient user journeys)
 - Use Accelerated Mobile Pages (AMP): AMP can be a useful tool to strip out the fast and deliver a more lightweight and energy efficient version to mobile users.
@@ -117,7 +130,7 @@ Je größer der Internetauftritt, desto wirksamer sind bereits kleine Änderunge
 - choose bundling carefully: for me it seems, sometimes we see bundler plugins as normal to solve issues that we would not have without bundlers (simplicity to break dependencies)
 - be aware of bundle overhead (1/3), virtualization, build pipelines (npm ci), stages
 - use caching of build tools to reduce build times
-- prefer JS over PHP as it is more efficient
+- prefer JS over PHP as it is 7 times more efficient (Rust is one of the most efficient)
 - at least use the latest PHP version: newer versions of PHP are not only faster but also use fewer server resources and therefore less energy
 
 - in contrast to my advice to use the features of modern clients (ES, module imports, CSS): Entwickle ressourcenschonende Applikationen, die auch auf älteren Geräten so lange wie möglich laufen!
@@ -136,6 +149,11 @@ Je größer der Internetauftritt, desto wirksamer sind bereits kleine Änderunge
 - Use a CDN: Content delivery networks (CDN’s) provide a great solution to this, serving assets such as image files from a network of data centres around the world. This means that in most cases, the largest files will be loaded from the CDN location in the users own region, reducing the distance that data is moving each time a page is loaded.
 - Block bots: Bots often use up 50% of resources such as processing and bandwidth.
 
+## After optimizing all of this
+
+Plant trees to reduce your carbon impact
+
+Kein Freikaufen!
 
 ## Read more
 
