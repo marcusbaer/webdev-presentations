@@ -5,7 +5,7 @@
 - internet and its usage is consuming a lot of energy
 - its energy consumption is about 7% ((in 2021?)) of the global usage per year
 - thus it produces a lot of CO₂ (2-3% of the worlds carbon emission), it's about the same as of the global aviation industry
-- if internet would be a carbon emitting country, it would be the 7th largest country in the world (Germany)
+- if internet would be a carbon emitting country, it would be the 6th largest country in the world (Germany)
 - Studien hierzu aber schwierig
   - untersuchen nur Datenzentren, aber nicht die ganze Kette vom Endgerät über Zwischenstationen bis zum Server (data centres, transmission network, end user devices)
   - rasanter Technologie-Wandel erschwert Vergleichbarkeit
@@ -101,13 +101,14 @@ Je größer der Internetauftritt, desto wirksamer sind bereits kleine Änderunge
 - we can use code to make a website greener
 - we can do loading the right things at the right time
 
-- create static websites whereever possible: es wird keine kontinuierliche Rechenleistung für das Rendering benötigt - also weniger Energie
+- create static websites (SSG) whereever possible: es wird keine kontinuierliche Rechenleistung für das Rendering benötigt - also weniger Energie
 - a dynamic website: web server has to do work thinking about what information to send back to the user each time someone tries to load a page
 - mix up both to use dynamic rendering only where needed
 
 - Use less JavaScript: impacts website efficiency in two ways:
     1. adds file weight to the page
     2. increases amount of processing required by the users device
+- JavaScript must be parsed, compiled, and then finally executed. Byte for byte, this makes JavaScript more expensive than other types of resources.
 
 - Write clean code: Keep code clean and simple, avoid duplication and write efficient queries. 
 - sauberes HTML/CSS (Cascading...!) macht barrierefrei und spart Rechenpower --> gute SEO (weniger Schleifen bei der Suche)!
@@ -137,6 +138,8 @@ Je größer der Internetauftritt, desto wirksamer sind bereits kleine Änderunge
 - thus the end user won't be forced to always have the latest hardware which means it has to be produced
 
 - check pros and cons for headless: cached app shell vs. microservices (with a lot of requests), more complex bundling, SSR
+- support darkmode
+- make use of save data mode (header) to opt out for system fonts, to omit non-essential images, to serve low resolution images for high resolution screens, to opt out of server pushes
 
 ## Hosting
 
@@ -148,6 +151,7 @@ Je größer der Internetauftritt, desto wirksamer sind bereits kleine Änderunge
 - Use a data centre close to your users: A lot of the energy used by the internet is used to transmit data through the telecoms networks.
 - Use a CDN: Content delivery networks (CDN’s) provide a great solution to this, serving assets such as image files from a network of data centres around the world. This means that in most cases, the largest files will be loaded from the CDN location in the users own region, reducing the distance that data is moving each time a page is loaded.
 - Block bots: Bots often use up 50% of resources such as processing and bandwidth.
+- scalable cloud services: servers are not only up and running all the time, waiting for a traffic spike (e.g. Cloudflare Workers)
 
 ## After optimizing all of this
 
@@ -163,7 +167,19 @@ Kein Freikaufen!
 - [X] https://www.wholegraindigital.com/team/tom-greenwood/
 - [X] https://www.bbc.co.uk/programmes/p085rwjs
 - [X] https://sustainablewebdesign.org/
-- [ ] Sustainable Web Initiative 2022, https://www.youtube.com/watch?v=ebxeXqjesOo&t=3s
+- [X] Sustainable Web Initiative 2022, https://www.youtube.com/watch?v=ebxeXqjesOo&t=3s
+- [X] https://www.sustainablewebmanifesto.com/
+- [X] https://www.cnet.com/how-to/why-you-should-enable-data-saver-in-chrome-for-android-right-now/
+- [X] https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/save-data/#detecting_the_save-data_setting
+- [X] https://workers.cloudflare.com/
+
+```
+if ("connection" in navigator) {
+    if (navigator.connection.saveData === true) {
+        // Implement data saving operations here.
+    }
+}
+```
 
 ## Kladde
 
@@ -175,4 +191,5 @@ Kein Freikaufen!
 - use API standards to reduce specific implementations?
   - https://blog.stoplight.io/openapi-json-schema
   - https://json-schema.org/understanding-json-schema/
+- https://whatdoesmysitecost.com/
 
