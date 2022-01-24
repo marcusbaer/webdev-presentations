@@ -153,6 +153,16 @@ Je größer der Internetauftritt, desto wirksamer sind bereits kleine Änderunge
 - Block bots: Bots often use up 50% of resources such as processing and bandwidth.
 - scalable cloud services: servers are not only up and running all the time, waiting for a traffic spike (e.g. Cloudflare Workers)
 
+## Berechtigte Interessen
+
+Waagschalen
+  - nachhaltige Maßnahmen
+  - berechtigte Interessen: Code-Qualität, Produkt-Qualität, TypeScript, Performance
+
+Ein maßvoller Umgang mit berechtigten Interessen ist erforderlich!
+
+environmental health
+
 ## After optimizing all of this
 
 Plant trees to reduce your carbon impact
