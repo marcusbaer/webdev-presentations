@@ -1,5 +1,5 @@
 ---
-title: "Das andere Internet"
+title: "Das andere Internet (ein Lowtech Ansatz)"
 author: "Marcus Baer"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 # output: pdf_document
@@ -11,15 +11,15 @@ output:
 #   pdf_document: default
 ---
 
-# Das andere Internet
+# Das andere Internet (ein Lowtech Ansatz)
 
 ![https://www.techspot.com/news/65507-heavy-smartphone-users-touch-their-devices-more-than.html](./2016-07-07-image-31-j.webp)
 <!-- https://static.techspot.com/images2/news/bigimage/2016/07/2016-07-07-image-31-j.webp -->
 
 - **[SLIDE]** Wir alle wissen es: kabelloses Internet hat in letzten Jahren eine immer stärkere Verbreitung erreicht
 - Nicht nur in unserem persönlichen Alltag, sondern in unserer gesamten modernen Konsumgesellschaft sind Dauerbetrieb und immer schnellere Verbindungsgeschwindigkeiten des Internets an der Tagesordnung
-- Unser mobiles Internet geprägt von Begriffen, wie 3G - 4G - 5G (bis vor ein paar Monaten noch rein technisch belegt, inzwischen in einigen Städten wieder 2G modern)
-- Hightech-Ansatz treibt Kosten und Energieverbrauch des Internets immer höher und höher
+- Unser mobiles Internet geprägt von Begriffen, wie 3G - 4G - 5G (bis vor ein paar Monaten noch rein technisch belegt, inzwischen ist 2G in einem anderen Zusammenhang wieder modern)
+- Hightech-Ansatz treibt Kosten und Energieverbrauch des Internets immer höher und höher (die letzte 3G Antenne wurde am 30.12.21 in meiner Nähe abgeschaltet)
 - Bemühungen diese Faktoren zu erfassen sind schwierig
 - denn schwer zu beziffern, wieviel Energie das Internet wirklich verbraucht, da hohe Komplexität des Netzwerks und schneller Wandel
 - Studien haben oft nur den Energieverbrauch der Rechenzentren beachtet
@@ -48,7 +48,7 @@ output:
 
 - **[SLIDE]** mit Drohnen und Gasballons haben Google und Facebook eigene Lösungen in die Schlagzeilen gebracht
 - große technische Herausforderungen und kommerzieller Charakter sind Hauptkritikpunkte
-- Googles Projekt Loon zum Anfang des Jahres 2021 eingestellt
+- Googles Projekt Loon zum Anfang des Jahres 2021 eingestellt (Flightradar24)
 - dabei treten alternative Lösungen wieder zum Vorschein (z.B. kabelgebundenes Internet, spezielle Modems<!-- https://reset.org/blog/brck-diese-steine-verbinden-afrika-09252018 -->)
 - u.a. deutlich günstigere asynchrone Lowtech-Netzwerke (von Forschungsgruppen entwickelt), die sich gut mit erneuerbaren Energien kombinieren lassen und widerstandsfähig gegen Ausfälle und Störungen sind, sind ein interessanter Ansatzpunkt
 - technische Grundlage: WLAN
@@ -120,7 +120,8 @@ output:
 - hierbei ausreichendes Kurzstrecken-WLAN gestattet einfachere Ausstattung ohne Sendemasten und höhere Bandbreiten (20MB pro Richtung, wenn Bus an WLAN-Knoten vorbei fährt)
 - sehr hohe Latenz: Busverbindung einmal am Tag
 - geht nur mit verzögerungstoleranter Software: Programme, die auch ohne direkte, durchgängige Netzwerkverbindung funktionieren
-- bei E-Mail einfach: Mailprogramm speicher ausgehende Nachricht bis Verbindung verfügbar - dauert lange bis Ziel erreicht, aber Anwendungserlebnis ändert sich nicht sehr
+- bei E-Mail einfach: Mailprogramm speichert ausgehende Nachricht bis Verbindung verfügbar
+- dauert lange bis Ziel erreicht, aber Anwendungserlebnis ändert sich nicht sehr
 - Besuch von Webseiten, Nutzung von Suchmaschinen benötigen größere Anpassungen
 - asynchrone Suchmaschinen werden auf Bandbreite statt auf Reaktionszeiten optimiert
 - DTN-fähige Webbrowser laden nicht nur explizit angeforderte Webseite, sondern auch darin verlinkte Seiten oder optimieren Antworten für möglichst wenig Bandbreite (serverseitig Filtern, Analyse und Komprimierung)
@@ -133,6 +134,8 @@ output:
 - das Internet unserer industrialisierten Welt hat ihnen gegenüber einige gravierende Vorteile
 - aber es ist fragil
 - ändern sich die Bedingungen (etwa durch Katastrophen, Strommangel, Wirtschaft, Flut) erlaubt Lowtech-Internet weiterhin den Zugriff auf Web und den Kontakt per E-Mail
+- wir starten in ein Jahr, in dem Nachhaltigkeit zum Thema wird: was das für uns und unsere Arbeit bedeutet, werden wir im Laufe des Jahres erfahren
+- vielleicht hilft uns der Lowtech-Ansatz aber, unseren Blickwinkel zu öffnen und Zugänglichkeit noch einmal unter einem ganz anderen Gesichtspunkt zu bewerten
 
 
 <!--

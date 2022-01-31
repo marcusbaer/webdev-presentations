@@ -1,4 +1,16 @@
-# Das andere Internet
+---
+title: "Das andere Internet"
+author: "Marcus Baer"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: powerpoint_presentation
+# output: pdf_document
+# output:
+  # html_document:
+    # keep_md: yes
+    # toc: true
+    # theme: readable
+  # pdf_document: yes
+---
 
 ![https://www.techspot.com/news/65507-heavy-smartphone-users-touch-their-devices-more-than.html](./2016-07-07-image-31-j.webp)
 <!-- https://static.techspot.com/images2/news/bigimage/2016/07/2016-07-07-image-31-j.webp -->
