@@ -193,6 +193,25 @@ if ("connection" in navigator) {
 
 ## Kladde
 
+Nils Otto:
+Optimierung Versand: Kunde bekommt richtiges Produkt in richtiger Menge und Größe anstatt falschem Artikel der zu Retouren führt.
+	
+Supply Chain optimieren optimieren inklusive realistischer Lieferzeitangaben
+	
+Präzise Produktdarstellung mit möglichst genauer Beschreibung und vielseitigen, exakten Produktfotos (Content is King!), ggf. Auch Produktvideos, 360° Darstellung usw.
+	
+Daten aus Retouren nutzen: Was sind die Gründe der Kunden für die Retoure? Ableitungen und Schlussfolgerungen treffen.
+	
+Produkte mit gewünschter Passgenauigkeit: virtuelle Anprobe (aber auch z.B. Möbel -> augmented reality), Größenberater, Größenempfehlungen („wenn du bei Marke x Größe y hast, dann wähle Größe z“), Größentabellen (Genauigkeit!), Empfehlungen nach Erfahrung („wenn du normalerweise Größe x hast wähle jetzt eine Nummer kleiner“)
+	
+Verhindern mehr als x unterschiedliche Größen eines Produktes zu bestellen
+
+Retouren können systematisch erschwert werden (Retourenlabel fehlt im Paket, Retouren kostenpflichtig usw.) - Abwägung zu Kundenzufriedenheit und Convenience
+	
+Qualitative & ressourcenschonende Verpackung (Eco/Green Label), Recyclingverpackung statt high glossy Materialien
+	
+Kunden für Thema sensibilisieren und nachhaltig Auswirkungen bekannt machen (ohne erhobenen Zeigefinger)
+
 
 - bundle overhead analysis:
   - 31% unused in a react bundle + hard to track when uglified
@@ -203,3 +222,24 @@ if ("connection" in navigator) {
   - https://json-schema.org/understanding-json-schema/
 - https://whatdoesmysitecost.com/
 
+
+
+Wir sollten uns bewusst sein:
+
+1. rationalisierte User Journeys sind die Grundlage des Stromsparens
+2. gute SEO hilft bei der Auffindbarkeit der Inhalte und reduziert somit unnötige Schleifen
+3. gute Texte beeinflussen die Effektivität einer Website und entscheiden mit, wie lange Menschen brauchen, bis sie ihre Fragen beantwortet bekommen
+4. ein in Menge, Format und Länge bedacht gewählter Videoeinsatz zahlt in einen der modernen Hauptfaktoren ein
+5. Werbeanzeigen, Tracking von Drittanbietern oder Social-Media-Buttons verursachen viel Datenlast und sind nicht immer sinnvoll oder notwendig
+6. wir brauchen eine dunklere Gestaltung, effizientere Bilder (needed?, reduce size to let let the minds of the people breathe, blur edges because detail is data, WebP or AVIF, lazy load) und einen sorgfältigen Umgang mit Schriften (Systemfonts, Subsets)
+7. sauberes HTML/CSS (Cascading...!) macht barrierefrei und SEO freundlich
+8. effizientere Techniken verwenden: prefer CSS over JS
+9. wäge den Einsatz von Frameworks und Bibliotheken hinsichtlich Ladeverhalten, Ausführungszeit und anderen die Performance bestimmenden Parametern sorgfältig ab (React schneidet im Vergleich schlecht ab) und bevorzuge native Ansätze oder Lightweight Frameworks (Preact)
+10. optimiere das Ladeverhalten durch dynamische Importe, reduzierten Bundle-Overhead, Lazyloading und eine gute Ladereihenfolge
+11. Nutze PWAs, um Datentransfers mit modernen Caching-Lösungen zu reduzieren und effiziente User Journeys anzubieten
+12. bevorzuge effizientere Sprachen (JS 7x besser als PHP)
+13. nötige den Nutzer nicht, immer die neueste Hardware verwenden zu müssen, sondern entwickle ressourcenschonende Applikationen
+14. Unterstütze den Nutzer dabei, Daten zu sparen, wenn er dies möchte (save data mode)
+15. wähle nahe gelegene grüne Hoster mit einer hohen PUE Bewertung (The typical PUE for a data centre is around 1.67, meaning that for every 1.67 watts going into the data centre, only 1 watt is being used to power the computing systems. High efficency data centres have 1.11)
+16. Verwende Content delivery networks (CDN) um Entfernungen klein zu halten, die Daten nehmen müssen
+17. scalable cloud services: servers are not only up and running all the time, waiting for a traffic spike (e.g. Cloudflare Workers)
