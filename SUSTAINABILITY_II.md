@@ -172,7 +172,7 @@ Kein Freikaufen!
 ## “Hungry Web“
 
 - Energieverbrauch des Internets entspricht in etwa 7% des globalen Strombedarfs (2021) 
-- damit ist es für eine CO₂-Produktion verantwortlich, die mit jener der globalen Luftfahrt vergleichbar ist (2-3%der weltweiten CO₂-Emission)
+- damit ist es für eine CO₂-Produktion verantwortlich, die mit jener der globalen Luftfahrt vergleichbar ist (2-3% der weltweiten CO₂-Emission)
 - wäre das Internet ein eigener Staat, stünde es damit an 6. Stelle  der größten CO₂-Produzenten (Deutschland)
 
 - „die Cloud“ ist für uns ein abstraktes Ding weit „oben“, aber sie ist doch sehr erdgebundene Realität, die eine große Menge an Strom benötigt
