@@ -169,62 +169,35 @@ Plant trees to reduce your carbon impact
 
 Kein Freikaufen!
 
-Ausblick “Hungry Web“
+## “Hungry Web“
 
-Energieverbrauch des Internets entspricht in etwa 7% des globalen Strombedarfs (2021) 
-damit ist es für eine CO₂-Produktion verantwortlich, die mit jener der globalen Luftfahrt vergleichbar ist (2-3%der weltweiten CO₂-Emission)
-wäre das Internet ein eigener Staat, stünde es damit an 6. Stelle  der größten CO₂-Produzenten (Deutschland)
+- Energieverbrauch des Internets entspricht in etwa 7% des globalen Strombedarfs (2021) 
+- damit ist es für eine CO₂-Produktion verantwortlich, die mit jener der globalen Luftfahrt vergleichbar ist (2-3%der weltweiten CO₂-Emission)
+- wäre das Internet ein eigener Staat, stünde es damit an 6. Stelle  der größten CO₂-Produzenten (Deutschland)
 
-„die Cloud“ ist für uns ein abstraktes Ding weit „oben“, aber sie ist doch sehr erdgebundene Realität, die eine große Menge an Strom benötigt
-KI, 5G-Anwendungen und geändertes Nutzerverhalten (Videokonsum) verschärfen die Lage auch in Zukunft
-zumal Politiker und Technologieunternehmen daran interessiert sind, jeden mit Breitbandtechnologie zu versorgen und IoT Geräten zu verbinden
-allein das Training einer auf Spracherkennung spezialisierten KI-Software verursacht 5 Mal so viel CO₂ wie ein Auto in seinem gesamten Lebenszyklus
-voraussichtlich etwa 20% der gesamten Energieproduktion werden im nächsten Jahrzehnt in der IT Industrie gebraucht
+- „die Cloud“ ist für uns ein abstraktes Ding weit „oben“, aber sie ist doch sehr erdgebundene Realität, die eine große Menge an Strom benötigt
+- KI, 5G-Anwendungen und geändertes Nutzerverhalten (Videokonsum) verschärfen die Lage auch in Zukunft
+- zumal Politiker und Technologieunternehmen daran interessiert sind, jeden mit Breitbandtechnologie zu versorgen und IoT Geräten zu verbinden
+- allein das Training einer auf Spracherkennung spezialisierten KI-Software verursacht 5 Mal so viel CO₂ wie ein Auto in seinem gesamten Lebenszyklus
+- voraussichtlich etwa 20% der gesamten Energieproduktion werden im nächsten Jahrzehnt in der IT Industrie gebraucht
 
-Ausblick „Nachhaltigkeit“
+## Ausblick „Nachhaltigkeit“
 
-Digitalisierung ließ den Energieverbrauch stark steigen, aber die digitale Transformation ist nicht grundsätzlich schlecht
-sie macht so manche Autofahrt überflüssig, sie reduziert den Papierbedarf (Holz), sie braucht weniger Energie (DAB+ ist effizienter als UKW) 
-Konsumenten sind nicht in der Lage, das Gute und das Schlechte der Digitalisierung zu erkennen und auseinanderzuhalten
-Als Anbieter von Dienstleistungen im Internet stehen wir in der Verantwortung, uns mit dem Thema auf vielfältige Weise auseinanderzusetzen und Maßnahmen zu ergreifen, die dem Trend entgegenwirken und die Natur bewahren.
+- Digitalisierung ließ den Energieverbrauch stark steigen, aber die digitale Transformation ist nicht grundsätzlich schlecht
+- sie macht so manche Autofahrt überflüssig, sie reduziert den Papierbedarf (Holz), sie braucht weniger Energie (DAB+ ist effizienter als UKW) 
+- Konsumenten sind nicht in der Lage, das Gute und das Schlechte der Digitalisierung zu erkennen und auseinanderzuhalten
+- Als Anbieter von Dienstleistungen im Internet stehen wir in der Verantwortung, uns mit dem Thema auf vielfältige Weise auseinanderzusetzen und Maßnahmen zu ergreifen, die dem Trend entgegenwirken und die Natur bewahren.
 
-Wir haben viele Möglichkeiten an der Hand, darauf Einfluss zu nehmen:
-Wie wir arbeiten (welche Prozesse und Werkzeuge wir verwenden),
-welche Inhalte wir wie anbieten,
-wie sehr wir die User Experience verbessert und die Gestaltung darauf ausgerichtet haben,
-wie performant von uns entwickelte Seiten haben
-und ein grünes Hosting
+- Wir haben viele Möglichkeiten an der Hand, darauf Einfluss zu nehmen:
+  - Wie wir arbeiten (welche Prozesse und Werkzeuge wir verwenden),
+  - welche Inhalte wir wie anbieten,
+  - wie sehr wir die User Experience verbessert und die Gestaltung darauf ausgerichtet haben,
+  - wie performant von uns entwickelte Seiten haben
+  - und ein grünes Hosting
 
-alle diese Faktoren entscheiden wesentlich darüber, ob unsere Produkte so nachhaltig wie möglich sind oder nicht 
-Je größer der Internetauftritt, desto wirksamer sind bereits kleine Änderungen
-Jedes Wischen, jede Serveranfrage, jede Suchanfrage benötigt wieder ein klein wenig Energie dieses stromhungringen Webs
-
-Wir sollten uns bewusst sein:
-
-Arbeitsprozesse und Werkzeuge zahlen ebenso ins Thema ein wie unsere Produkte selbst
-rationalisierte User Journeys sind die Grundlage des Stromsparens
-gute SEO hilft bei der Auffindbarkeit der Inhalte und reduziert somit unnötige Schleifen
-gute Texte beeinflussen die Effektivität einer Website und entscheiden mit, wie lange Menschen brauchen, bis sie ihre Fragen beantwortet bekommen
-ein in Menge, Format und Länge bedacht gewählter Videoeinsatz zahlt in einen der modernen Hauptfaktoren ein
-Werbeanzeigen, Tracking von Drittanbietern oder Social-Media-Buttons verursachen viel Datenlast und sind nicht immer sinnvoll oder notwendig
-Wir brauchen eine dunklere Gestaltung, effizientere Bilder (needed?, reduce size to let let the minds of the people breathe, blur edges because detail is data, WebP or AVIF, lazy load) und einen sorgfältigen Umgang mit Schriften (Systemfonts, Subsets)
-Sauberes HTML/CSS (Cascading...!) machen barrierefrei und SEO freundlich
-effizientere Techniken verwenden: prefer CSS over JS
-wäge den Einsatz von Frameworks und Bibliotheken hinsichtlich Ladeverhalten, Ausführungszeit und anderen die Performance bestimmenden Parametern sorgfältig ab (React schneidet im Vergleich schlecht ab) und bevorzuge native Ansätze oder Lightweight Frameworks (Preact)
-geringe Abhängigkeiten und ~ketten reduzieren die Ladelast (i.B. bei Pipelines)
-ein schonender Umgang mit Build-Tools erhöht nicht unnötig Rechenaufwand
-optimiere das Ladeverhalten durch dynamische Importe, reduzierten Bundle-Overhead, Lazyloading und eine gute Ladereihenfolge
-Nutze PWAs, um Datentransfers mit modernen Caching-Lösungen zu reduzieren und effiziente User Journeys anzubieten
-bevorzuge effizientere Sprachen (JS 7x besser als PHP)
-nötige den Nutzer nicht, immer die neueste Hardware verwenden zu müssen, sondern entwickle ressourcenschonende Applikationen
-Unterstütze den Nutzer dabei, Daten zu sparen, wenn er dies möchte (save data mode)
-wähle nahe gelegene grüne Hoster mit einer hohen PUE Bewertung (The typical PUE for a data centre is around 1.67, meaning that for every 1.67 watts going into the data centre, only 1 watt is being used to power the computing systems. High efficency data centres have 1.11)
-Verwende Content delivery networks (CDN) um Entfernungen klein zu halten, die Daten nehmen müssen
-scalable cloud services: servers are not only up and running all the time, waiting for a traffic spike (e.g. Cloudflare Workers)
-
-
-
-
+- alle diese Faktoren entscheiden wesentlich darüber, ob unsere Produkte so nachhaltig wie möglich sind oder nicht 
+- Je größer der Internetauftritt, desto wirksamer sind bereits kleine Änderungen
+- Jedes Wischen, jede Serveranfrage, jede Suchanfrage benötigt wieder ein klein wenig Energie dieses stromhungringen Webs
 
 ## Zusammenfassung
 
