@@ -67,36 +67,74 @@ Je größer der Internetauftritt, desto wirksamer sind bereits kleine Änderunge
 - Tools (Kollaboration, Dokumentation), Dokumente
 - The way we learn: read sth. instead of watching a video course
 
-## Content
-
-- Es müssen nicht immer Hintergrundvideos oder großformatige Bilder sein: Vektorgrafiken, Icons oder typografische Details sind visuell manchmal sogar spannender und setzen Akzente
-- Werbeanzeigen, Tracking von Drittanbietern oder Social-Media-Buttons verursachen viel Datenlast und sind nicht immer sinnvoll oder notwendig
-- evaluate optional trackers, e.g. Minimal Google Analytics (1.5KB < 17KB, but needs a cookie banner) or [Plausible](https://plausible.io/) (<1KB and no cookies)
-- Hosting auf eigenem Server ermöglicht Verzicht auf Analysesoftware, Nutzerverhalten aus Serverdaten ersichtlich
-- Gute SEO hilft bei der Auffindbarkeit der Inhalte: When optimising a website for search engine rankings, we are helping people find the information they want quickly and easily.
-- Copy writing: It has an impact on website efficiency because it affects the amount of time people spend browsing websites.
-- Reduce video: If video is necessary, see if you can reduce the amount of video streamed by removing auto-play from videos and by keeping video content short. optimize compression.
-
 ## Design & UX
 
-- streamline user journeys is the foundation of saving energy: if we have to invest time to find things, we waste energy as more pages or more data have to be loaded
-- don't drug the user (by accident) and make it hard for the user to leave: use of notifications, infinite scroll, autoplay content, sticky makes it difficult to leave
-- darker designs as displays need a lot of energy or at least support darkmode
-- low energy colours relevant on OLED screens: white (highest energy), black (no energy), blue (high with ~25% more than red or green)
-- efficient images: reduce size to allow space and to let the minds of the people breathe, blur edges (because detail is data and data is energy), black & white (+ dithering?)
-- Bilder komprimieren (WebP or AVIF) und lazy loaden...
-- Systemschriften liegen auf dem Rechner und verbrauchen am wenigsten Energie, schränken aber die Designoptionen stark ein
-- anyway choose fonts carefully: Use system fonts where possible. Accept alternative local fonts. Use fewer font weights (variations).
-- Webfonts bieten mehr gestalterische Freiheit, werden aber extern gehostet, sodass die Zahl der Requests und mit ihnen Ladezeit und Energieverbrauch steigen
-- Man kann sie aber „subsetten“. Lade nur die Glyphen, die tatsächlich gebraucht werden.
-- Zwischen Systemschriften und Webfonts liegt in Sachen Dateigröße das Variable-Fonts-Format. Embedded Fonts mache die Seite "schwerer", reduzieren dafür aber die Requests.
-- Dithered Images: mit dem alten Komprimierungsverfahren wird die Dateigröße enorm reduziert. Graustufenbilder werden nachcoloriert.
-- One of the core elements of good user experience is reducing friction in user journeys.
-- Reduce images: Regardless of any technical optimisations, designers and content creators should think carefully about their use of images.
-- Dark Mode: Dark websites were one of the first techniques popularised for saving energy on websites many years ago
+- [ ] Reduce images: Regardless of any technical optimisations, designers and content creators should think carefully about their use of images.
+- [X] efficient images: reduce size to allow space and to let the minds of the people breathe, blur edges (because detail is data and data is energy), black & white (+ dithering?)
+- [X] Bilder komprimieren (WebP or AVIF) und lazy loaden...
+- [ ] Dithered Images: mit dem alten Komprimierungsverfahren wird die Dateigröße enorm reduziert. Graustufenbilder werden nachcoloriert.
+
+- [ ] anyway choose fonts carefully: Use system fonts where possible. Accept alternative local fonts. Use fewer font weights (variations).
+- [ ] Systemschriften liegen auf dem Rechner und verbrauchen am wenigsten Energie, schränken aber die Designoptionen stark ein
+- [ ] Webfonts bieten mehr gestalterische Freiheit, werden aber extern gehostet, sodass die Zahl der Requests und mit ihnen Ladezeit und Energieverbrauch steigen
+- [ ] Man kann sie aber „subsetten“. Lade nur die Glyphen, die tatsächlich gebraucht werden.
+- [ ] Zwischen Systemschriften und Webfonts liegt in Sachen Dateigröße das Variable-Fonts-Format (https://web.dev/variable-fonts/). Embedded Fonts machen die Seite "schwerer", reduzieren dafür aber die Requests.
+- [ ] Many font families offer a much wider range of styles, from Thin to Black weights, narrow and wide widths, a variety of stylistic details, and even size-specific designs (optimized for large or small text sizes.) Since you'd have to load a new font file for every style (or combinations of styles), many web developers choose not to use these capabilities, reducing the reading experience of their users. Variable fonts address these challenges, by packing styles into a single file.
+
+- [X] Wiederverwendung von Modulen: weniger kann mehr sein, manche Konzepte werden im Alltag gar nicht eingesetzt
+- [ ] Komponenten basierte Entwicklung schafft Bausteine mit Schnittstellen (für Daten, Verhalten und Styling), sowie Übersichtlichkeit
+- [ ] werden Module wiederverwendet und nicht an jeder Stelle modifiziert eingesetzt, reduziert sich die Menge des Codes, der zu laden und auszuführen ist
+- [ ] CDN-Lösung für Projekt übergreifende Module denkbar?
+
+- [X] low energy colours relevant on OLED screens: white (highest energy), black (no energy), blue (high with ~25% more than red or green)
+- [ ] darker designs as displays need a lot of energy or at least support darkmode
+- [X] Dark Mode: Dark websites were one of the first techniques popularised for saving energy on websites many years ago (prefers-color-scheme)
+
+- [X] Einbeziehen spezieller Anwenderanforderungen bezüglich Datenmenge (prefers-reduced-data) und Animationsverhalten (prefers-reduced-motion) reduziert Ladevolumen und Rechenleistung auf ein für den Benutzer ausreichendes Maß
+- [ ] Wie könnte so etwas (in euren Projekten) in der Praxis aussehen? (Gruppendiskussion je Solution)
+
+- [ ] dem Benutzer die Kontrolle über Daten bzw. Inhalt und dessen (Art des) Konsum überlassen -- das heißt auch:
+- [ ] don't drug the user (by accident) and make it hard for the user to leave: use of notifications, infinite scroll, autoplay content, sticky makes it difficult to leave
+- [ ] Welche Beispiele fallen euch noch ein?
+
+- [ ] One of the core elements of good user experience is reducing friction in user journeys. (Ablenkung reduzieren)
+- [X] dazu gehört für mich auch das Minimieren von Klickpfaden
+- [ ] streamline user journeys is the foundation of saving energy: if we have to invest time to find things, we waste energy as more pages or more data have to be loaded (geradlinige User Journeys)
+- [ ] dies gilt für die Seite selbst und auch für SEO zum Einstieg am richtigen Punkt
+
+
+## Content
+
+- [ ] Gute SEO hilft bei der Auffindbarkeit der Inhalte: When optimising a website for search engine rankings, we are helping people find the information they want quickly and easily.
+
+- [X] Content nicht unnötig aufplustern, sondern nur den Content zur Verfügung stellen, der benötigt wird (vgl. streamline user journeys, prefers-reduced-data)
+
+- [ ] Copy writing: It has an impact on website efficiency because it affects the amount of time people spend browsing websites.
+
+- [ ] Es müssen nicht immer Hintergrundvideos oder großformatige Bilder sein: Vektorgrafiken, Icons oder typografische Details sind visuell manchmal sogar spannender und setzen Akzente
+- [ ] Reduce video: If video is necessary, see if you can reduce the amount of video streamed by removing auto-play from videos and by keeping video content short. optimize compression.
+- [ ] Welche Erfahrung habt ihr mit Bühnen und Slidern gesammelt?
+
+- [ ] Werbeanzeigen, Tracking von Drittanbietern oder Social-Media-Buttons verursachen viel Datenlast und sind nicht immer sinnvoll oder notwendig
+- [ ] evaluate optional trackers, e.g. Minimal Google Analytics (1.5KB < 17KB, but needs a cookie banner) or [Plausible](https://plausible.io/) (<1KB and no cookies)
+- [ ] Hosting auf eigenem Server ermöglicht Verzicht auf Analysesoftware, Nutzerverhalten aus Serverdaten ersichtlich
 
 
 ## Development
+
+### Punkte aus der Runde
+
+- Pipelines optimieren (Mehr Caching, weniger oft durchführen)
+- Darkmode
+- Wahl der Programmier-sprachen: Backend ? Frontend ?
+- Accessibility first (prefers-reduced-data | prefers-color-scheme | prefers-reduced-motion)
+- Entwicklungsumgebungen schneller machen. Weniger Zeit warten auf Prozesse
+- Gesamte Performance der Webseiten verbessern.
+- PWA-Vorteile für Offline-Nutzung einsetzen (Caching)
+- Server backed IDEs
+- Traffic minimieren durch z.B. Headless, Graphql, Brotli, ...
+
+### eigene Zusammentragung
 
 - we can use code to make a website greener
 - we can do loading the right things at the right time
