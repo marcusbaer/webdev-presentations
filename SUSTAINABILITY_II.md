@@ -80,6 +80,8 @@ Je größer der Internetauftritt, desto wirksamer sind bereits kleine Änderunge
 - [ ] Man kann sie aber „subsetten“. Lade nur die Glyphen, die tatsächlich gebraucht werden.
 - [ ] Zwischen Systemschriften und Webfonts liegt in Sachen Dateigröße das Variable-Fonts-Format (https://web.dev/variable-fonts/). Embedded Fonts machen die Seite "schwerer", reduzieren dafür aber die Requests.
 - [ ] Many font families offer a much wider range of styles, from Thin to Black weights, narrow and wide widths, a variety of stylistic details, and even size-specific designs (optimized for large or small text sizes.) Since you'd have to load a new font file for every style (or combinations of styles), many web developers choose not to use these capabilities, reducing the reading experience of their users. Variable fonts address these challenges, by packing styles into a single file.
+- [ ] Wer hat sich schon einmal mit variablen Fonts auseinandergesetzt? https://web.dev/variable-fonts/
+- [ ] Übersicht über Font-Formate im Web: https://www.w3schools.com/css/css3_fonts.asp
 
 - [X] Wiederverwendung von Modulen: weniger kann mehr sein, manche Konzepte werden im Alltag gar nicht eingesetzt
 - [ ] Komponenten basierte Entwicklung schafft Bausteine mit Schnittstellen (für Daten, Verhalten und Styling), sowie Übersichtlichkeit
