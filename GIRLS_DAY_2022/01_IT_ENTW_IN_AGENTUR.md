@@ -1,14 +1,14 @@
 # Als IT-Entwicklerin in der Agentur
 
-(Schaubild: Einstiegsfolie)
+(Schaubild: Einstiegsfolie, 1min)
 
 Ich freue mich, dass ihr euch dafür interessiert, was eine IT-Entwicklerin bei uns in der Agentur macht.
 
 Wir haben heute einen ganzen Tag lang Zeit, genau das miteinander zu entdecken.
 
-Wir werden darauf schauen, wie gearbeitet wird und werden auch einen Eindruck davon bekommen, wie das alles so funktioniert und was eine IT-Entwicklerin ausmacht.
+Dabei werden wir darauf schauen, wie gearbeitet wird und werden auch einen Eindruck davon bekommen, wie das alles so funktioniert und was eine IT-Entwicklerin ausmacht.
 
-Am Anfang müssen wir aber einmal klären, was denn diese „IT“ ist.
+Am Anfang müssen wir aber einmal klären, was denn diese „IT“ eigentlich ist.
 
 *Frage:* Wofür steht diese Abkürzung „IT“? Wer von euch kann mir das sagen?
 
@@ -17,7 +17,7 @@ Am Anfang müssen wir aber einmal klären, was denn diese „IT“ ist.
 
 ## Was IT macht
 
-(Schaubild: Computer <-- 001010101110 <-- Code)
+(Schaubild: Computer <-- 001010101110 <-- Code, 2min)
 
 „IT“ steht für Informationstechnologie. Technischer Kram rund um Informationen und Daten, und deren elektronische Verarbeitung.
 
@@ -41,7 +41,7 @@ Diese Software wollen wir uns noch einmal genauer ansehen.
 
 ## Was Software leistet
 
-(Schaubild: Bild einer Wohnung?)
+(Schaubild: Bild einer Wohnung?, 2min)
 
 Was ist denn alles Software und wo begegnen wir ihr?
 
@@ -51,23 +51,23 @@ Was ist denn alles Software und wo begegnen wir ihr?
 
 ## Was Software leistet II
 
-(Schaubild: Collage unterschiedlicher Einsatzszenarien)
+(Schaubild: Collage unterschiedlicher Einsatzszenarien, 2min)
 
 Software, das sind Programme, die auf unterschiedlichen Systemen und Plattformen laufen.
 
-Wir wissen jetzt, dass ihr Programmcode wird von IT-Entwicklerinnen geschrieben.
+Wir wissen jetzt, dass ihr Programmcode von IT-Entwicklerinnen geschrieben wird.
 
 Fertige Programme werden ihrem Zweck entsprechend auf dem Zielsystem ausgeführt.
 
-Einsatzgebiete von Software sind vielfältig: z.B. Kommunikation (Teams & E-Mail), Smartphone-Apps, Präsentation, Textverarbeitung (Word), Videoplayer & -bearbeitung, Verwaltungsprogramme für Planung und Kontrolle betrieblicher Abläufe, Computerspiele, Informationsvermittlung, Contentmanagement, künstliche Intelligenz
+Einsatzgebiete von Software sind vielfältig: z.B. Kommunikation (Teams & E-Mail), Smartphone-Apps, Präsentation, Textverarbeitung (Word), Videoplayer & -bearbeitung, Verwaltungsprogramme für Planung und Kontrolle betrieblicher Abläufe, Computerspiele, Informationsvermittlung, Contentmanagement (Steuerung von Inhalten), künstliche Intelligenz
 
-Software gibt es aber auch sehr Hardware nah für Steuerungen und Messungen: Heizkörper (Steuerung oder Ablesen per Funk), Waschmaschine,Auto, Industrieroboter usw.
+Software gibt es aber auch sehr Hardware nah für Steuerungen und Messungen: Heizkörper (Steuerung oder Ablesen per Funk), Waschmaschine, Auto, Industrieroboter usw.
 
 Eine Welt ohne Software können wir uns kaum noch vorstellen.
 
 ## Die Vielfalt der Sprachen
 
-(Schaubild: Sprachen als Schlagworte)
+(Schaubild: Sprachen als Schlagworte, 1min)
 
 Je nach Einsatzgebiet gibt es unterschiedliche Sprachen für den Programmcode.
 
@@ -75,9 +75,13 @@ Kotlin, R, JavaScript, Java, C/C++, PHP, Python, Lua, Visual Basic, Ruby, HTML, 
 
 Java, Python, JavaScript und C/C++ sind am weitesten verbreitet
 
+Deckt sich teilweise mit Liste derer, die man sich am besten einmal näher ansehen sollte: JavaScript, HTML/CSS, Python, SQL, Java 
+
+(What’s the Best Programming Language to Learn in 2022?, https://torquemag.io/2022/04/best-programming-language-to-learn/)
+
 ## Unsere Sprachen
 
-(Schaubild: Kunden-Portfolio der Agentur)
+(Schaubild: Kunden-Portfolio der Agentur, 2min)
 
 Bei uns in der Agentur kommt davon nur ein kleiner Teil zum Einsatz.
 
@@ -93,11 +97,11 @@ Neben kleineren Projekten kümmern wir uns auch um die Umsetzung und Betreuung l
 
 Wir in Köln erstellen dabei hauptsächlich Informations- oder Kommunikations-Webseiten für Bundesministerien, Online-Shops und Marketing-Seiten.
 
-Diese verwenden überwiegend Java und PHP auf der Serverseite... und HTML, CSS, JavaScript im Frontend
+Diese verwenden HTML, CSS, JavaScript im Frontend... und überwiegend Java und PHP auf der Serverseite
 
 ## IT-Entwicklung im Backend
 
-(Schaubild: irgendeine Backend-Architektur)
+(Schaubild: irgendeine Backend-Architektur, 2min)
 
 *Frage:* Server? Was macht ein Server? Ein Zusteller
 
@@ -117,7 +121,7 @@ Vermutlich noch nicht gehört habt ihr von SAP Hybris oder GSB (Government Site 
 
 ## IT-Entwicklung im Backend II
 
-(Schaubild: Schema einer Suchanfrage)
+(Schaubild: Schema einer Suchanfrage, 3min)
 
 Was macht nun eine Backend-Entwicklerin?
 
@@ -148,7 +152,7 @@ Die Gestaltung der ausgegebenen Daten ist ihnen aber in der Regel egal.
 
 ## IT-Entwicklung im Frontend
 
-(Schaubild: FE-Entwicklerin bei der Arbeit)
+(Schaubild: FE-Entwicklerin bei der Arbeit, 3min)
 
 Um die Gestaltung kümmert sich die Frontend-Entwicklerin.
 
@@ -156,9 +160,7 @@ Frontend? Das ist all das, was im Browser passiert.
 
 Der wichtigste Baustein für die Darstellung einer Webseite im Browser ist dabei das HTML.
 
-*Frage:* Was ist das: "HTML"?
-
-*Quiz:* Wofür steht die Abkürzung "HTML"?
+*Frage:* Wofür steht die Abkürzung "HTML"?
 
 Mit dem, was im Frontend passiert, werden wir uns nachher noch näher beschäftigen.
 
@@ -178,7 +180,7 @@ Beide beschäftigen sich mit Strukturen, mit Code und Logik. Beide planen ihr tu
 
 ## Was macht nun eine IT-Entwicklerin?
 
-(Schaubild: BE- & FE-Entwicklerin sitzen sich gegenüber)
+(Schaubild: BE- & FE-Entwicklerin sitzen sich gegenüber, 1min)
 
 Frontend und Backend erfordern für sich bereits umfangreiche Kenntnisse im jeweiligen Bereich.
 
@@ -190,19 +192,41 @@ Auch, wenn sie unterschiedliche Programmiersprachen verwenden und Probleme aus a
 
 Sie verwenden die gleichen Werkzeuge, arbeiten oft in *einem* Entwicklerteam zusammen.
 
-Programmierung ist Teamarbeit.
+## Skillset in der IT-Entwicklung
 
-Entwicklerinnen und Entwickler denken gemeinsam über Probleme und Lösungen nach, sie prüfen gegenseitig ihren Code und achten darauf, dass dieser für andere verständlich ist. Sie lernen voneinander und verbessern so ihre Fähigkeit, gute Produkte (bzw. Ergebnisse) zu erstellen.
+(Schaubild: schrittweise Auflistung der Skills, 3min)
+
+Überhaupt: Programmierung ist Teamarbeit.
+
+Natürlich arbeitet man vielfach allein an einer Umsetzung. Das Schreiben von Code geschieht in der Praxis eben doch eher etwas zurückgezogen. Die Situationen, in denen zwei Personen gleichzeitig Code wirklich schreiben (sogenanntes Pairprogramming), sind zwar wünschenswert, aber doch die Ausnahme.
+
+Code zu schreiben, ist aber nur ein Teil dessen, was eine Entwicklerin täglich tut. Schließlich hat sie Probleme zu lösen und das geschieht im Zusammenspiel mit den Teamkollegen.
+
+Entwicklerinnen und Entwickler denken gemeinsam über Probleme und Lösungen nach, sie prüfen gegenseitig ihren Code und achten darauf, dass dieser für andere verständlich ist und bleibt. Sie lernen voneinander und verbessern so ihre Fähigkeit, gute Produkte (bzw. Ergebnisse) zu erstellen.
+
+Sie stehen dabei aber auch im regelmäßigen Austausch mit anderen Teamkollegen, etwa Designern oder jenen Kollegen, die die Website (Produkt) und deren Features betreuen.
+
+Neben einer guten Portion an Problemlösungs-orientiertem Denken gehört also auch Kommunikationsfähigkeit zur Ausstattung einer Entwicklerin. Und auch ein gutes mathematisches Verständnis ist eine der zentralen Fähigkeiten.
 
 In einer Agentur tun sie dies in einem vielfältigen, vom Wechsel bestimmten Umfeld.
 
-Sie entwickeln so ein breites Spektrum an persönlichen Fähigkeiten.
+Ganz besonders den Frontend-Entwicklerinnen ist das aber sowieso nicht fremd: Technologien unterliegen hier einem ständigen Wechsel.
 
-Bei uns heißt das, auch solche Entwicklerinnen sind willkommen, die im Laufe ihrer Karriere ihren Schwerpunkt verlagern möchten.
+Ein Framework, das gestern noch ein vielversprechender Newcomer war, ist morgen bereits überholt. Natürlich nicht ganz. Aber abgesehen von einigen etablierten Lösungen, werden sie doch oft bereits nach wenigen Jahren durch bessere abgelöst. Es kommt dabei auch immer ein wenig an, was gerade State-of-the-Art ist. Neugier auf Neues ist also ganz hilfreich, um in der Frontend-Entwicklung am Ball zu bleiben.
+
+Es gibt aber nicht nur Frameworks. Langjährig entwickelte Webstandards bilden das eigentliche Fundament. Was hier über die Jahre zusammengekommen ist, ist ein ganzer Haufen, mit dem man sich im Laufe der Zeit auseinandersetzen möchte. Wir lassen unsere Entwickler damit aber nicht allein. Mit Schulungen und in Communities begegnen wir ihrer Herausforderung und schaffen so auch über die Projekte hinaus einen regelmäßigen Austausch und Zusammenhalt innerhalb der "Leidensgenossen".
+
+Entwicklerinnen entwickeln so ein breites Spektrum an persönlichen Fähigkeiten.
+
+Bei uns heißt das, auch solche Entwicklerinnen sind willkommen, die im Laufe ihrer Karriere ihren Schwerpunkt verlagern möchten, vom Backend zum Frontend oder umgekehrt.
 
 Im Gegensatz zu anderen Firmen, die oft nur das eine Produkt, also die eine Anwendung, die eine Webseite, kennen - haben wir als Agentur genug Projekte im Haus, um diesen Interessen gerecht zu werden.
 
-Gibt es dazu Fragen?
+## Fragen
+
+(Schaubild: Fragezeichen, 0min)
+
+Gibt es Fragen?
 
 ---
 
