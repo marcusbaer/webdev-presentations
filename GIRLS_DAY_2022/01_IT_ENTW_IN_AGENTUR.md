@@ -35,9 +35,9 @@ Genau deshalb gibt es Übersetzer (Compiler, Interpreter), die eine uns Menschen
 
 Wir können uns damit einer Sprache bedienen, die oft immer noch kompliziert erscheint, aber dennoch das Reden mit dem Computer vereinfacht.
 
-Das Gute an diesen Texten ist, dass sie mit mehr oder weniger Aufwand ausgetauscht werden können. Wollen wir dem Computer etwas sagen, das er tun soll, so können wir das auch leicht verändern, wenn die ursprüngliche Anweisung nicht mehr stimmt, weil es etwas zu verbessern gibt.
+Das Gute an diesen Texten ist, dass sie mit mehr oder weniger Aufwand ausgetauscht werden können. Wollen wir dem Computer etwas sagen, das er tun soll, geht das. Und wir können das auch leicht wieder verändern, wenn die ursprüngliche Anweisung nicht mehr stimmt, zum Beispiel weil es etwas an den Anweisungen für ihn zu verbessern gibt.
 
-Diese Software wollen wir uns noch einmal genauer ansehen.
+Wir reden mit ihm über die Software und diese Software wollen wir uns jetzt einmal genauer ansehen.
 
 ## Was Software leistet
 

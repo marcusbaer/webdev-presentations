@@ -125,7 +125,7 @@ Zunächst einmal eine Textauszeichnung als fett und einen Link, um das Dokument 
 </ol>
 ```
 
-## Interaktion mit dem Backend
+## Interaktion mit dem Backend (optional)
 
 Bevor wir uns an die Gestaltung machen, legen wir noch ein Formular an, damit wir eine Anmeldung entgegennehmen können.
 
