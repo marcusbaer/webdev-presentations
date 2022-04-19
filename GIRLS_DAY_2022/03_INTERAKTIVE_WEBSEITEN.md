@@ -140,7 +140,7 @@ Peters Namen zeige ich mir also an, indem ich diesen Parameter ausgebe.
 
 Nun wollen wir Variablen aber nicht nur verändern, sondern auch auswerten bzw. auf ihre Inhalte reagieren.
 
-Das lässt sich ganz einfach mit einem `if`-Statement umsetzen. Wir wollen hier also prüfen, ob der Wert einer Variable größer, kleiner oder gleich etwas Bestimmtem ist. Wenn das so ist, soll etwas bestimmtes passieren. In unserem Fall eine Ausgabe, wenn der Wert größer gleich 2 ist.
+Das lässt sich ganz einfach mit einem `if`-Statement umsetzen. Wir prüfen hier also, ob der Wert einer Variable größer, kleiner oder gleich etwas Bestimmtem ist. Wenn das so ist, soll etwas bestimmtes passieren. In unserem Fall eine Ausgabe, wenn der Wert größer gleich 2 ist.
 
 > `if (zahl >= 2) {`
 > `  console.log("größer als 2");`
@@ -149,7 +149,17 @@ Das lässt sich ganz einfach mit einem `if`-Statement umsetzen. Wir wollen hier 
 In einigen Fällen reicht das `if` nicht aus. Wenn wir komplexere Bedingungen testen müssen, brauchen wir natürlich weitere Mittel, um Fälle abzutesten, bei denen z.B. mehrere Variablen bestimmte Werte haben müssen usw. Für jetzt belassen wir es aber dabei.
 
 
-## DOM-Manipulation (optional)
+## DOM-Manipulation (schnelle Demo)
+
+Schließlich fehlt uns aber noch ein wichtiger Schritt. 
+
+Bisher haben wir noch keine Veränderung des Inhalts einer HTML-Seite vorgenommen. Wie das geht, zeige ich euch der Vollständigkeit halber auch einmal schnell.
+
+Mit der Funktion `querySelector` (u.a.) kann ich mit JS auf HTML-Elemente zugreifen bzw. diese ansprechen. Ich lege mir die Referenz (Verweis) darauf in eine Variable, welche ich anschließend weiter verwende. So kann ich bspw. den HTML-Inhalt des Elements verändern oder erweitern.
+
+Auch auf Ereignisse an diesem HTML-Element kann ich nun hören. Möchte ich auf einen Klick darauf reagieren, so behelfe ich mir mit der Funktion `addEventListener`, die "click" als Bezeichnung für das Ereignis übergeben bekommt. Andere Möglichkeiten wären mouseenter, mouseleave usw. Der zweite Parameter ist eine Funktion, die aufgerufen wird, wenn das Ereignis (also der Klick) eintritt.
+
+Hierin zeige ich gleich noch eine dritte übliche Manipulation an HTML-Elementen, nämlich die Veränderung (Hinzufügen, Entfernen) von CSS-Klassen.
 
 ```
 // mit meinem HTML interagieren
@@ -157,7 +167,7 @@ function mache_interaktiv() {
     const titel = document.querySelector("h1");
     titel.innerHTML += " NEU!";
     titel.addEventListener("click", function(event) {
-    event.target.classList.toggle("aktiv");
+        event.target.classList.toggle("aktiv");
     });
 }
 
