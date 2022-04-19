@@ -1,6 +1,6 @@
 # Grundbausteine einer Internetseite
 
-((Einführung in HTML-Strukturen, Elemente, CSS))
+((Einführung in HTML-Strukturen, Elemente, CSS in 40 Minuten))
 
 ((gemeinsam mit Rosari))
 
@@ -10,7 +10,9 @@ Code an sich ist Text und damit natürlich auch mit jedem einfachen Texteditor b
 
 Wir verwenden dafür heute einmal Codesandbox, das ganz einfach online funktioniert und ohne Installationsaufwand ganz einfach in einem Browser funktioniert, solange der nicht gerade zu alt ist.
 
-> https://codesandbox.io/ -- create sandbox -- static
+> https://codesandbox.io/
+> --> "create sandbox"
+> --> "static"
 
 Wer von euch jetzt bereits gerne einmal selbst aktiv werden möchte, kann den Code-Editor in seinem Browser aufrufen und all das, was ich jetzt gleich zeigen werde, direkt mitmachen.
 
@@ -107,9 +109,13 @@ Zunächst einmal eine Textauszeichnung als fett und einen Link, um das Dokument 
 <p>Am 28.4. ist <a href="https://www.girls-day.de">GirlsDay</a>! Sei dabei, wenn du bei Pixelpark, <b>HTML lernen</b> möchtest.</p>
 ```
 
+Als nächstes binden wir ein Bild ein.
+
 ```
 <img src="../mvp/unicorn.png" alt="Einhorn">
 ```
+
+Schließlich zeige ich euch noch, wie man eine Auflistung mit HTML umsetzt. Zu unterscheiden ist hier zwischen Auflistungen mit und ohne Reihenfolge. 
 
 ```
 <h3>Bringe bitte mit</h3>
@@ -125,9 +131,11 @@ Zunächst einmal eine Textauszeichnung als fett und einen Link, um das Dokument 
 </ol>
 ```
 
+Fürs erste wollen wir uns mit dieser kleinen Auswahl an HTML-Tags zufrieden geben. Natürlich gibt es noch so einige mehr, die wir dann bei Bedarf kennenlernen.
+
 ## Interaktion mit dem Backend (optional)
 
-Bevor wir uns an die Gestaltung machen, legen wir noch ein Formular an, damit wir eine Anmeldung entgegennehmen können.
+Bevor wir uns an die Gestaltung machen, legen wir aber noch ein Formular an, damit wir eine Anmeldung entgegennehmen können.
 
 ```
 <form action="./bestaetigung.html">
@@ -199,7 +207,17 @@ Leider stellen wir aber auch fest, dass die Überschrift auf der Bestätigungsse
 
 Wie wir das gewünschte Ergebnis erreichen und welche Möglichkeiten der Gestaltung wir noch haben, das zeigt uns jetzt Rosari.
 
-## Grundlagen des Stylings mit CSS
+## Grundlagen des Stylings mit CSS (Rosari)
+
+Externes CSS
+
+```
+<link rel="stylesheet" href="style.css">
+```
+
+Stylen mit Hilfe von Tag-Selektoren, CSS-Klassen und Pseudo-Klassen.
+
+Schriftgröße, Vorder- und Hintergrundfarben, Innen- und Außenabstände, Rahmen, einfaches Flexbox-Layout
 
 ```
 html {

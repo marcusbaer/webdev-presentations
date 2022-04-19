@@ -135,6 +135,7 @@ Peters Namen zeige ich mir also an, indem ich diesen Parameter ausgebe.
 
 > `console.log(objekt.name);`
 
+Wen habe ich jetzt inzwischen verloren?
 
 ## Bedingungen (optional)
 
