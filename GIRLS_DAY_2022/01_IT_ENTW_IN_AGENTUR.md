@@ -89,6 +89,8 @@ Unternehmen haben oft einen engen Fokus auf ihr Produkt (Programm, Webseite): IT
 
 Gleiches gilt z.B. für Shopbetreiber: IT betreibt und erweitert (gemeinam mit anderen Gewerken, wie Konzeption und Design) ihren Shop
 
+(Klick)
+
 Als digitale Webagentur sind wir Dienstleister, der für andere Leistungen aus den Bereichen Konzeption, Design und/oder Entwicklung übernimmt. Unsere Projekte sind daher weitaus vielfältiger.
 
 Das heißt nicht, dass sie kleiner sind.
@@ -196,7 +198,7 @@ Sie verwenden die gleichen Werkzeuge, arbeiten oft in *einem* Entwicklerteam zus
 
 (Schaubild: schrittweise Auflistung der Skills, 3min)
 
-Überhaupt: Programmierung ist Teamarbeit.
+Überhaupt: Programmierung ist **Teamarbeit**.
 
 Natürlich arbeitet man vielfach allein an einer Umsetzung. Das Schreiben von Code geschieht in der Praxis eben doch eher etwas zurückgezogen. Die Situationen, in denen zwei Personen gleichzeitig Code wirklich schreiben (sogenanntes Pairprogramming), sind zwar wünschenswert, aber doch die Ausnahme.
 
@@ -204,21 +206,21 @@ Code zu schreiben, ist aber nur ein Teil dessen, was eine Entwicklerin täglich 
 
 Entwicklerinnen und Entwickler denken gemeinsam über Probleme und Lösungen nach, sie prüfen gegenseitig ihren Code und achten darauf, dass dieser für andere verständlich ist und bleibt. Sie lernen voneinander und verbessern so ihre Fähigkeit, gute Produkte (bzw. Ergebnisse) zu erstellen.
 
-Sie stehen dabei aber auch im regelmäßigen Austausch mit anderen Teamkollegen, etwa Designern oder jenen Kollegen, die die Website (Produkt) und deren Features betreuen.
+Sie stehen dabei aber auch im regelmäßigen Austausch mit anderen Teamkollegen, etwa Designern oder jenen Kollegen, die die Website (Produkt) und deren Features betreuen, den Product Ownern (PO).
 
-Neben einer guten Portion an Problemlösungs-orientiertem Denken gehört also auch Kommunikationsfähigkeit zur Ausstattung einer Entwicklerin. Und auch ein gutes mathematisches Verständnis ist eine der zentralen Fähigkeiten.
+Neben einer guten Portion an **Problemlösungs-orientiertem Denken** gehört also auch Kommunikationsfähigkeit zur Ausstattung einer Entwicklerin. Und auch ein **gutes mathematisches Verständnis** ist eine der zentralen Fähigkeiten. Schließlich geht es doch immer wieder um Dinge, die mathematisch bedacht werden müssen.
 
 In einer Agentur tun sie dies in einem vielfältigen, vom Wechsel bestimmten Umfeld.
 
-Ganz besonders den Frontend-Entwicklerinnen ist das aber sowieso nicht fremd: Technologien unterliegen hier einem ständigen Wechsel.
+Ganz besonders den *Frontend*-Entwicklerinnen ist das aber sowieso nicht fremd: Technologien unterliegen hier seit Jahren einem ständigen Wechsel.
 
-Ein Framework, das gestern noch ein vielversprechender Newcomer war, ist morgen bereits überholt. Natürlich nicht ganz. Aber abgesehen von einigen etablierten Lösungen, werden sie doch oft bereits nach wenigen Jahren durch bessere abgelöst. Es kommt dabei auch immer ein wenig an, was gerade State-of-the-Art ist. Neugier auf Neues ist also ganz hilfreich, um in der Frontend-Entwicklung am Ball zu bleiben.
+Ein Framework, das gestern noch ein vielversprechender Newcomer war, ist morgen bereits überholt. --- (Grinsen) Natürlich nicht ganz. Aber abgesehen von einigen etablierten Lösungen, werden verwendete Programme doch oft bereits nach wenigen Jahren schon durch bessere abgelöst. --- Es kommt dabei auch immer ein wenig darauf an, was gerade State-of-the-Art ist. **Neugier auf Neues** ist also ganz hilfreich, um in der Frontend-Entwicklung am Ball zu bleiben.
 
-Es gibt aber nicht nur Frameworks. Langjährig entwickelte Webstandards bilden das eigentliche Fundament. Was hier über die Jahre zusammengekommen ist, ist ein ganzer Haufen, mit dem man sich im Laufe der Zeit auseinandersetzen möchte. Wir lassen unsere Entwickler damit aber nicht allein. Mit Schulungen und in Communities begegnen wir ihrer Herausforderung und schaffen so auch über die Projekte hinaus einen regelmäßigen Austausch und Zusammenhalt innerhalb der "Leidensgenossen".
+Es gibt aber natürlich nicht nur Frameworks in der täglichen Arbeit. --- Langjährig entwickelte Webstandards bilden für diese und eigentlich alles das eigentliche Fundament. Was hier über die Jahre zusammengekommen ist, ist ein ganzer Haufen, mit dem man sich im Laufe der Zeit auseinandersetzen möchte. Wir lassen unsere Entwickler damit aber nicht allein. Mit Schulungen und in Communities begegnen wir ihrer Herausforderung und schaffen so auch über die Projekte hinaus einen regelmäßigen Austausch und Zusammenhalt innerhalb der "Leidensgenossen".
 
-Entwicklerinnen entwickeln so ein breites Spektrum an persönlichen Fähigkeiten.
+Entwicklerinnen entwickeln so für sich ein breites Spektrum an persönlichen Fähigkeiten.
 
-Bei uns heißt das, auch solche Entwicklerinnen sind willkommen, die im Laufe ihrer Karriere ihren Schwerpunkt verlagern möchten, vom Backend zum Frontend oder umgekehrt.
+Bei uns heißt das, auch solche Entwicklerinnen sind willkommen, die im Laufe ihrer Karriere ihren Schwerpunkt verlagern möchten, zum Beispiel vom Backend zum Frontend oder umgekehrt.
 
 Im Gegensatz zu anderen Firmen, die oft nur das eine Produkt, also die eine Anwendung, die eine Webseite, kennen - haben wir als Agentur genug Projekte im Haus, um diesen Interessen gerecht zu werden.
 
