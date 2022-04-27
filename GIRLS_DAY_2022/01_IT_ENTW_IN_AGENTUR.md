@@ -6,7 +6,7 @@ Ich freue mich, dass ihr euch dafür interessiert, was eine IT-Entwicklerin bei 
 
 Wir haben heute einen ganzen Tag lang Zeit, genau das miteinander zu entdecken.
 
-Dabei werden wir darauf schauen, wie gearbeitet wird und werden auch einen Eindruck davon bekommen, wie das alles so funktioniert und was eine IT-Entwicklerin ausmacht.
+Dabei werden wir darauf schauen, wie gearbeitet wird und werden auch einen Eindruck davon bekommen, wie das alles so funktioniert und was es bedeutet, eine IT-Entwicklerin zu sein.
 
 Am Anfang müssen wir aber einmal klären, was denn diese „IT“ eigentlich ist.
 
@@ -14,6 +14,7 @@ Am Anfang müssen wir aber einmal klären, was denn diese „IT“ eigentlich is
 
 (Gruppe)
 
+(Klick)
 
 ## Was IT macht
 
@@ -39,6 +40,8 @@ Das Gute an diesen Texten ist, dass sie mit mehr oder weniger Aufwand ausgetausc
 
 Wir reden mit ihm über die Software und diese Software wollen wir uns jetzt einmal genauer ansehen.
 
+(Klick)
+
 ## Was Software leistet
 
 (Schaubild: Bild einer Wohnung?, 2min)
@@ -59,11 +62,15 @@ Wir wissen jetzt, dass ihr Programmcode von IT-Entwicklerinnen geschrieben wird.
 
 Fertige Programme werden ihrem Zweck entsprechend auf dem Zielsystem ausgeführt.
 
-Einsatzgebiete von Software sind vielfältig: z.B. Kommunikation (Teams & E-Mail), Smartphone-Apps, Präsentation, Textverarbeitung (Word), Videoplayer & -bearbeitung, Verwaltungsprogramme für Planung und Kontrolle betrieblicher Abläufe, Computerspiele, Informationsvermittlung, Contentmanagement (Steuerung von Inhalten), künstliche Intelligenz
+(Klick)
 
-Software gibt es aber auch sehr Hardware nah für Steuerungen und Messungen: Heizkörper (Steuerung oder Ablesen per Funk), Waschmaschine, Auto, Industrieroboter usw.
+Einsatzgebiete von Software sind vielfältig: z.B. *Kommunikation* (Teams & E-Mail), Smartphone-Apps, *Präsentation*, Textverarbeitung (Word), Videoplayer & -bearbeitung, *Verwaltungsprogramme* für Planung und Kontrolle betrieblicher Abläufe, *Computerspiele*, Informationsvermittlung, *Contentmanagement* (Steuerung von Inhalten), künstliche Intelligenz
+
+Software gibt es aber auch sehr Hardware nah für Steuerungen und Messungen: *Heizkörper* (Steuerung oder Ablesen per Funk), Waschmaschine, *Auto*, Industrieroboter usw.
 
 Eine Welt ohne Software können wir uns kaum noch vorstellen.
+
+(Klick)
 
 ## Die Vielfalt der Sprachen
 
@@ -78,6 +85,8 @@ Java, Python, JavaScript und C/C++ sind am weitesten verbreitet
 Deckt sich teilweise mit Liste derer, die man sich am besten einmal näher ansehen sollte: JavaScript, HTML/CSS, Python, SQL, Java 
 
 (What’s the Best Programming Language to Learn in 2022?, https://torquemag.io/2022/04/best-programming-language-to-learn/)
+
+(Klick)
 
 ## Unsere Sprachen
 
@@ -99,13 +108,15 @@ Neben kleineren Projekten kümmern wir uns auch um die Umsetzung und Betreuung l
 
 Wir in Köln erstellen dabei hauptsächlich Informations- oder Kommunikations-Webseiten für Bundesministerien, Online-Shops und Marketing-Seiten.
 
-Diese verwenden HTML, CSS, JavaScript im Frontend... und überwiegend Java und PHP auf der Serverseite
+Diese verwenden HTML, CSS, JavaScript im Frontend... und überwiegend Java und PHP auf der Serverseite.
 
 ## IT-Entwicklung im Backend
 
 (Schaubild: irgendeine Backend-Architektur, 2min)
 
 *Frage:* Server? Was macht ein Server? Ein Zusteller
+
+(Klick)
 
 Will man eine Webseite betreiben, braucht man einen Computer, auf dem die Seite „liegt“.
 
@@ -129,7 +140,11 @@ Was macht nun eine Backend-Entwicklerin?
 
 Eine Backend-Entwicklerin macht es möglich, dass Anfragen des Browsers vom Server richtig beantwortet werden.
 
-Nehmen wir einmal das Beispiel einer Suche.
+(Klick)
+
+Nehmen wir einmal das Beispiel einer Suche. Hier haben wir so eine typische Sucheingabe in der Oberfläche einer Internetseite. Was passiert nun, wenn ich auf "Suche" drücke und meine Suche absende?
+
+(Klick)
 
 Eine vom Benutzer einer Webseite gestartete Suchanfrage erreicht den Server.
 
@@ -158,6 +173,8 @@ Die Gestaltung der ausgegebenen Daten ist ihnen aber in der Regel egal.
 
 Um die Gestaltung kümmert sich die Frontend-Entwicklerin.
 
+(Klick)
+
 Frontend? Das ist all das, was im Browser passiert.
 
 Der wichtigste Baustein für die Darstellung einer Webseite im Browser ist dabei das HTML.
@@ -184,6 +201,8 @@ Beide beschäftigen sich mit Strukturen, mit Code und Logik. Beide planen ihr tu
 
 (Schaubild: BE- & FE-Entwicklerin sitzen sich gegenüber, 1min)
 
+(Klick)
+
 Frontend und Backend erfordern für sich bereits umfangreiche Kenntnisse im jeweiligen Bereich.
 
 Entwickler, die beide Bereiche abdecken, sind Full-Stack-Entwickler. Aber auch sie haben oft einen Schwerpunkt.
@@ -203,6 +222,8 @@ Sie verwenden die gleichen Werkzeuge, arbeiten oft in *einem* Entwicklerteam zus
 Natürlich arbeitet man vielfach allein an einer Umsetzung. Das Schreiben von Code geschieht in der Praxis eben doch eher etwas zurückgezogen. Die Situationen, in denen zwei Personen gleichzeitig Code wirklich schreiben (sogenanntes Pairprogramming), sind zwar wünschenswert, aber doch die Ausnahme.
 
 Code zu schreiben, ist aber nur ein Teil dessen, was eine Entwicklerin täglich tut. Schließlich hat sie Probleme zu lösen und das geschieht im Zusammenspiel mit den Teamkollegen.
+
+(Klick)
 
 Entwicklerinnen und Entwickler denken gemeinsam über Probleme und Lösungen nach, sie prüfen gegenseitig ihren Code und achten darauf, dass dieser für andere verständlich ist und bleibt. Sie lernen voneinander und verbessern so ihre Fähigkeit, gute Produkte (bzw. Ergebnisse) zu erstellen.
 
@@ -224,9 +245,8 @@ Bei uns heißt das, auch solche Entwicklerinnen sind willkommen, die im Laufe ih
 
 Im Gegensatz zu anderen Firmen, die oft nur das eine Produkt, also die eine Anwendung, die eine Webseite, kennen - haben wir als Agentur genug Projekte im Haus, um diesen Interessen gerecht zu werden.
 
+(Ende der Folien)
 ## Fragen
-
-(Schaubild: Fragezeichen, 0min)
 
 Gibt es Fragen?
 
