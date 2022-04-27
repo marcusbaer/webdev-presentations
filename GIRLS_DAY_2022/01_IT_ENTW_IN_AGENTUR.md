@@ -54,6 +54,8 @@ Was ist denn alles Software und wo begegnen wir ihr?
 
 (Gruppe)
 
+(Klick)
+
 ## Was Software leistet II
 
 (Schaubild: Collage unterschiedlicher Einsatzszenarien, 2min)
