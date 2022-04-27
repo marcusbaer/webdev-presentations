@@ -1,5 +1,7 @@
 # Als IT-Entwicklerin in der Agentur
 
+(Vortrag insgesamt 30min mit Powerpoint-Folien)
+
 (Schaubild: Einstiegsfolie, 1min)
 
 Ich freue mich, dass ihr euch dafür interessiert, was eine IT-Entwicklerin bei uns in der Agentur macht.
@@ -78,6 +80,8 @@ Eine Welt ohne Software können wir uns kaum noch vorstellen.
 
 Je nach Einsatzgebiet gibt es unterschiedliche Sprachen für den Programmcode.
 
+(Klick)
+
 Kotlin, R, JavaScript, Java, C/C++, PHP, Python, Lua, Visual Basic, Ruby, HTML, Julia, Go, Swift, SQL, Perl, Rust
 
 Java, Python, JavaScript und C/C++ sind am weitesten verbreitet
@@ -93,6 +97,8 @@ Deckt sich teilweise mit Liste derer, die man sich am besten einmal näher anseh
 (Schaubild: Kunden-Portfolio der Agentur, 2min)
 
 Bei uns in der Agentur kommt davon nur ein kleiner Teil zum Einsatz.
+
+(Klick)
 
 Unternehmen haben oft einen engen Fokus auf ihr Produkt (Programm, Webseite): IT kümmert sich im Kern um die Entwicklung einer oder weniger Anwendungen, die auf einer oder mehreren Programmiersprachen im Zusammenspiel beruhen
 
